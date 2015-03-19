@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB1E42B6-7995-47FA-A40D-0DEA6FF214EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProfitBricks.POCO</RootNamespace>
+    <AssemblyName>ProfitBricks.POCO</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ProfitBricks.POCO.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BalancedServer.cs" />
+    <Compile Include="Enums\ImageType.cs" />
+    <Compile Include="Image.cs" />
+    <Compile Include="IpBlock.cs" />
+    <Compile Include="PublicIpBlock.cs" />
+    <Compile Include="Requests\AddFirewallRulesToNicRequest.cs" />
+    <Compile Include="Requests\ConnectStorageRequest.cs" />
+    <Compile Include="Requests\CreateLbRequest.cs" />
+    <Compile Include="Requests\CreateNicRequest.cs" />
+    <Compile Include="Requests\CreateReservePublicIpBlockRequest.cs" />
+    <Compile Include="Requests\CreateSnapshotRequest.cs" />
+    <Compile Include="Requests\CreateVolumeRequest.cs" />
+    <Compile Include="Enums\BusType.cs" />
+    <Compile Include="ConnectedVolume.cs" />
+    <Compile Include="Requests\CreateDataCenterRequest.cs" />
+    <Compile Include="DataCenter.cs" />
+    <Compile Include="Enums\Location.cs" />
+    <Compile Include="Enums\NotificationCode.cs" />
+    <Compile Include="Enums\VirtualItemType.cs" />
+    <Compile Include="Extensions\CastExtension.cs" />
+    <Compile Include="Requests\CreateServerRequest.cs" />
+    <Compile Include="Enums\AvailabilityZone.cs" />
+    <Compile Include="Firewall.cs" />
+    <Compile Include="FirewallRule.cs" />
+    <Compile Include="Enums\OsType.cs" />
+    <Compile Include="LoadBalancer.cs" />
+    <Compile Include="Enums\LoadBalancerAlgorithm.cs" />
+    <Compile Include="MountImage.cs" />
+    <Compile Include="Nic.cs" />
+    <Compile Include="Notification.cs" />
+    <Compile Include="ProfitBrickBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Enums\Protocol.cs" />
+    <Compile Include="Enums\ProvisioningState.cs" />
+    <Compile Include="Requests\FirewallRuleRequest.cs" />
+    <Compile Include="Requests\RollbackSnapshotRequest.cs" />
+    <Compile Include="Requests\UpdateImageRequest.cs" />
+    <Compile Include="Requests\UpdateLoadBalancerRequest.cs" />
+    <Compile Include="Requests\UpdateNicRequest.cs" />
+    <Compile Include="Responses\CreateDataCenterResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Responses\CreateFirewallResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Responses\CreateLoadBalancerResponse.cs" />
+    <Compile Include="Responses\CreateNicResponse.cs" />
+    <Compile Include="Responses\CreateServerResponse.cs" />
+    <Compile Include="Responses\CreateSnapshotResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Responses\CreateVolumeResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Responses\IpBlockResponse.cs" />
+    <Compile Include="Responses\ResponseBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RomDrive.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="Snapshot.cs" />
+    <Compile Include="Requests\UpdateDataCenterRequest.cs" />
+    <Compile Include="Requests\UpdateServerRequest.cs" />
+    <Compile Include="Enums\VirtualMachineState.cs" />
+    <Compile Include="Requests\UpdateSnapshotRequest.cs" />
+    <Compile Include="Requests\UpdateStorageRequest.cs" />
+    <Compile Include="Volume.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
