@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrderedTest name="OrderedTest1" storage="c:\users\jasmin.gacic\profitbricks-sdk-net\profitbrickunittests\orderedtest1.orderedtest" id="0ea9c4db-43a7-4fd8-a9b0-cb05eb3d6094" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestLinks>
+    <TestLink id="ba79b186-0cc6-fb3a-e2d9-cb6952ceaec3" name="AddRomToserver" storage="bin\debug\profitbrickunittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="3742ea1d-f707-8026-b7df-dea7292e2b19" name="RemoveRomFromserver" storage="bin\debug\profitbrickunittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestLinks>
+</OrderedTest>

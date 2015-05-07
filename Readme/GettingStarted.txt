@@ -1,0 +1,124 @@
+ProfitBrick Client C# Library 
+=========
+
+In Visual Studio 2013 create a new Console Application.
+
+  - Go to Tools -> Library Package Manager -> Package Manager Console.
+  - In the Package Manager Console enter **Install-Package ProfitBrick.Client**
+  - Add App config file with following values:
+
+```sh
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <add key="UserName" value="[Your User Name]"/>
+    <add key="Password" value="[Your Password]"/>
+  </appSettings>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="ProfitBricksProxy.ProfitbricksApiServicePortType">
+          <security mode="Transport">
+            <transport clientCredentialType="Basic" proxyCredentialType="None" realm="" />
+            <message clientCredentialType="UserName" algorithmSuite="Default" />
+          </security>
+        </binding>
+        <binding name="ProfitbricksApiServicePortBinding1" />
+      </basicHttpBinding>
+    </bindings>
+    <client>
+      <endpoint address="https://api.profitbricks.com/1.3" binding="basicHttpBinding"
+          bindingConfiguration="ProfitBricksProxy.ProfitbricksApiServicePortType" contract="ProfitBricksProxy.ProfitbricksApiServicePortType"
+          name="ProfitBricksProxy.ProfitbricksApiServicePortType" />
+    </client>
+  </system.serviceModel>
+</configuration>
+```
+Example application:
+```sh
+            
+            var dcs = ProfitBricksClient.Instance.DataCenters.Get();
+
+            if (dcs != null)
+            {
+                int counter = 0;
+                foreach (DataCenter dc in dcs)
+                {
+                    counter++;
+                    Console.WriteLine(string.Format("{0} Datacenter Name {1}", counter, dc.DataCenterName));
+                    Console.WriteLine(string.Format("{0} Datacenter Version {1}", counter, dc.DataCenterName));
+                }
+                Console.WriteLine(string.Format("Which datacenter's details do you want to see  select numbers from 1 to {0} and press enter.", dcs.Count));
+                var selectedDC = int.Parse(Console.ReadLine());
+
+                var datacenter = ProfitBricksClient.Instance.DataCenters.Show((dcs[selectedDC-1] as DataCenter).DataCenterId) as DataCenter;
+
+                if (datacenter != null)
+                {
+                    Console.WriteLine("Datacenter {0}", datacenter.DataCenterName);
+                    Console.WriteLine("Datacenter has {0} servers", datacenter.Servers.Count);
+
+                    foreach (Server srvr in datacenter.Servers)
+                    {
+                        Console.WriteLine("Server details");
+                    }
+
+                    foreach (Volume volume in datacenter.Volumes)
+                    {
+                        Console.WriteLine("Volume details");
+                    }
+                    foreach (LoadBalancer loadBalancer in datacenter.LoadBalancers)
+                    {
+                        Console.WriteLine("Loadbalancer details");
+                    }
+                }
+            }
+            Console.ReadKey();
+```
+
+***NOTE:*** In order for this example application to work first you need to create Datacenter, Server, Storage (Volume), and a LoadBalancer. See example bellow:
+
+Create Datacenter:
+```sh
+ var request = new CreateDataCenterRequest();
+ request.DataCenterName = "test";
+ request.Location = ProfitBricks.POCO.Enums.Location.uslas;
+
+ var response = DataCenters.Create(request);
+```
+
+Create Server
+```sh
+        public void CreateDataCenter()
+        {
+            var request = new CreateDataCenterRequest();
+            request.DataCenterName = "test";
+            request.Location = ProfitBricks.POCO.Enums.Location.uslas;
+
+            var response = DataCenters.Create(request);
+        }
+```
+Create Storage (Volume)
+```sh
+        public void CreateStorage()
+        {
+            var request = new CreateStorageRequest();
+
+            request.DataCenterId = dcId;
+            request.Size = 1;
+
+            var response = Volumes.Create(request);
+        }
+```
+
+Create LoadBalancer 
+```sh
+        public void CreateLoadBalancer()
+        {
+            var request = new CreateLbRequest();
+            request.DataCenterId = dcId;
+            request.ServerIds = new System.Collections.Generic.List<string> { serverId };
+
+            var response = ProfitBricksClient.Instance.LoadBalancers.Create(request);
+        }
+```

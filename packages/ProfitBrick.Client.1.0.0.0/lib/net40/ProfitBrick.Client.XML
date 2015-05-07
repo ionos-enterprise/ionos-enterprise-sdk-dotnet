@@ -1,0 +1,2296 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProfitBrick.Client</name>
+    </assembly>
+    <members>
+        <member name="T:ProfitBricks.Client.Resources.Firewalls">
+            <summary>
+            Firewalls service class
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.Client.Service">
+            <summary>
+            Represents a base class for all resources. Containing basic server operations.
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Service.Create(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Creates an instance of request used to create Profixt Bricks objects.
+            </summary>
+            <returns>Returns an instance of create request.</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Service.Get">
+            <summary>
+            Gets all objects of the resource.
+            </summary>
+            <returns>List of ProfitBricksBase objects</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Service.Show(System.String)">
+            <summary>
+            Returns a single object of the resource
+            </summary>
+            <param name="id">Resource identifier</param>
+            <returns>Instance of ProfitBricksBase</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Service.Update(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Updates object passed onto the resource passed on. 
+            </summary>
+            <param name="obj">Object to be updated</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Service.Delete(System.String)">
+            <summary>
+            Deletes an instance of resource
+            </summary>
+            <param name="id">Resource identifier</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Service.#ctor(ProfitBricks.Client.ProfitBricksProxy.ProfitbricksApiServicePortTypeClient)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="client">Client instance</param>
+        </member>
+        <member name="P:ProfitBricks.Client.Service.Client">
+            <summary>
+            ProfitBricks Client instance
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Firewalls.#ctor(ProfitBricks.Client.ProfitBricksProxy.ProfitbricksApiServicePortTypeClient)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="client">Proxy class instance</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Firewalls.Create(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Returns initialized instance of AddFirewallRulesToNicRequest
+            </summary>
+            <returns>POCO.AddFirewallRulesToNicRequest</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Firewalls.Get">
+            <summary>
+            Returns information about all configured firewall. Each rule has an identifier for later modification. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Firewalls.Show(System.String)">
+            <summary>
+            Returns information about the state and configuration of an existing NIC.
+            </summary>
+            <param name="id">Identifier of the target NIC</param>
+            <returns>Instgance of POCO.FireWall</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Firewalls.Update(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Not Supported
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Firewalls.Delete(System.String)">
+            <summary>
+            Deletes one firewall of a given data center.
+            </summary>
+            <param name="id">Identifier of the target firewall</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Firewalls.DeleteMany(System.Collections.Generic.List{System.String})">
+            <summary>
+            Deletes one or several firewall(s) of a given data center.
+            </summary>
+            <param name="ids">Identifier(s) of the target firewall(s)</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Firewalls.Activate(System.Collections.Generic.List{System.String})">
+            <summary>
+            Activates one or several firewall(s) of a given data center.
+            </summary>
+            <param name="ids">Identifier(s) of the target firewall(s)</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Firewalls.Deactivate(System.Collections.Generic.List{System.String})">
+            <summary>
+            Deactivates one or several firewall(s) of a given data center.
+            </summary>
+            <param name="ids">Identifier(s) of the target firewall(s)</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Firewalls.RemoveFirewallRules(System.Collections.Generic.List{System.String})">
+            <summary>
+            Removes firewall rule(s) by specifying their identifiers. See also getFirewall() or getNic() to retrieve identifiers of firewall rules.
+            </summary>
+            <param name="ids">Identifiers of the target firewall rules</param>
+        </member>
+        <member name="T:ProfitBricks.Client.Resources.Images">
+            <summary>
+            Images service class.
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Images.#ctor(ProfitBricks.Client.ProfitBricksProxy.ProfitbricksApiServicePortTypeClient)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="client">Proxy class instance</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Images.Create(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Not supported
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Images.SetImageOsType(System.String,ProfitBricks.POCO.Enums.OsType)">
+            <summary>
+            Sets the OS Type of an individual HDD and/or CD-ROM/DVD image that has been uploaded on the ProfitBricks FTP server.  
+            The default OS Type of an uploaded image is UNKOWN. Due to Microsoft’s terms and conditions, the user has to set the OS Type of an uploaded Windows image to WINDOWS and therewith accepts the terms and conditions as well as the pricing. Any server that is booted from the image will inherit the OS Type of the image automatically.
+            </summary>
+            <param name="imageId">Identifier of the target HDD or CD-ROM/DVD image</param>
+            <param name="osType">OS Type of the target HDD or CD-ROM/DVD image (WINDOWS, LINUX, OTHER, UNKNOWN)</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Images.Get">
+            <summary>
+            Fetches list of all Images.
+            </summary>
+            <returns>Generic list of POCO.ProfitBricksBase objects</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Images.Show(System.String)">
+            <summary>
+            Fetches a single object 
+            </summary>
+            <param name="id">Image identifier</param>
+            <returns>Instance of POCO.Image</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Images.Update(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Updates information about a HDD or CD-ROM/DVD (ISO) image.
+            </summary>
+            <param name="obj">Image to be updated</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Images.Delete(System.String)">
+            <summary>
+            Deletes an image. Please be aware that deleted images and related data in this image cannot be recovered anymore.
+            </summary>
+            <param name="id">Identifier of the image that shall get deleted.</param>
+        </member>
+        <member name="T:ProfitBricks.Client.Resources.LoadBalancers">
+            <summary>
+            LoadBalancers service class.
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.LoadBalancers.#ctor(ProfitBricks.Client.ProfitBricksProxy.ProfitbricksApiServicePortTypeClient)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="client">Proxy class instance</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.LoadBalancers.Create(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Returns initialized instance of Volume
+            </summary>
+            <returns>POCO.CreateLbRequest</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.LoadBalancers.Get">
+            <summary>
+            Returns information about all virtual load balancer.
+            </summary>
+            <returns></returns>
+            <returns>Generic list of POCO.ProfitBricksBase objects</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.LoadBalancers.Show(System.String)">
+            <summary>
+            Fetches a single object 
+            </summary>
+            <param name="id">Volume identifier</param>
+            <returns>Instance of POCO.LoadBalancer</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.LoadBalancers.Update(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Changes the settings of an existing virtual load balancer.
+            </summary>
+            <param name="obj">LoadBalancer to be updated.</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.LoadBalancers.Delete(System.String)">
+            <summary>
+            Deletes an existing load balancer.  Primary IP addresses of the server’s previously balanced NICs are reset and replaced with ProfitBricks assigned IP address. If a load balancer has been deleted, all servers will still be connected to the same LAN though.
+            </summary>
+            <param name="id">Identifier of target load balancer</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.LoadBalancers.RegisterServer(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Adds new servers to an existing Load Balancer within the respective LAN. If the server is not yet a member of the LAN, a new NIC is created, connected to the LAN and registered with the Load Balancer. The load balancer will distribute traffic to the server through this balanced NIC. If the server is already a member of the LAN, the appropriate NIC is used as balanced NIC. A server can be registered to more than one Load Balancer.
+            </summary>
+            <param name="loadBalancerId">Identifier of target load balancer</param>
+            <param name="serverIds">Identifier of servers to be registered with target load balancer</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.LoadBalancers.UnregisterServer(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            By deregistering a server,  the server is being removed from the load balancer but still remains connected to the same LAN. The primary IP address of the NIC, through which the load balancer distributed traffic to the server before, is reset and replaced by a ProfitBricks assigned IP address.
+            </summary>
+            <param name="loadBalancerId">Identifier of target load balancer</param>
+            <param name="serverIds">Identifier of servers to be registered with target load balancer</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.LoadBalancers.ActivateLoadBalancer(System.String,System.Collections.Generic.List{System.String})">
+             <summary>
+             This feature is not supported any longer. It is not possible to activate or deactivate load balancing on servers.
+            In case you enable or disable servers from load balancing please use the following methods:
+             </summary>
+             <param name="loadBalancerId"></param>
+             <param name="serverIds"></param>
+        </member>
+        <member name="T:ProfitBricks.Client.Resources.Nics">
+            <summary>
+            Nics service class
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Nics.#ctor(ProfitBricks.Client.ProfitBricksProxy.ProfitbricksApiServicePortTypeClient)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="client">Proxy class instance</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Nics.Create(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Returns initialized instance of CreateNicRequest
+            </summary>
+            <returns>POCO.CreateNicRequest</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Nics.Get">
+            <summary>
+            Fetches list of all Nics.
+            </summary>
+            <returns>Generic list of POCO.Nic objects</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Nics.Show(System.String)">
+            <summary>
+            Fetches a single object 
+            </summary>
+            <param name="id">Nic identifier</param>
+            <returns>Instance of POCO.Nic</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Nics.Update(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Changes the settings of an existing NIC.
+            </summary>
+            <param name="obj">Nic to be updated.</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Nics.Delete(System.String)">
+            <summary>
+            Deletes an existing NIC.
+            </summary>
+            <param name="id">Identifier of the target NIC</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Nics.SetInternetAccess(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Connects an existing NIC to a public LAN to get internet access.
+            </summary>
+            <param name="dataCenterId">Identifier of the target data center</param>
+            <param name="lanId">Identifier of the target LAN</param>
+            <param name="internetAccess">Internet access (TRUE/FALSE)</param>
+        </member>
+        <member name="T:ProfitBricks.Client.Resources.PublicIpBlocks">
+            <summary>
+            PublicIpBlocks service class.
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.PublicIpBlocks.#ctor(ProfitBricks.Client.ProfitBricksProxy.ProfitbricksApiServicePortTypeClient)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="client">Proxy class instance</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.PublicIpBlocks.Create(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Returns initialized instance of CreateReservePublicIpBlockRequest
+            </summary>
+            <returns>POCO.CreateReservePublicIpBlockRequest</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.PublicIpBlocks.Get">
+            <summary>
+            Fetches list of all PublicIbBlocks
+            </summary>
+            <returns>Generic list of POCO.ProfitBricksBase objects</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.PublicIpBlocks.Show(System.String)">
+            <summary>
+            Fetches a single object 
+            </summary>
+            <param name="id">PublicIpBlock identifier</param>
+            <returns>Instance of POCO.PublicIpBlock</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.PublicIpBlocks.Delete(System.String,System.String)">
+            <summary>
+            Removes a reserved public IP from a NIC. This operation is required, when dealing with reserved public IPs to ensure proper routing by the ProfitBricks cloud networking layer.
+            </summary>
+            <param name="ip">IP address</param>
+            <param name="nicId">Identifier of the target NIC</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.PublicIpBlocks.ReleasePublicIpBlock(System.String)">
+            <summary>
+            Releases an existing block of reserved public IPs.
+            </summary>
+            <param name="blockId">Identifier of the reserved IP block</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.PublicIpBlocks.Update(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Not supported
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.PublicIpBlocks.Delete(System.String)">
+            <summary>
+            Not supported
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:ProfitBricks.Client.Resources.RomDrives">
+            <summary>
+            RomDrives service class.
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.RomDrives.#ctor(ProfitBricks.Client.ProfitBricksProxy.ProfitbricksApiServicePortTypeClient)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="client">Proxy class instance</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.RomDrives.AddRomDrive(System.String,System.String,System.Int32)">
+            <summary>
+            Adds a CD-ROM/DVD drive to an existing virtual server. Maximum CD-ROM/DVD Drives are currently 2.
+            </summary>
+            <param name="imageId">Identifier of the CD-ROM/DVD image</param>
+            <param name="serverId">Identifier of the target virtual server</param>
+            <param name="deviceNumber">Device number of the CD-ROM/DVD drive connected to the server. If no device number is set, a new device number will be assigned to the CD-ROM/DVD drive automatically</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.RomDrives.RemoveRomDrive(System.String,System.String)">
+            <summary>
+            Removes a CD-ROM/DVD drive from an existing virtual server.
+            </summary>
+            <param name="imageId">Identifier of the CD-ROM/DVD image</param>
+            <param name="serverId">Identifier of the target virtual server</param>
+        </member>
+        <member name="P:ProfitBricks.Client.Resources.RomDrives.Client">
+            <summary>
+            ProfitbricksApiServicePortTypeClient client.
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.Client.Resources.Snapshots">
+            <summary>
+            Snapshots service class
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Snapshots.#ctor(ProfitBricks.Client.ProfitBricksProxy.ProfitbricksApiServicePortTypeClient)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="client">Proxy class instance</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Snapshots.Create(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Returns initialized instance of CreateSnapshotRequest
+            </summary>
+            <returns>POCO.CreateSnapshotRequest</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Snapshots.Get">
+            <summary>
+            Fetches list of all Snapshots.
+            </summary>
+            <returns>Generic list of POCO.ProfitBricksBase objects</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Snapshots.Show(System.String)">
+            <summary>
+            Fetches a single object 
+            </summary>
+            <param name="id">Snapshot identifier</param>
+            <returns>Instance of POCO.Snapshot</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Snapshots.Update(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Updates an instance of Snapshot.
+            </summary>
+            <param name="obj">Instance of POCO.Snapshot</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Snapshots.Delete(System.String)">
+            <summary>
+            Deletes a snapshot. Please be aware that deleted snapshots and related data in this snapshot cannot be recovered anymore.
+            </summary>
+            <param name="id">Identifier of the snapshot that shall get deleted</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Snapshots.RollbackSnapshot(ProfitBricks.POCO.Requests.RollbackSnapshotRequest)">
+            <summary>
+            Using the rollback option you may redeploy the snapshotted state on a storage.
+            Attention: The current state of the storage will be lost unless you create another snapshot before rolling back.
+            </summary>
+            <param name="request">Snapshot to be rolled back.</param>
+        </member>
+        <member name="T:ProfitBricks.Client.Resources.UserNotifications">
+            <summary>
+            UserNotifications service class
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.UserNotifications.#ctor(ProfitBricks.Client.ProfitBricksProxy.ProfitbricksApiServicePortTypeClient)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="client">Proxy class instance</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.UserNotifications.Get(System.String)">
+            <summary>
+            Gets all current (not deleted) user notifications.
+            User notifications are created by the system to inform users about different events concerning e.g. their data centers. Notifications stay in the queue until deleted.
+            </summary>
+            <param name="networkUUID">Uuid of the network the notification refers to</param>
+            <returns>List of UserNotifications.</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.UserNotifications.Delete(System.Collections.Generic.List{System.String})">
+            <summary>
+            Deletes the notifications with the given ids.
+            </summary>
+            <param name="ids">List of notification ids</param>
+        </member>
+        <member name="P:ProfitBricks.Client.Resources.UserNotifications.Client">
+            <summary>
+            ProfitBricks Client instance
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.Client.Resources.Volumes">
+            <summary>
+            Volumes service class.
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Volumes.#ctor(ProfitBricks.Client.ProfitBricksProxy.ProfitbricksApiServicePortTypeClient)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="client">Proxy class instance</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Volumes.Create(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Returns initialized instance of CreateStorageRequest
+            </summary>
+            <returns>POCO.CreateStorageRequest</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Volumes.Get">
+            <summary>
+            Fetches list of all Volumes.
+            </summary>
+            <returns>Generic list of POCO.ProfitBricksBase objects</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Volumes.Show(System.String)">
+            <summary>
+            Fetches a single object 
+            </summary>
+            <param name="volumeId">Volume identifier</param>
+            <returns>Instance of POCO.Volume</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Volumes.Update(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Updates an instance of Volume.
+            </summary>
+            <param name="obj">Volume to be updated</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Volumes.Delete(System.String)">
+            <summary>
+            Deletes an existing virtual storage device.
+            </summary>
+            <param name="id">Identifier of the target virtual storage. Required field.</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Volumes.ConnectVolume(ProfitBricks.POCO.Requests.ConnectStorageRequest)">
+            <summary>
+            Connects a virtual storage device to an existing server.
+            </summary>
+            <param name="request">Request containing required parameters.</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Volumes.DisconnectVolume(System.String,System.String)">
+            <summary>
+            Disconnects a virtual storage device from a connected server.
+            </summary>
+            <param name="storageId">Identifier of the connected virtual storage</param>
+            <param name="serverId">Identifier of the connected virtual server</param>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.ProfitbricksServiceFault">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ProfitbricksServiceFault.faultCode">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ProfitbricksServiceFault.faultCodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ProfitbricksServiceFault.httpCode">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ProfitbricksServiceFault.message">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ProfitbricksServiceFault.requestId">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.faultCode">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.faultCode.BAD_REQUEST">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.faultCode.UNEXPECTED">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.faultCode.UNAUTHORIZED">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.faultCode.RESOURCE_NOT_FOUND">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.faultCode.RESOURCE_DELETED">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.faultCode.PROVISIONING_IN_PROCESS">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.faultCode.PROVISIONING_NO_CHANGES">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.faultCode.OVER_LIMIT_SETTING">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.faultCode.SERVER_EXCEED_CAPACITY">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.faultCode.SERVICE_UNAVAILABLE">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.mountImage">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.mountImage.imageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.mountImage.imageName">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.balancedServer">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.balancedServer.activate">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.balancedServer.balancedNicId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.balancedServer.serverId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.balancedServer.serverName">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.romDrive">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.romDrive.bootDevice">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.romDrive.imageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.romDrive.imageName">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.connectedStorage">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectedStorage.bootDevice">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectedStorage.busType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectedStorage.busTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectedStorage.deviceNumber">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectedStorage.deviceNumberSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectedStorage.size">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectedStorage.sizeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectedStorage.storageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectedStorage.storageName">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.busType">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.busType.IDE">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.busType.SCSI">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.busType.VIRTIO">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.firewallRule">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.firewallRuleId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.icmpCode">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.icmpCodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.icmpType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.icmpTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.name">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.portRangeEnd">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.portRangeEndSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.portRangeStart">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.portRangeStartSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.protocol">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.protocolSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.sourceIp">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.sourceMac">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRule.targetIp">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.protocol">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.protocol.TCP">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.protocol.UDP">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.protocol.ICMP">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.protocol.ANY">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.firewall">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewall.active">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewall.firewallId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewall.firewallRules">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewall.nicId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewall.provisioningState">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewall.provisioningStateSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.provisioningState">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.provisioningState.INACTIVE">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.provisioningState.INPROCESS">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.provisioningState.AVAILABLE">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.provisioningState.DELETED">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.provisioningState.ERROR">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.requestResponse">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.requestResponse.requestId">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.snapshot">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.snapshotId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.description">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.snapshotSize">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.snapshotName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.provisioningState">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.bootable">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.bootableSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.osType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.osTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.cpuHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.cpuHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.cpuHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.cpuHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.discVirtioHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.discVirtioHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.discVirtioHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.discVirtioHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.ramHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.ramHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.ramHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.ramHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.nicHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.nicHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.nicHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.nicHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.creationTimestamp">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.creationTimestampSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.modificationTimestamp">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.modificationTimestampSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.snapshot.location">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.osType">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.osType.UNKNOWN">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.osType.WINDOWS">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.osType.LINUX">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.osType.OTHER">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.location">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.location.defkb">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.location.defra">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.location.uslas">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createDcResponse">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createDcResponse.dataCenterId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createDcResponse.dataCenterVersion">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createDcResponse.dataCenterVersionSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createDcResponse.location">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createDcResponse.locationSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.ipBlockResponse">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ipBlockResponse.blockId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ipBlockResponse.location">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ipBlockResponse.locationSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ipBlockResponse.ips">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.versionResponse">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.versionResponse.dataCenterId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.versionResponse.dataCenterVersion">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.versionResponse.dataCenterVersionSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.dataCenter">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenter.dataCenterName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenter.servers">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenter.storages">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenter.loadBalancers">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenter.provisioningState">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenter.provisioningStateSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenter.location">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenter.locationSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.server">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.serverId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.serverName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.cores">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.coresSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.ram">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.ramSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.internetAccess">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.ips">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.connectedStorages">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.romDrives">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.nics">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.provisioningState">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.provisioningStateSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.virtualMachineState">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.virtualMachineStateSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.creationTime">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.creationTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.lastModificationTime">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.lastModificationTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.osType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.osTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.availabilityZone">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.availabilityZoneSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.cpuHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.cpuHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.ramHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.ramHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.nicHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.nicHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.nicHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.nicHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.discVirtioHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.discVirtioHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.discVirtioHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.server.discVirtioHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.nic">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.nicId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.nicName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.lanId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.internetAccess">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.internetAccessSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.serverId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.ips">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.macAddress">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.firewall">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.dhcpActive">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.dhcpActiveSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.gatewayIp">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.provisioningState">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.nic.provisioningStateSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.virtualMachineState">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualMachineState.NOSTATE">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualMachineState.RUNNING">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualMachineState.BLOCKED">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualMachineState.PAUSED">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualMachineState.SHUTDOWN">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualMachineState.SHUTOFF">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualMachineState.CRASHED">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.availabilityZone">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.availabilityZone.AUTO">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.availabilityZone.ZONE_1">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.availabilityZone.ZONE_2">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.storage">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.storage.storageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.storage.size">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.storage.sizeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.storage.storageName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.storage.mountImage">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.storage.serverIds">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.storage.provisioningState">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.storage.provisioningStateSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.storage.creationTime">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.storage.creationTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.storage.lastModificationTime">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.storage.lastModificationTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.loadBalancer">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.loadBalancerId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.loadBalancerName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.loadBalancerAlgorithm">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.loadBalancerAlgorithmSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.internetAccess">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.ip">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.lanId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.balancedServers">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.provisioningState">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.provisioningStateSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.creationTime">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.creationTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.lastModificationTime">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.lastModificationTimeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.loadBalancer.firewall">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.loadBalancerAlgorithm">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.loadBalancerAlgorithm.ROUND_ROBIN">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createServerResponse">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerResponse.serverId">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createStorageResponse">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createStorageResponse.storageId">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.registerLbServerResponse">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.registerLbServerResponse.loadBalancerId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.registerLbServerResponse.lanId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.registerLbServerResponse.balancedServers">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createLbResponse">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createLbResponse.loadBalancerId">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createNicResponse">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createNicResponse.nicId">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createSnapshotResponse">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createSnapshotResponse.snapshotId">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createDataCenterRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createDataCenterRequest.dataCenterName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createDataCenterRequest.location">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.updateDcRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateDcRequest.dataCenterId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateDcRequest.dataCenterName">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.dataCenterIdentifier">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenterIdentifier.dataCenterId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenterIdentifier.dataCenterName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenterIdentifier.dataCenterVersion">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenterIdentifier.dataCenterVersionSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenterIdentifier.provisioningState">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.dataCenterIdentifier.provisioningStateSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createServerRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.dataCenterId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.cores">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.ram">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.serverName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.bootFromStorageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.bootFromImageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.internetAccess">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.lanId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.lanIdSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.osType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.osTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.availabilityZone">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.availabilityZoneSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.cpuHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.cpuHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.ramHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.ramHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.nicHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.nicHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.nicHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.nicHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.discVirtioHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.discVirtioHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.discVirtioHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createServerRequest.discVirtioHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.serverId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.serverName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.cores">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.coresSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.ram">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.ramSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.bootFromStorageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.bootFromImageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.osType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.osTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.availabilityZone">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.availabilityZoneSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.cpuHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.cpuHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.ramHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.ramHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.nicHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.nicHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.nicHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.nicHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.discVirtioHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.discVirtioHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.discVirtioHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateServerRequest.discVirtioHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createNicRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createNicRequest.serverId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createNicRequest.lanId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createNicRequest.nicName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createNicRequest.ip">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createNicRequest.dhcpActive">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createNicRequest.dhcpActiveSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.updateNicRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateNicRequest.nicId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateNicRequest.lanId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateNicRequest.lanIdSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateNicRequest.nicName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateNicRequest.ip">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateNicRequest.dhcpActive">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateNicRequest.dhcpActiveSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createStorageRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createStorageRequest.dataCenterId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createStorageRequest.storageName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createStorageRequest.size">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createStorageRequest.mountImageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createStorageRequest.profitBricksImagePassword">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.updateStorageRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateStorageRequest.storageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateStorageRequest.size">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateStorageRequest.sizeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateStorageRequest.storageName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateStorageRequest.mountImageId">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.connectStorageRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectStorageRequest.serverId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectStorageRequest.storageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectStorageRequest.busType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectStorageRequest.busTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectStorageRequest.deviceNumber">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.connectStorageRequest.deviceNumberSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.imageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.imageName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.description">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.osType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.osTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.cpuHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.cpuHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.cpuHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.cpuHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.ramHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.ramHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.ramHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.ramHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.nicHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.nicHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.nicHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.nicHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.discVirtioHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.discVirtioHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.discVirtioHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.discVirtioHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.bootable">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateImageRequest.bootableSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.image">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.bootable">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.bootableSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.cpuHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.cpuHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.cpuHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.cpuHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.description">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.discVirtioHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.discVirtioHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.discVirtioHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.discVirtioHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.imageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.imageName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.imageSize">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.imageSizeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.imageType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.imageTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.location">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.locationSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.nicHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.nicHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.nicHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.nicHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.osType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.osTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.public">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.publicSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.ramHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.ramHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.ramHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.ramHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.serverIds">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.writeable">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.image.writeableSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.imageType">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.imageType.HDD">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.imageType.CDROM">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.imageOsTypeRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.imageOsTypeRequest.imageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.imageOsTypeRequest.osType">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.romDriveRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.romDriveRequest.imageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.romDriveRequest.serverId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.romDriveRequest.deviceNumber">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.romDriveRequest.deviceNumberSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createReservePublicIpBlockRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createReservePublicIpBlockRequest.blockSize">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createReservePublicIpBlockRequest.location">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.ipBlock">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ipBlock.blockId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ipBlock.location">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ipBlock.locationSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.ipBlock.publicIps">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.publicIp">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.publicIp.ip">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.publicIp.nicId">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createLbRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createLbRequest.dataCenterId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createLbRequest.loadBalancerName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createLbRequest.loadBalancerAlgorithm">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createLbRequest.ip">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createLbRequest.lanId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createLbRequest.lanIdSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createLbRequest.serverIds">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.updateLbRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateLbRequest.loadBalancerId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateLbRequest.loadBalancerName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateLbRequest.loadBalancerAlgorithm">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateLbRequest.loadBalancerAlgorithmSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateLbRequest.ip">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.icmpCode">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.icmpCodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.icmpType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.icmpTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.name">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.portRangeEnd">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.portRangeEndSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.portRangeStart">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.portRangeStartSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.protocol">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.protocolSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.sourceIp">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.sourceMac">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.firewallRuleRequest.targetIp">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.snapshotId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.description">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.snapshotName">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.bootable">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.bootableSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.osType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.osTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.cpuHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.cpuHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.cpuHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.cpuHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.ramHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.ramHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.ramHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.ramHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.nicHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.nicHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.nicHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.nicHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.discVirtioHotPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.discVirtioHotPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.discVirtioHotUnPlug">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.updateSnapshotRequest.discVirtioHotUnPlugSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.createSnapshotRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createSnapshotRequest.storageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createSnapshotRequest.description">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.createSnapshotRequest.snapshotName">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.rollbackSnapshotRequest">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.rollbackSnapshotRequest.storageId">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.rollbackSnapshotRequest.snapshotId">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.notification">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.notification.id">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.notification.networkUUid">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.notification.relatedItemUuid">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.notification.timestamp">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.notification.timestampSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.notification.messageCode">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.notification.messageCodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.notification.relatedItemType">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.notification.relatedItemTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksProxy.notification.message">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.notificationCode">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.notificationCode.OTHER">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.notificationCode.SHUTDOWN_SERVER_FAILED">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksProxy.virtualItemType">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualItemType.TYPE_OTHER">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualItemType.TYPE_SERVER">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualItemType.TYPE_STORAGE">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualItemType.TYPE_IMAGE">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualItemType.TYPE_LOADBALANCER">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualItemType.TYPE_NIC">
+            <remarks/>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksProxy.virtualItemType.TYPE_FIREWALL">
+            <remarks/>
+        </member>
+        <member name="T:ProfitBricks.Client.Helper.Converters">
+            <summary>
+            Representa class that contains static methods for converting raw server objects into ProfitBricks Client library objects.
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Helper.Converters.ConvertServer(ProfitBricks.Client.ProfitBricksProxy.server)">
+            <summary>
+            Converts ProfitBricksProxy.server object into ProfitBricks.POCO.Server
+            </summary>
+            <param name="server">ProfitBricksProxy.server</param>
+            <returns>ProfitBricks.POCO.Server</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Helper.Converters.ConvertNic(ProfitBricks.Client.ProfitBricksProxy.nic)">
+            <summary>
+            Converts ProfitBricksProxy.nic object into ProfitBricks.POCO.Nic
+            </summary>
+            <param name="nic">ProfitBricksProxy.nic</param>
+            <returns>ProfitBricks.POCO.Nic</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Helper.Converters.ConvertDataCenter(ProfitBricks.Client.ProfitBricksProxy.dataCenter)">
+            <summary>
+            Converts ProfitBricksProxy.dataCenter object into ProfitBricks.POCO.DataCenter
+            </summary>
+            <param name="datacenter">ProfitBricksProxy.dataCenter</param>
+            <returns>ProfitBricks.POCO.DataCenter</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Helper.Converters.ConvertLoadBalancer(ProfitBricks.Client.ProfitBricksProxy.loadBalancer)">
+            <summary>
+            Converts ProfitBricksProxy.loadBalancer object into ProfitBricks.POCO.LoadBalancer
+            </summary>
+            <param name="loadBalancer">ProfitBricksProxy.loadBalancer</param>
+            <returns>ProfitBricks.POCO.LoadBalancer</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Helper.Converters.ConvertStorages(ProfitBricks.Client.ProfitBricksProxy.storage)">
+            <summary>
+            Converts ProfitBricksProxy.storage object into ProfitBricks.POCO.Volume
+            </summary>
+            <param name="volume">ProfitBricksProxy.storage</param>
+            <returns>ProfitBricks.POCO.Volume</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Helper.Converters.ConvertSnapshot(ProfitBricks.Client.ProfitBricksProxy.snapshot)">
+            <summary>
+            Converts ProfitBricksProxy.snapshot object into ProfitBricks.POCO.Snapshot
+            </summary>
+            <param name="snapshot">ProfitBricksProxy.snapshot</param>
+            <returns>ProfitBricks.POCO.Snapshot</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Helper.Converters.ConvertNotification(ProfitBricks.Client.ProfitBricksProxy.notification)">
+            <summary>
+            Converts ProfitBricksProxy.notification object into ProfitBricks.POCO.Notification
+            </summary>
+            <param name="notification">ProfitBricksProxy.notification</param>
+            <returns>ProfitBricks.POCO.Notification</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Helper.Converters.ConvertFirewall(ProfitBricks.Client.ProfitBricksProxy.firewall)">
+            <summary>
+            Converts ProfitBricksProxy.firewall object into ProfitBricks.POCO.Firewall
+            </summary>
+            <param name="firewall">ProfitBricksProxy.firewall</param>
+            <returns>ProfitBricks.POCO.Firewall</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Helper.Converters.ConvertFirewallRules(ProfitBricks.Client.ProfitBricksProxy.firewallRule[])">
+            <summary>
+            Converts collection of ProfitBricksProxy.firewallRule object into generic list ProfitBricks.POCO.FirewallRule
+            </summary>
+            <param name="firewallRules">Array of ProfitBricksProxy.firewall</param>
+            <returns>Generic list of ProfitBricks.POCO.Firewall</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Helper.Converters.ConvertImage(ProfitBricks.Client.ProfitBricksProxy.image)">
+            <summary>
+            Converts ProfitBricksProxy.image object into ProfitBricks.POCO.Image
+            </summary>
+            <param name="image">ProfitBricksProxy.image</param>
+            <returns>ProfitBricks.POCO.Image</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Helper.Converters.ConvertIp(ProfitBricks.Client.ProfitBricksProxy.ipBlock)">
+            <summary>
+            Converts ProfitBricksProxy.ipBlock object into ProfitBricks.POCO.IpBlock
+            </summary>
+            <param name="ipBlock">ProfitBricksProxy.ipBlock</param>
+            <returns>ProfitBricks.POCO.IpBlock</returns>
+        </member>
+        <member name="T:ProfitBricks.Client.Resources.DataCenters">
+            <summary>
+            DataCenters service class
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.DataCenters.#ctor(ProfitBricks.Client.ProfitBricksProxy.ProfitbricksApiServicePortTypeClient)">
+            <summary>
+            Constructor
+            </summary>        
+            <param name="client">Proxy class instance</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.DataCenters.Create(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Returns initialized instance of CreateDataCenterRequest
+            </summary>
+            <returns>POCO.CreateDataCenterRequest</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.DataCenters.Get">
+            <summary>
+            Fetches list of all DataCenters
+            </summary>        
+            <returns>Generic list of POCO.ProfitBricksBase objects</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.DataCenters.Show(System.String)">
+            <summary>
+            Fetches a single object 
+            </summary>
+            <param name="dataCenterId">DataCenter identifier</param>
+            <returns>Instance of POCO.DataCenter</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.DataCenters.Update(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Updates an instance of DataCenter.
+            </summary>
+            <param name="obj">DataCenter to be updated</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.DataCenters.Delete(System.String)">
+            <summary>
+            Deletes an Virtual Data Center. If a previous request on the target data center is still in progress, the data center is going to be deleted after this request has been completed. Once a Data Center has been deleted, no further request can be performed on it.
+            </summary>
+            <param name="dataCenterId">Identifier of the virtual data center</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.DataCenters.GetDataCenterState(System.String)">
+            <summary>
+            This is a lightweight function for pooling the current provisioning state of the Virtual Data Center. It is recommended to use this function for large Virtual Data Centers to query request results.
+            </summary>
+            <param name="dataCenterId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.DataCenters.ClearDataCenter(System.String)">
+            <summary>
+            Removes all components from an existing Virtual Data Center.
+            </summary>
+            <param name="dataCenterId">Identifier of the virtual data center</param>
+        </member>
+        <member name="T:ProfitBricks.Client.ProfitBricksClient">
+            <summary>
+            ProfitBricksClient class is a wrapper of all the PB resouces 
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksClient.instance">
+            <summary>
+            Private singleton instance.
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.Client.ProfitBricksClient.syncRoot">
+            <summary>
+            Padlock
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.ProfitBricksClient.#ctor">
+            <summary>
+            Private constructor.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksClient.Service">
+            <summary>
+            Profit Brick API Service instance.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksClient.Instance">
+            <summary>
+            Singleton instance.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksClient.Servers">
+            <summary>
+            Servers resource
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksClient.DataCenters">
+            <summary>
+            DataCenters resource.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksClient.Volumes">
+            <summary>
+            Volumes resource
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.Client.ProfitBricksClient.Snapshots">
+            <summary>
+            Snapshots resource
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.Client.Resources.Servers">
+            <summary>
+            Servers service class.
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Servers.#ctor(ProfitBricks.Client.ProfitBricksProxy.ProfitbricksApiServicePortTypeClient)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="client">Proxy class instance</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Servers.Create(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Returns initialized instance of CreateServerRequest
+            </summary>
+            <returns>POCO.CreateServerRequest</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Servers.Get">
+            <summary>
+            Fetches list of all Servers.
+            </summary>
+            <returns>Generic list of POCO.ProfitBricksBase objects</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Servers.Show(System.String)">
+            <summary>
+            Fetches a single object 
+            </summary>
+            <param name="serverId">Server identifier</param>
+            <returns>Instance of POCO.Server</returns>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Servers.Update(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Updates an instance of Server.
+            </summary>
+            <param name="obj">Server to be updated</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Servers.Delete(System.String)">
+            <summary>
+            Deletes an existing Virtual Server.
+            </summary>
+            <param name="serverId">Identifier of the target virtual server</param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Servers.ResetServer(System.String)">
+            <summary>
+            Resets an existing virtual server (POWER CYCLE).
+            - Server will be forcefully powered off and restarted immediately. Any unsaved data may be lost!
+            - Billing will continue
+            </summary>
+            <param name="serverId"></param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Servers.StartServer(System.String)">
+            <summary>
+            Starts an existing virtual server
+            - Server may receive new public IP addresses if necessary
+            - Billing will continue
+            </summary>
+            <param name="serverId"></param>
+        </member>
+        <member name="M:ProfitBricks.Client.Resources.Servers.StopServer(System.String)">
+            <summary>
+            Stops an existing virtual server forcefully (HARD stop)
+            - Server will be forcefully powered off. Any unsaved data may be lost!
+            - Billing for this server will be stopped
+            - When restarting the server a new public IP gets assigned, alternatively, you can reserve IP addresses,
+            </summary>
+            <param name="serverId"></param>
+        </member>
+    </members>
+</doc>
