@@ -1,0 +1,1631 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProfitBricks.POCO</name>
+    </assembly>
+    <members>
+        <member name="T:ProfitBricks.POCO.BalancedServer">
+            <summary>
+            Balanced server class.
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.ProfitBricksBase">
+            <summary>
+            PB Base class.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.ProfitBricksBase.FunctionName">
+            <summary>
+            Parameter used for execute function in <c ref="ProfitBricks.Client.Service" >Service</c>
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.ProfitBricksBase.ProvisioningState">
+            <summary>
+            Provisioning State of the target Virtual PB object (INACTIVE, INPROCESS, AVAILABLE, DELETED, ERROR)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.BalancedServer.Activate">
+            <summary>
+            Activate
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.BalancedServer.BlancedNicId">
+            <summary>
+            BlancedNicId
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.BalancedServer.ServerId">
+            <summary>
+            ServerId
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.BalancedServer.ServerName">
+            <summary>
+            ServerName
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Enums.ImageType">
+            <summary>
+            ImageType
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.ImageType.HDD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.ImageType.CDROM">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Image">
+            <summary>
+            Image
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.Bootable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.CpuHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.CpuHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.DiscVirtioHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.DiscVirtioHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.ImageId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.ImageName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.ImageSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.ImageType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.Location">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.NicHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.NicHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.OsType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.Public">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.RamHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.RamHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.ServerIds">
+            <summary>
+            Lists all servers (by ID) on which the specified CD-ROM/DVD image is being used.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Image.Writeable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.IpBlock">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.IpBlock.BlockId">
+            <summary>
+            Identifier of the IP block
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.IpBlock.Location">
+            <summary>
+            Region where the IP block has been reserved for use (NORTH_AMERICA, EUROPE)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.IpBlock.PublicIps">
+            <summary>
+            Identifier of the public IPs within the respective block, including their IP and (if assigned to a NIC) the respective NIC ID
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.PublicIpBlock">
+            <summary>
+            PublicIpBlock
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.PublicIpBlock.Ip">
+            <summary>
+            Identifier of the IP block
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.PublicIpBlock.NicId">
+            <summary>
+            Identifier of the target NIC
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.AddFirewallRulesToNicRequest">
+            <summary>
+            AddFirewallRulesToNicRequest
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.AddFirewallRulesToNicRequest.Request">
+            <summary>
+            Defines a set of accept-rules applied for the target NIC. 
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.AddFirewallRulesToNicRequest.NicId">
+            <summary>
+            Identifier of target NIC
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.ConnectStorageRequest">
+            <summary>
+            Connect storage request.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.ConnectStorageRequest.ServerId">
+            <summary>
+            Identifier of the target virtual storage. Required field.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.ConnectStorageRequest.StorageId">
+            <summary>
+            Identifier of the virtual storage to be connected. Required field.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.ConnectStorageRequest.BusType">
+            <summary>
+            Bus type to which the storage will be connected
+            Default Type is VIRTIO
+            Type can be IDE or VIRTIO (BusType SCSI will be supported in the future)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.ConnectStorageRequest.DeviceNumber">
+            <summary>
+            Defines the device number of the virtual storage. If no device number is set, a device number will be automatically assigned
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.CreateLbRequest">
+            <summary>
+            CreateLbRequest
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateLbRequest.DataCenterId">
+            <summary>
+            data center ID wherein the load balancer is to be created
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateLbRequest.LoadBalancerName">
+            <summary>
+            Name of the load balancer to be created
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateLbRequest.LoadBalancerAlgorithm">
+            <summary>
+            load balancer algorithm. ROUND_ROBIN is default and the only supported algorithm at the moment
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateLbRequest.Ip">
+            <summary>
+            A DHCP IP address is being assigned to the load balancer automatically by ProfitBricks. A private IP can be defined by the user. Additional, public IPs can be reserved and assigned to the load balancer manually.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateLbRequest.LanId">
+            <summary>
+            Identifier of the target LAN ID > 0
+            If the specified LAN ID does not exist or if LAN ID is not specified, a new LAN with the given ID / with a next available ID starting from 1 will be created respectively
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateLbRequest.ServerIds">
+            <summary>
+            Identifier of all servers, to which the load balancer is going to distribute traffic. Servers can also be registered to load balancer later 
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.CreateNicRequest">
+            <summary>
+            CreateNicRequest
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateNicRequest.ServerId">
+            <summary>
+            Identifier of the target virtual server. Required field.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateNicRequest.LanId">
+            <summary>
+            Identifier of the target LAN > 0 that is to be connected to the specified virtual server. If no LAN exists for such ID, a new LAN with the given ID will be created.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateNicRequest.NicName">
+            <summary>
+            Names the NIC
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateNicRequest.Ip">
+            <summary>
+            Public/private IP address. 
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateNicRequest.DhcpActive">
+            <summary>
+            Toggles usage of ProfitBricks DHCP
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.CreateReservePublicIpBlockRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateReservePublicIpBlockRequest.BlockSize">
+            <summary>
+            Block size / amount of IPs to reserve
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateReservePublicIpBlockRequest.Location">
+            <summary>
+            Select region of reserved IP block (NORTH_AMERICA, EUROPE, DEFAULT)
+            If set to DEFAULT or left empty, IPs will be reserved in the customer's default region
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.CreateSnapshotRequest">
+            <summary>
+            CreateSnapshotRequest
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateSnapshotRequest.StorageId">
+            <summary>
+            Identifier of the virtual storage for which a snapshot shall be created
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateSnapshotRequest.Description">
+            <summary>
+            Additional field to provide customized information about the data in this snapshot
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateSnapshotRequest.SnapshotName">
+            <summary>
+            Name of the snapshot to be created
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.CreateStorageRequest">
+            <summary>
+            CreateStorageRequest.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateStorageRequest.DataCenterId">
+            <summary>
+            Defines the data center wherein the storage is to be created. If left empty, the storage will be created in a new data center
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateStorageRequest.StorageName">
+            <summary>
+            Name of the storage to be created
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateStorageRequest.Size">
+            <summary>
+            Storage size (in GiB). Required Field.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateStorageRequest.MountImageId">
+            <summary>
+            Specifies the HDD image to be assigned to the storage by its ID
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateStorageRequest.ProfitBricksImagePassword">
+            <summary>
+            Sets the VM image root login password to the specified value. Only supported for generic Profitbricks HDD images. User images are expected to be preconfigured with a password. If no password is supplied, one is automatically created. Please see error codes for password syntax rules.
+            password must be between 8 and 50 characters, only a-z, A-Z, 0-9 without  characters i, I, l, o, O, w, W, y, Y, z, Z and 1, 0
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Enums.BusType">
+            <summary>
+            Bus type to which the storage will be connected
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.BusType.IDE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.BusType.SCSI">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.BusType.VIRTIO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.ConnectedVolume">
+            <summary>
+            ConnectedVolume
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.ConnectedVolume.BootDevice">
+            <summary>
+            a flag, indicating whether server is booting from this storage or not [TRUE/FALSE]
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.ConnectedVolume.BusType">
+            <summary>
+            Bus type to which the storage is connected
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.ConnectedVolume.DeviceNumber">
+            <summary>
+            device number the storage is connected
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.ConnectedVolume.Size">
+            <summary>
+            storage size (in GiB)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.ConnectedVolume.StorageId">
+            <summary>
+             storage identifier
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.ConnectedVolume.StorageName">
+            <summary>
+            name of the storage
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.CreateDataCenterRequest">
+            <summary>
+            CreateDataCenterRequest
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateDataCenterRequest.DataCenterName">
+            <summary>
+            Names the new virtual data center. If no name is specified, the data center will be named “Unnamed Data Center” by default.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateDataCenterRequest.Location">
+            <summary>
+            Select region to create the data center (NORTH_AMERICA, EUROPE, DEFAULT).
+            If set to DEFAULT or left empty, data center will be created in the default region of the customer
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.DataCenter">
+            <summary>
+            Information about an existing virtual data center’s state and configuration.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.DataCenter.DataCenterId">
+            <summary>
+            Identifier of the virtual data center
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.DataCenter.DataCenterName">
+            <summary>
+            Name of the new virtual data center
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.DataCenter.Location">
+            <summary>
+            Region where the data center has been created (NORTH_AMERICA, EUROPE)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.DataCenter.Servers">
+            <summary>
+            A list of all virtual servers.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.DataCenter.Volumes">
+            <summary>
+            A list of all virtual storages. 
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.DataCenter.LoadBalancers">
+            <summary>
+            A list of all virtual load balancers.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.DataCenter.DataCenterVersion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Enums.Location">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.Location.defkb">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.Location.defra">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.Location.uslas">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Enums.NotificationCode">
+            <summary>
+            NotificationCode
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.NotificationCode.OTHER">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.NotificationCode.SHUTDOWN_SERVER_FAILED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Enums.VirtualItemType">
+            <summary>
+            ItemTypes
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualItemType.TYPE_OTHER">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualItemType.TYPE_SERVER">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualItemType.TYPE_STORAGE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualItemType.TYPE_IMAGE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualItemType.TYPE_LOADBALANCER">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualItemType.TYPE_NIC">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualItemType.TYPE_FIREWALL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Extensions.CastExtension">
+            <summary>
+            Extension to cast POCO.ProfitBricksBase objects into PB objects.
+            </summary>
+        </member>
+        <member name="M:ProfitBricks.POCO.Extensions.CastExtension.Cast``1(ProfitBricks.POCO.ProfitBricksBase)">
+            <summary>
+            Casts POCO.ProfitBricksBase objects into PB objects.
+            </summary>
+            <typeparam name="T">Type to be returned</typeparam>
+            <param name="myobj">POCO.ProfitBricksBase object to be casted.</param>
+            <returns>T</returns>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.CreateServerRequest">
+            <summary>
+            CreateServerRequest
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateServerRequest.DataCenterId">
+            <summary>
+            Defines the data center wherein the server is to be created. If left empty, the server will be created in a new data center
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateServerRequest.Cores">
+            <summary>
+            Number of cores to be assigned to the specified server. Required field.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateServerRequest.Ram">
+            <summary>
+            Number of RAM memory (in MiB) to be assigned to the server. The size is specified in multiples of 256 MiB with a minimum of 256 MiB. Required field.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateServerRequest.ServerName">
+            <summary>
+            Name of the server to be created
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateServerRequest.BootFromStorageId">
+            <summary>
+            Defines an existing storage device ID to be set as boot device of the server. The storage will be connected to the server implicitly.
+            If not left empty, the bus type to which the storage will be connected is VIRTIO. For a different bus type a subsequent invocation of connectStorageToServer operation is required, with busType as a parameter.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateServerRequest.BootFromImageId">
+            <summary>
+            Defines an existing CD-ROM/DVD image ID to be set as boot device of the server. A virtual CD-ROM/DVD drive with the mounted image will be connected to the server.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateServerRequest.InternetAccess">
+            <summary>
+            Set to TRUE to connect the server to the Internet via the specified LAN ID. If the LAN is not specified, it is going to be created in the next available LAN ID, starting with LAN ID 1
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateServerRequest.LanId">
+            <summary>
+            Connects the server to the specified LAN ID > 0. If the respective LAN does not exist, it is going to be created
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateServerRequest.OsType">
+            <summary>
+            Sets the OS type of the server. (WINDOWS, LINUX, OTHER, UNKNOWN)
+            If left empty, the server will inherit the OS Type of its selected boot image / storage
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.CreateServerRequest.AvailabilityZone">
+            <summary>
+            Selects the zone in which the server is going to be created (AUTO, ZONE_1, ZONE_2). Servers from different zones are located in different physical locations. If set to AUTO or left empty, servers will be created in a random zone
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Enums.AvailabilityZone">
+            <summary>
+            Selects the zone in which the server is going to be created (AUTO, ZONE_1, ZONE_2). Servers from different zones are located in different physical locations. If set to AUTO or left empty, servers will be created in a random zone
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.AvailabilityZone.AUTO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.AvailabilityZone.ZONE_1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.AvailabilityZone.ZONE_2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Firewall">
+            <summary>
+            Firewall
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Firewall.Active">
+            <summary>
+            Firewall is active [TRUE/FALSE]
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Firewall.FirewallId">
+            <summary>
+            Identifier of the target firewall
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Firewall.FirewallRules">
+            <summary>
+            List all firewall rules, including their identifier (firewallRuleId), protocol, sourceMac, sourceIp, targetIp, portRangeStart, portRangeEnd, icmpType, and icmpCode
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Firewall.NicId">
+            <summary>
+            Identifier of the target NIC
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.FirewallRule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.FirewallRule.IcmpCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.FirewallRule.IcmpType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.FirewallRule.PortRangeEnd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.FirewallRule.PortRangeStart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.FirewallRule.Protocol">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.FirewallRule.SourceIp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.FirewallRule.SourceMac">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.FirewallRule.TargetIp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Enums.OsType">
+            <summary>
+            OS Type of the target image 
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.OsType.UNKNOWN">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.OsType.WINDOWS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.OsType.LINUX">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.OsType.OTHER">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.LoadBalancer">
+            <summary>
+            LoadBalancer
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.LoadBalancer.LoadBalancerId">
+            <summary>
+            Identifier of the load balancer
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.LoadBalancer.LoadBalancerName">
+            <summary>
+            Outputs the name of the load balancer
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.LoadBalancer.LoadBalancerAlgorithm">
+            <summary>
+            Outputs the load balancer algorithm. ROUND_ROBIN is the default and currently the only supported algorithm
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.LoadBalancer.InternetAccess">
+            <summary>
+            Returns TRUE if load balancer is connected to a public LAN
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.LoadBalancer.Ip">
+            <summary>
+            IP address assigned to the load balancer
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.LoadBalancer.LanId">
+            <summary>
+            Identifier of the target LAN ID to which the load balancer and the balanced servers are connected
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.LoadBalancer.BalancedServers">
+            <summary>
+            List all servers registered to the load balancer, including their identifier (serverId), name (serverName), identifier of the balanced Nic (balancedNicId) through which the load balancer forwards traffic to the server, and if load balancing is activate on this server (activate)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.LoadBalancer.CreationTime">
+            <summary>
+            Time when the specified virtual load balancer has been created
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.LoadBalancer.LastModificationTime">
+            <summary>
+            Time when the specified virtual load balancer has last been modified
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.LoadBalancer.Firewall">
+            <summary>
+            Firewall created on the load balancer.
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Enums.LoadBalancerAlgorithm">
+            <summary>
+            LoadBalancerAlgorithm
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.LoadBalancerAlgorithm.ROUND_ROBIN">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.MountImage">
+            <summary>
+             image assigned to the storage
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.MountImage.ImageId">
+            <summary>
+            Image ID
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.MountImage.ImageName">
+            <summary>
+            ImageName
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Nic">
+            <summary>
+            Nic
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Nic.NicId">
+            <summary>
+            Identifier of the virtual NIC
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Nic.NicName">
+            <summary>
+            NIC name
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Nic.LanId">
+            <summary>
+            Identifier of the target LAN
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Nic.InternetAccess">
+            <summary>
+            Internet Access (TRUE/FALSE)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Nic.ServerId">
+            <summary>
+            Identifier of the target server
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Nic.Ips">
+            <summary>
+            Lists all public and private IP addresses assigned to the NIC
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Nic.MacAddress">
+            <summary>
+            MAC address (automatically) assigned to the NIC
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Nic.Firewall">
+            <summary>
+            Lists all firewall rules applied to the NIC
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Nic.DhcpActive">
+            <summary>
+            Toggles usage of ProfitBricks DHCP
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Nic.GatewayIp">
+            <summary>
+            IP address of gateway
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Notification">
+            <summary>
+            Notification
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Notification.Id">
+            <summary>
+            Identifier of the this notification
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Notification.NetworkUUid">
+            <summary>
+            Uuid of the network the notification refers to
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Notification.RelatedItemUuid">
+            <summary>
+            Id of specific component of type 'relatedItemType' that the message concerns
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Notification.Timestamp">
+            <summary>
+            Creation time of this notification
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Notification.MessageCode">
+            <summary>
+            One of 'MessageCodes'
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Notification.RelatedItemType">
+            <summary>
+            One of 'ItemTypes'
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Notification.Message">
+            <summary>
+            Textual message
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Enums.Protocol">
+            <summary>
+            Protocol enum used to define FireWall Rules
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.Protocol.TCP">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.Protocol.UDP">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.Protocol.ICMP">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.Protocol.ANY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Enums.ProvisioningState">
+            <summary>
+            ProvisioningState
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.ProvisioningState.INACTIVE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.ProvisioningState.INPROCESS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.ProvisioningState.AVAILABLE">
+            <summary>
+            
+            </summary>    
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.ProvisioningState.DELETED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.ProvisioningState.ERROR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.FirewallRuleRequest">
+            <summary>
+            Firewall Rule
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.FirewallRuleRequest.IcmpCode">
+            <summary>
+            Defines the allowed code (from 0 to 254) if protocol ICMP is chosen. Leave empty to allow all types
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.FirewallRuleRequest.IcmpType">
+            <summary>
+            Defines the allowed type (from 0 to 254) if protocol ICMP is chosen. Leave empty to allow all types
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.FirewallRuleRequest.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.FirewallRuleRequest.PortRangeEnd">
+            <summary>
+            Defines the end range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd empty to allow all ports
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.FirewallRuleRequest.PortRangeStart">
+            <summary>
+            Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd empty to allow all ports
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.FirewallRuleRequest.Protocol">
+            <summary>
+            Select allowed protocol (TCP, UPD, ICMP, ANY). Default is ANY
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.FirewallRuleRequest.SourceIp">
+            <summary>
+            Only traffic originated from the respective IPv4 address is allowed. Leave empty to allow all source IPs
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.FirewallRuleRequest.SourceMac">
+            <summary>
+            SourceMac
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.FirewallRuleRequest.TargetIp">
+            <summary>
+            In case the target NIC has multiple IP addresses, only traffic directed to the respective IP address of the NIC is allowed. Left empty to allow all target IPs
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.RollbackSnapshotRequest">
+            <summary>
+            RollbackSnapshotRequest 
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.RollbackSnapshotRequest.StorageId">
+            <summary>
+            Identifier of the virtual storage as target for the snapshot. Required field.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.RollbackSnapshotRequest.SnapshotId">
+            <summary>
+            Identifier of the snapshot that shall get deployed on a virtual storage. Required field.
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.UpdateImageRequest">
+            <summary>
+            UpdateImageRequest
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.ImageId">
+            <summary>
+            Identifier of the target image
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.ImageName">
+            <summary>
+            Name of the image
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.Description">
+            <summary>
+            An option to provide own description to the image
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.OsType">
+            <summary>
+            OS Type of the target image (WINDOWS, LINUX, OTHER,UNKNOWN)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.CpuHotPlug">
+            <summary>
+            image contains capabilities to hotplug CPU; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.CpuHotUnPlug">
+            <summary>
+            Not supported yet
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.RamHotPlug">
+            <summary>
+            image contains capabilities to hotplug RAM; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.RamHotUnPlug">
+            <summary>
+            Not supported yet
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.NicHotPlug">
+            <summary>
+            image contains capabilities to hotplug NIC; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.NicHotUnPlug">
+            <summary>
+            image contains capabilities to hotunplug NIC; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.DiscVirtioHotPlug">
+            <summary>
+            image contains capabilities to hotplug storages which are connected through VirtIO bustype; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.DiscVirtioHotUnPlug">
+            <summary>
+            image contains capabilities to hotunplug storages which are connected through VirtIO bustype; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateImageRequest.Bootable">
+            <summary>
+            image contains capabilities to boot from; flag of type boolean
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.UpdateNicRequest">
+            <summary>
+            UpdateNicRequest
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateNicRequest.NicId">
+            <summary>
+            Identifier of the target NIC. Required Field.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateNicRequest.LanId">
+            <summary>
+            Identifier of the target LAN connected to the NIC. If no LAN exists for such ID, a new LAN with the given ID will be created.
+            To disconnect a NIC from a LAN, set LAN ID to 0
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateNicRequest.NicName">
+            <summary>
+            Names the NIC
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateNicRequest.Ip">
+            <summary>
+            Public/private IP address. Set to empty to reset the IP address. 
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateNicRequest.DhcpActive">
+            <summary>
+            Toggles usage of ProfitBricks DHCP
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.RomDrive">
+            <summary>
+            RomDrive
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.RomDrive.BootDevice">
+            <summary>
+            Indicates if device is boot device or not.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.RomDrive.ImageId">
+            <summary>
+            Identifier of the CD-ROM/DVD image
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.RomDrive.ImageName">
+            <summary>
+            Image name
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Server">
+            <summary>
+            Server class
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.ServerId">
+            <summary>
+            ServerID
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.ServerName">
+            <summary>
+            ServerName
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.Cores">
+            <summary>
+            Cores
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.Ram">
+            <summary>
+            Ram
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.InternetAccess">
+            <summary>
+            InternetAccess
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.Ips">
+            <summary>
+            Ips
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.CreationTime">
+            <summary>
+            CreationTime
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.LastModificationTime">
+            <summary>
+            LastModificationTime
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.OsType">
+            <summary>
+            OS type of the server (WINDOWS, LINUX, OTHER, UNKOWN)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.AvailabilityZone">
+            <summary>
+            Zone in which the server is located (AUTO, ZONE_1, ZONE_2)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.CpuHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.RamHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.NicHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.NicHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.DiscVirtioHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.DiscVirtioHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.ConnectedVolumes">
+            <summary>
+            Lists all storages connected to the server, including the following paramenters:
+            - storageId: storage identifier
+            - storageName: name of the storage
+            - size: storage size (in GiB)
+            For these three parameter see also Create Storage or Get Storage
+            - busType: Bus type to which the storage is connected
+            - deviceNumber: device number the storage is connected
+            For these two parameter see also Connect Storage
+            - bootDevice: a flag, indicating whether server is booting from this storage or not [TRUE/FALSE]
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.RomDrives">
+            <summary>
+            Lists all CD-ROM drives assigned to the server, including the parameters of the CD-ROM/DVDs image, such as:
+            - imageId: CD-ROM/DVD image identifier
+            - imageName: name of the CD-ROM/DVD image
+            - bootDevice: a flag, indicating whether server is booting from this drive or not [TRUE/FALSE]
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.Nics">
+            <summary>
+            Lists all NICs assigned to the server.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Server.VirtualMachineState">
+            <summary>
+            Describes the current provisioning state of the specified virtual server (INACTIVE, INPROCESS, AVAILABLE, DELETED, ERROR)
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Snapshot">
+            <summary>
+            Snapshot
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.SnapshotId">
+            <summary>
+            Identifier of the snapshot
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.Description">
+            <summary>
+            text data that can provide additional data about a snapshot
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.SnapshotSize">
+            <summary>
+            size of the snapshot 
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.SnapshotName">
+            <summary>
+            name of the snapshot
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.Bootable">
+            <summary>
+            flag to identify boot capabilities of a snapshot; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.OsType">
+            <summary>
+            flag of currently set OS type of the snapshot (WINDOWS, LINUX, OTHER, UNKNOWN)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.CpuHotPlug">
+            <summary>
+            snapshot contains capabilities to hotplug CPU; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.CpuHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.DiscVirtioHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.DiscVirtioHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.RamHotPlug">
+            <summary>
+            snapshot contains capabilities to hotplug RAM; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.RamHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.NicHotPlug">
+            <summary>
+            snapshot contains capabilities to hotplug NIC; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.NicHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.CreationTimestamp">
+            <summary>
+            Time when the specified snapshot has been created
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.ModificationTimestamp">
+            <summary>
+            Time when the specified snapshot has last been modified
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Snapshot.Location">
+            <summary>
+            name of region in which the snapshot is available; it cannot be used in any other region than that
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.UpdateDataCenterRequest">
+            <summary>
+            UpdateDataCenterRequest
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateDataCenterRequest.DataCenterId">
+            <summary>
+            Identifier of the virtual data center. Required Field.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateDataCenterRequest.DataCenterName">
+            <summary>
+            Renames the target virtual data center
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.UpdateServerRequest">
+            <summary>
+            UpdateServerRequest
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.ServerId">
+            <summary>
+            Identifier of the target virtual server. Required field.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.ServerName">
+            <summary>
+            Renames the target virtual server
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.Cores">
+            <summary>
+            Updates the amount of cores of the target virtual server
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.Ram">
+            <summary>
+            Updates the RAM memory (in MiB) of the target virtual server. The minimum RAM size is 256 MiB
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.BootFromStorageId">
+            <summary>
+            Defines an existing CD-ROM/DVD (ISO) image ID to be set as boot device of the server. A virtual CD-ROM/DVD drive with the mounted image will be connected to the server implicitly. 
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.BootFromImageId">
+            <summary>
+            Defines an existing storage device ID to be set as boot device of the server. The storage will be connected to the server implicitly.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.OsType">
+            <summary>
+            Updates OS Type of the target server (WINDOWS, LINUX, OTHER, UNKOWN)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.AvailabilityZone">
+            <summary>
+            Zone in which the server is located (AUTO, ZONE_1, ZONE_2)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.CpuHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.RamHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.NicHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.NicHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.DiscVirtioHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateServerRequest.DiscVirtioHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Enums.VirtualMachineState">
+            <summary>
+            VirtualMachineState
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualMachineState.NOSTATE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualMachineState.RUNNING">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualMachineState.BLOCKED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualMachineState.PAUSED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualMachineState.SHUTDOWN">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualMachineState.SHUTOFF">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProfitBricks.POCO.Enums.VirtualMachineState.CRASHED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.UpdateSnapshotRequest">
+            <summary>
+            UpdateShapshotRequest class.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.SnapshotId">
+            <summary>
+            Identifier of the snapshot that shall get updated
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.Description">
+            <summary>
+            text field to add additional information (e.g. for details about time or reason why snapshot was created)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.SnapshotName">
+            <summary>
+            Name of snapshot
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.Bootable">
+            <summary>
+            Flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.OsType">
+            <summary>
+            Flag to specify OS type; relevant for license accounting in case snapshot gets redeployed on further virtual storage instances (WINDOWS, LINUX, OTHER, UNKNOWN)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.CpuHotPlug">
+            <summary>
+            snapshot contains capabilities to hotplug CPU; flag of type boolean*
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.CpuHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.RamHotPlug">
+            <summary>
+            Snapshot contains capabilities to hotplug RAM; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.RamHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.NicHotPlug">
+            <summary>
+            snapshot contains capabilities to hotplug NIC; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.NicHotUnPlug">
+            <summary>
+            snapshot contains capabilities to hotunplug NIC; flag of type boolean
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.DiscVirtioHotPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateSnapshotRequest.DiscVirtioHotUnPlug">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Requests.UpdateStorageRequest">
+            <summary>
+            UpdateStorageRequest
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateStorageRequest.StorageId">
+             <summary>
+            Identifier of the target virtual storage. This is a required field.
+             </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateStorageRequest.Size">
+            <summary>
+            Updates the size of the storage (in GiB)
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateStorageRequest.StorageName">
+            <summary>
+            Renames the target virtual storage
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Requests.UpdateStorageRequest.MountImageId">
+            <summary>
+            Specifies the HDD image to be assigned to the storage by its ID
+            </summary>
+        </member>
+        <member name="T:ProfitBricks.POCO.Volume">
+            <summary>
+            Volume calss that is represented in PB API as storage.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Volume.StorageId">
+            <summary>
+            StorageId
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Volume.Size">
+            <summary>
+            Volume size.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Volume.StorageName">
+            <summary>
+            StorageName
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Volume.MountImage">
+            <summary>
+            MountImage
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Volume.serverIds">
+            <summary>
+            List of server id associated with the Volume.
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Volume.CreationTime">
+            <summary>
+            CreationTime
+            </summary>
+        </member>
+        <member name="P:ProfitBricks.POCO.Volume.LastModificationTime">
+            <summary>
+            LastModificationTime
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -25,7 +25,7 @@ Before you begin you will need to have [signed-up](https://www.profitbricks.com/
  
 ### Installation
 
-The official .NET library is available from the ProfitBricks GitHub account found [here](https://github.com/profitbricks). You can install the latest stable version by cloning the repository and then adding the binaries to your project.
+The official .NET library is available from the ProfitBricks GitHub account found [here](https://github.com/profitbricks/profitbricks-sdk-net). You can download the latest stable version by cloning the repository and then adding the project to your solution.
 	
 Or you can add the SDK by using nuget:
 
@@ -108,13 +108,13 @@ The following code example shows you how to programmatically create a datacenter
 
 You will want to exercise a bit of caution here. Removing a datacenter will **destroy** all objects contained within that datacenter -- servers, volumes, snapshots, and so on. The objects -- once removed -- will be unrecoverable. 
 
-The code to remove a datacenter is as follows. This example assumes you want to remove a datacenter with the ID '7a857cab-ec08-445b-9b3a-52d0357326db':
+The following is an example on how to remove the datacenter created above:
 
     ProfitBricksSoapClient.Instance.DataCenters.Delete(dcCreateResponse.Id);
 
 ## <a name="CreateServer"></a>How to: Create a Server
 
-The following example illustrates how you would create a server and assign it an OS, cores, and memory. We urge you to check the [documentation](https://devops.profitbricks.com/api/) to see the complete list attributes available.
+The following example illustrates how you would create a server and assign it an OS, cores, and memory. We urge you to check the [documentation](https://devops.profitbricks.com/api/soap/) to see the complete list attributes available.
 
 	var serverCreateRequest = new CreateServerRequest
 	{
@@ -144,8 +144,6 @@ The following code illustrates how you can update cores and memory:
 	};
 	
 	ProfitBricksSoapClient.Instance.Servers.Update(updateServerRequest);
-
-As you can see, in a single line of code we've updated the name, cores, and memory all on the fly.
 
 ## <a name="DetachReattachStorageVolume"></a>How to: Detach and Reattach a Storage Volume
 
@@ -177,7 +175,7 @@ The following illustrates how you would attach a volume and then detach it from 
 
 ## <a name="ListServersVolumesDataCenters"></a>How to: List Servers, Volumes, and Data Centers
 
-You can pull various lists of information from your vDCs using the .NET library. The three most common ones are Datacenters, Servers, and Volumes.
+You can pull various resource lists from your vDCs using the .NET library. The three most common resources are Datacenters, Servers, and Volumes.
 
 The following code illustrates how to pull these three list types: 
 
