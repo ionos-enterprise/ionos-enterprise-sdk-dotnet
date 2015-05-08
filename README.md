@@ -25,7 +25,7 @@ Before you begin you will need to have [signed-up](https://www.profitbricks.com/
  
 ### Installation
 
-The official .NET library is available from the ProfitBricks GitHub account found [here](https://github.com/profitbricks/profitbricks-sdk-net). You can download the latest stable version cloning the repository and then adding the project to your solution.
+The official .NET library is available from the ProfitBricks GitHub account found [here](https://github.com/profitbricks/profitbricks-sdk-net). You can download the latest stable version by cloning the repository and then adding the project to your solution.
 	
 Or you can add the SDK by using nuget:
 
@@ -69,19 +69,19 @@ List all data centers:
 
      var dcs = ProfitBricksSoapClient.Instance.DataCenters.Get();
     
-This will list all virtual datacenters you have under your account.
+This will list all virtual data centers you have under your account.
 
 ### Additional Documentation and Support
 
 You can engage with us in the community and we'll be more than happy to answer any questions you might have. 
 
-## <a name="CreateDataCenter"> </a>How to: Create a Datacenter
+## <a name="CreateDataCenter"> </a>How to: Create a Data Center
 
-ProfitBricks introduces the concept of Virtual Datacenters. These are logically separated from one and the other and allow you to have a self-contained environment for all servers, volumes, networking, snapshots, and so forth. The goal is to give you the same experience as you would have if you were running your own physical datacenter.
+ProfitBricks introduces the concept of data centers. These are logically separated from one and the other and allow you to have a self-contained environment for all servers, volumes, networking, snapshots, and so forth. The goal is to give you the same experience as you would have if you were running your own physical data center.
 
-You are required to have a Virtual Datacenter (vDC) created before you can create any other objects. Think of the vDC as a bucket in which all objects, such as servers and volumes, live. 
+You are required to have a data center created before you can create any other objects. Think of the data center as a bucket in which all objects, such as servers and volumes, live. 
 
-The following code example shows you how to programmatically create a datacenter: 
+The following code example shows you how to programmatically create a data center: 
 
 	using ProfitBricks.Client;
 	using ProfitBricks.POCO.Requests;
@@ -104,17 +104,17 @@ The following code example shows you how to programmatically create a datacenter
 		}
 	}
 
-## <a name="DeleteDataCenter"></a>How to: Delete a Datacenter
+## <a name="DeleteDataCenter"></a>How to: Delete a Data Center
 
-You will want to exercise a bit of caution here. Removing a datacenter will **destroy** all objects contained within that datacenter -- servers, volumes, snapshots, and so on. The objects -- once removed -- will be unrecoverable. 
+You will want to exercise a bit of caution here. Removing a data center will **destroy** all objects contained within that data center -- servers, volumes, snapshots, and so on. The objects -- once removed -- will be unrecoverable. 
 
-The code to remove a datacenter is as follows. This example assumes you want to remove a datacenter with the ID '7a857cab-ec08-445b-9b3a-52d0357326db':
+The following is an example on how to remove the data center created above:
 
     ProfitBricksSoapClient.Instance.DataCenters.Delete(dcCreateResponse.Id);
 
 ## <a name="CreateServer"></a>How to: Create a Server
 
-The following example illustrates how you would create a server and assign it an OS, cores, and memory. We urge you to check the [documentation](https://devops.profitbricks.com/api/) to see the complete list attributes available.
+The following example illustrates how you would create a server and assign it an OS, cores, and memory. We urge you to check the [documentation](https://devops.profitbricks.com/api/soap/) to see the complete list attributes available.
 
 	var serverCreateRequest = new CreateServerRequest
 	{
@@ -175,7 +175,7 @@ The following illustrates how you would attach a volume and then detach it from 
 
 ## <a name="ListServersVolumesDataCenters"></a>How to: List Servers, Volumes, and Data Centers
 
-You can pull various resource lists from your vDCs using the .NET library. The three most common resources are Datacenters, Servers, and Volumes.
+You can pull various resource lists from your data centers using the .NET library. The three most common resources are data centers, Servers, and Volumes.
 
 The following code illustrates how to pull these three list types: 
 
@@ -285,7 +285,7 @@ One item to note is this function will result in the server being rebooted.
 
 				ProfitBricksSoapClient.Instance.Volumes.DisconnectVolume(createVolumeResponse.Id, createServerResponse.Id);
 
-				// Fetches list of all DataCenters
+				// Fetches list of all Data Centers
 				var dcs = ProfitBricksSoapClient.Instance.DataCenters.Get();
 
 				// Fetches list of all Servers
