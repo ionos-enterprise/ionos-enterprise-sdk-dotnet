@@ -25,34 +25,44 @@ namespace ProfitBricks.Client
         /// </summary>
         ProfitbricksApiServicePortTypeClient Service { get; set; }
 
+        static string Username;
+        static string Password;
+
         /// <summary>
         /// Private constructor.
         /// </summary>
         private ProfitBricksSoapClient()
         {
             Service = new ProfitbricksApiServicePortTypeClient();
-            Service.ClientCredentials.UserName.UserName = ConfigurationManager.AppSettings["UserName"];
-            Service.ClientCredentials.UserName.Password = ConfigurationManager.AppSettings["Password"];
+            if (Username == string.Empty)
+                Service.ClientCredentials.UserName.UserName = ConfigurationManager.AppSettings["UserName"];
+            else
+                Service.ClientCredentials.UserName.UserName = Username;
+
+            if (Password == string.Empty)
+                Service.ClientCredentials.UserName.Password = ConfigurationManager.AppSettings["Password"];
+            else
+                Service.ClientCredentials.UserName.Password = Password;
+
         }
 
         /// <summary>
         /// Singleton instance.
         /// </summary>
-        public static ProfitBricksSoapClient Instance
+        public static ProfitBricksSoapClient Instance(string username = "", string password = "")
         {
-            get
+            Username = username;
+            Password = password;
+            if (instance == null)
             {
-                if (instance == null)
+                lock (syncRoot)
                 {
-                    lock (syncRoot)
-                    {
-                        if (instance == null)
-                            instance = new ProfitBricksSoapClient();
-                    }
+                    if (instance == null)
+                        instance = new ProfitBricksSoapClient();
                 }
-
-                return instance;
             }
+
+            return instance;
         }
 
         /// <summary>
@@ -91,7 +101,7 @@ namespace ProfitBricks.Client
 
         public Drives Drives { get { return new Drives(Service); } }
 
-        public PublicIpBlocks PublicIpBlocks { get { return new PublicIpBlocks(Service); } } 
+        public PublicIpBlocks PublicIpBlocks { get { return new PublicIpBlocks(Service); } }
 
         public UserNotifications UserNotifications { get { return new UserNotifications(Service); } }
     }

@@ -11,7 +11,7 @@ namespace ProfitBrickUnitTests
     public class DataCenterTests
     {
         #region DataCenter
-        DataCenters DataCenters = ProfitBricksSoapClient.Instance.DataCenters;
+        DataCenters DataCenters = ProfitBricksSoapClient.Instance().DataCenters;
 
         static string dcId = string.Empty;
 

@@ -13,7 +13,7 @@ namespace ProfitBrickUnitTests
     [TestClass]
     public class ServerTests
     {
-        Servers serverApi = ProfitBricksSoapClient.Instance.Servers;
+        Servers serverApi = ProfitBricksSoapClient.Instance().Servers;
         private static string serverId = string.Empty;
         private static string dcId = string.Empty;
 
@@ -22,7 +22,7 @@ namespace ProfitBrickUnitTests
         [ClassInitialize()]
         public static void Initialize(TestContext testContext)
         {
-            var dcs = ProfitBricksSoapClient.Instance.DataCenters.Get();
+            var dcs = ProfitBricksSoapClient.Instance().DataCenters.Get();
 
             Assert.IsNotNull(dcs, "At least one Datacenter is required to run server tests");
 

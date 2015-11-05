@@ -15,7 +15,7 @@ namespace ProfitBrickUnitTests
     [TestClass]
     public class NicTests
     {
-        Nics nicApi = ProfitBricksSoapClient.Instance.Nics;
+        Nics nicApi = ProfitBricksSoapClient.Instance().Nics;
         private static string nicId;
         private static string dcId;
         private static string serverId;
@@ -25,7 +25,7 @@ namespace ProfitBrickUnitTests
         [ClassInitialize]
         public static void Initialize(TestContext testContext)
         {
-            var dcs = ProfitBricksSoapClient.Instance.DataCenters.Get();
+            var dcs = ProfitBricksSoapClient.Instance().DataCenters.Get();
 
             Assert.IsNotNull(dcs, "At least one Datacenter is required to run server tests");
 
@@ -41,7 +41,7 @@ namespace ProfitBrickUnitTests
 
             if(server.Nics.Count>5)
             {
-                ProfitBricksSoapClient.Instance.Nics.Delete(server.Nics[5].NicId);
+                ProfitBricksSoapClient.Instance().Nics.Delete(server.Nics[5].NicId);
             }
             serverId = server.ServerId;
         }
