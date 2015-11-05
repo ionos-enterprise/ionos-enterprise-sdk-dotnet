@@ -18,7 +18,7 @@ namespace ProfitBricksExample
             };
 
             // Response will contain Id of a newly created data center.
-            var dcCreateResponse = ProfitBricksSoapClient.Instance.DataCenters.Create(dcCreateRequest);
+            var dcCreateResponse = ProfitBricksSoapClient.Instance().DataCenters.Create(dcCreateRequest);
 
             // CreateServerRequest. 
             // DataCenterId: Defines the data center wherein the server is to be created.
@@ -38,7 +38,7 @@ namespace ProfitBricksExample
             };
 
             // response will contain Id of a newly created server.
-            var createServerResponse = ProfitBricksSoapClient.Instance.Servers.Create(serverCreateRequest);
+            var createServerResponse = ProfitBricksSoapClient.Instance().Servers.Create(serverCreateRequest);
 
             // UpdateServerRequest
             // ServerId: Id of the server to be updated.
@@ -53,7 +53,7 @@ namespace ProfitBricksExample
                 Ram = 512
             };
 
-            ProfitBricksSoapClient.Instance.Servers.Update(updateServerRequest);
+            ProfitBricksSoapClient.Instance().Servers.Update(updateServerRequest);
 
             // CreateVolumeRequest
             // DataCenterId: Defines the data center wherein the storage is to be created. If left empty, the storage will be created in a new data center
@@ -65,7 +65,7 @@ namespace ProfitBricksExample
             };
 
             // Response will contain Id of a newly created volume.
-            var createVolumeResponse = ProfitBricksSoapClient.Instance.Volumes.Create(createVolumeRequest);
+            var createVolumeResponse = ProfitBricksSoapClient.Instance().Volumes.Create(createVolumeRequest);
 
             // ConnectStorageRequest
             // ServerId: Identifier of the target virtual storage. Required field.
@@ -78,18 +78,18 @@ namespace ProfitBricksExample
                 BusType = BusType.SCSI,
             };
 
-            ProfitBricksSoapClient.Instance.Volumes.ConnectVolume(connectStorageRequest);
+            ProfitBricksSoapClient.Instance().Volumes.ConnectVolume(connectStorageRequest);
 
-            ProfitBricksSoapClient.Instance.Volumes.DisconnectVolume(createVolumeResponse.Id, createServerResponse.Id);
+            ProfitBricksSoapClient.Instance().Volumes.DisconnectVolume(createVolumeResponse.Id, createServerResponse.Id);
 
             // Fetches list of all DataCenters
-            var dcs = ProfitBricksSoapClient.Instance.DataCenters.Get();
+            var dcs = ProfitBricksSoapClient.Instance().DataCenters.Get();
 
             // Fetches list of all Servers
-            var servers = ProfitBricksSoapClient.Instance.Servers.Get();
+            var servers = ProfitBricksSoapClient.Instance().Servers.Get();
 
             // Fetches list of all Volumes
-            var volumes = ProfitBricksSoapClient.Instance.Volumes.Get();
+            var volumes = ProfitBricksSoapClient.Instance().Volumes.Get();
 
             // CreateNicRequest
             // Identifier of the target virtual server. Required field.
@@ -102,7 +102,7 @@ namespace ProfitBricksExample
                 DhcpActive = true
             };
 
-            ProfitBricksSoapClient.Instance.Nics.Create(createNicRequest);
+            ProfitBricksSoapClient.Instance().Nics.Create(createNicRequest);
         }
     }
 }

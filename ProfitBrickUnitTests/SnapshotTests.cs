@@ -16,14 +16,14 @@ namespace ProfitBrickUnitTests
     {
         private static string storageId;
         private static string snapshotId;
-        Snapshots snapshotsApi = ProfitBricksSoapClient.Instance.Snapshots;
+        Snapshots snapshotsApi = ProfitBricksSoapClient.Instance().Snapshots;
 
         #region Snapshot
 
         [ClassInitialize()]
         public static void Initialize(TestContext testContext)
         {
-            var volumes = ProfitBricksSoapClient.Instance.Volumes.Get();
+            var volumes = ProfitBricksSoapClient.Instance().Volumes.Get();
 
             Assert.IsNotNull(volumes, "At least one Volume is require to Snapshots Storages");
             storageId = volumes.FirstOrDefault().StorageId;

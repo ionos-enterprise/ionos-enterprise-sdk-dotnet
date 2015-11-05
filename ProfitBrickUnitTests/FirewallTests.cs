@@ -19,13 +19,13 @@ namespace ProfitBrickUnitTests
         private static string firewallId;
         private static string firewallRuleId;
 
-        Firewalls firewallApi = ProfitBricksSoapClient.Instance.Firewalls;
+        Firewalls firewallApi = ProfitBricksSoapClient.Instance().Firewalls;
 
         #region Firewalls
         [ClassInitialize()]
         public static void Initialize(TestContext testContext)
         {
-            var nics = ProfitBricksSoapClient.Instance.Nics.Get();
+            var nics = ProfitBricksSoapClient.Instance().Nics.Get();
 
             Assert.IsNotNull(nics, "At least one NIC is required to run Firewall tests");
 
