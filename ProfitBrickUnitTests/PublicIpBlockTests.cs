@@ -10,14 +10,14 @@ namespace ProfitBrickUnitTests
     [TestClass]
     public class PublicIpBlockTests
     {
-        PublicIpBlocks publicIpBlocksApi = ProfitBricksSoapClient.Instance.PublicIpBlocks;
+        PublicIpBlocks publicIpBlocksApi = ProfitBricksSoapClient.Instance().PublicIpBlocks;
         private static string blockId;
         private static string nicId;
         
         [ClassInitialize]
         public static void Initialize(TestContext testContext)
         {
-            var nics = ProfitBricksSoapClient.Instance.Nics.Get();
+            var nics = ProfitBricksSoapClient.Instance().Nics.Get();
 
             Assert.IsNotNull(nics, "At least one NIC is required to run IP block tests");
 

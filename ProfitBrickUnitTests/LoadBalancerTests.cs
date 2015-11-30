@@ -10,7 +10,7 @@ namespace ProfitBrickUnitTests
     [TestClass]
     public class LoadBalancerTests
     {
-        LoadBalancers loadBalancersApi = ProfitBricksSoapClient.Instance.LoadBalancers;
+        LoadBalancers loadBalancersApi = ProfitBricksSoapClient.Instance().LoadBalancers;
         private static string serverId;
         private static string storageId;
         private static string dcId;
@@ -21,18 +21,18 @@ namespace ProfitBrickUnitTests
         [ClassInitialize()]
         public static void Initialize(TestContext testContext)
         {
-            var dcs = ProfitBricksSoapClient.Instance.DataCenters.Get();
+            var dcs = ProfitBricksSoapClient.Instance().DataCenters.Get();
 
             Assert.IsNotNull(dcs, "At least one DC is require to test Storages");
             dcId = dcs.FirstOrDefault().DataCenterId;
 
-            var volumes = ProfitBricksSoapClient.Instance.Volumes.Get();
+            var volumes = ProfitBricksSoapClient.Instance().Volumes.Get();
 
             Assert.IsNotNull(volumes, "At least one volume is require to test Storages");
             storageId = volumes.FirstOrDefault().StorageId;
 
 
-            var servers = ProfitBricksSoapClient.Instance.Servers.Get();
+            var servers = ProfitBricksSoapClient.Instance().Servers.Get();
 
             Assert.IsNotNull(volumes, "At least one server is require to test Storages");
             serverId = servers.Where(s => s.ProvisioningState == ProfitBricks.POCO.Enums.ProvisioningState.AVAILABLE).FirstOrDefault().ServerId;

@@ -15,12 +15,12 @@ namespace ProfitBrickUnitTests
         [ClassInitialize()]
         public static void Initialize(TestContext testContext)
         {
-            var servers = ProfitBricksSoapClient.Instance.Servers.Get();
+            var servers = ProfitBricksSoapClient.Instance().Servers.Get();
             Assert.IsNotNull(servers, "At least one Server is required for Drive testing.");
 
             serverId = servers.FirstOrDefault().ServerId;
 
-            var images = ProfitBricksSoapClient.Instance.Images.Get();
+            var images = ProfitBricksSoapClient.Instance().Images.Get();
             Assert.IsNotNull(images, "At least one Image is required for Drive testing.");
 
             imageId = images.Where(i=> i.Location == ProfitBricks.POCO.Enums.Location.uslasdev).FirstOrDefault().ImageId;
@@ -29,13 +29,13 @@ namespace ProfitBrickUnitTests
         [TestMethod]
         public void AddRomToserver()
         {
-            ProfitBricksSoapClient.Instance.Drives.AddRomDrive(imageId, serverId, 0);
+            ProfitBricksSoapClient.Instance().Drives.AddRomDrive(imageId, serverId, 0);
         }
 
         [TestMethod]
         public void RemoveRomFromserver()
         {
-            ProfitBricksSoapClient.Instance.Drives.RemoveRomDrive(imageId, serverId);
+            ProfitBricksSoapClient.Instance().Drives.RemoveRomDrive(imageId, serverId);
         }
 
         #endregion

@@ -16,7 +16,7 @@ namespace ProfitBrickUnitTests
     public class VolumeTests
     {
         #region Volumes
-        Volumes volumesApi = ProfitBricksSoapClient.Instance.Volumes;
+        Volumes volumesApi = ProfitBricksSoapClient.Instance().Volumes;
         private static string volumeId = string.Empty;
         private static string dcId = string.Empty;
         private static string serverId;
@@ -24,7 +24,7 @@ namespace ProfitBrickUnitTests
         [ClassInitialize()]
         public static void Initialize(TestContext testContext)
         {
-            var dcs = ProfitBricksSoapClient.Instance.DataCenters.Get();
+            var dcs = ProfitBricksSoapClient.Instance().DataCenters.Get();
 
             Assert.IsNotNull(dcs, "At least one DC is require to test Storages");
             dcId = dcs.FirstOrDefault().DataCenterId;
