@@ -70,7 +70,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Snapshot</returns>
-        Snapshot FindById(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null);
+        Snapshot FindById(string snapshotId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Snapshot
@@ -82,7 +82,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Snapshot</returns>
-        ApiResponse<Snapshot> FindByIdWithHttpInfo(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null);
+        ApiResponse<Snapshot> FindByIdWithHttpInfo(string snapshotId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Snapshot
@@ -94,7 +94,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Snapshot</returns>
-        System.Threading.Tasks.Task<Snapshot> FindByIdAsync(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Snapshot> FindByIdAsync(string snapshotId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Snapshot
@@ -106,7 +106,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Snapshot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Snapshot>> FindByIdAsyncWithHttpInfo(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Snapshot>> FindByIdAsyncWithHttpInfo(string snapshotId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Snapshot
@@ -119,7 +119,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Snapshot</returns>
-        Snapshot Update(Dictionary<string, string> snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null);
+        Snapshot Update(string snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Snapshot
@@ -132,7 +132,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Snapshot</returns>
-        ApiResponse<Snapshot> UpdateWithHttpInfo(Dictionary<string, string> snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null);
+        ApiResponse<Snapshot> UpdateWithHttpInfo(string snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Snapshot
@@ -145,7 +145,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Snapshot</returns>
-        System.Threading.Tasks.Task<Snapshot> UpdateAsync(Dictionary<string, string> snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Snapshot> UpdateAsync(string snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Snapshot
@@ -158,7 +158,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Snapshot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Snapshot>> UpdateAsyncWithHttpInfo(Dictionary<string, string> snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Snapshot>> UpdateAsyncWithHttpInfo(string snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Snapshot
@@ -170,7 +170,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>InlineResponse202</returns>
-        InlineResponse202 Delete(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null);
+        InlineResponse202 Delete(string snapshotId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Snapshot
@@ -182,7 +182,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> DeleteWithHttpInfo(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null);
+        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string snapshotId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Snapshot
@@ -194,7 +194,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string snapshotId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Snapshot
@@ -206,7 +206,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string snapshotId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Snapshot
@@ -219,7 +219,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Snapshot</returns>
-        Snapshot PartialUpdate(Dictionary<string, string> snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null);
+        Snapshot PartialUpdate(string snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Snapshot
@@ -232,7 +232,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Snapshot</returns>
-        ApiResponse<Snapshot> PartialUpdateWithHttpInfo(Dictionary<string, string> snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null);
+        ApiResponse<Snapshot> PartialUpdateWithHttpInfo(string snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Snapshot
@@ -245,7 +245,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Snapshot</returns>
-        System.Threading.Tasks.Task<Snapshot> PartialUpdateAsync(Dictionary<string, string> snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Snapshot> PartialUpdateAsync(string snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Snapshot
@@ -258,7 +258,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Snapshot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Snapshot>> PartialUpdateAsyncWithHttpInfo(Dictionary<string, string> snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Snapshot>> PartialUpdateAsyncWithHttpInfo(string snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null);
 
     }
 
@@ -513,7 +513,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Snapshot</returns>
-        public Snapshot FindById(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null)
+        public Snapshot FindById(string snapshotId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Snapshot> response = FindByIdWithHttpInfo(snapshotId, parameter, depth);
             return response.Data;
@@ -526,7 +526,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Snapshot</returns>
-        public ApiResponse<Snapshot> FindByIdWithHttpInfo(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null)
+        public ApiResponse<Snapshot> FindByIdWithHttpInfo(string snapshotId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'snapshotId' is set
@@ -603,7 +603,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Snapshot</returns>
-        public async System.Threading.Tasks.Task<Snapshot> FindByIdAsync(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Snapshot> FindByIdAsync(string snapshotId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Snapshot> response = await FindByIdAsyncWithHttpInfo(snapshotId, parameter, depth);
             return response.Data;
@@ -617,7 +617,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Snapshot)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Snapshot>> FindByIdAsyncWithHttpInfo(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Snapshot>> FindByIdAsyncWithHttpInfo(string snapshotId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'snapshotId' is set
             if (snapshotId == null) throw new ApiException(400, "Missing required parameter 'snapshotId' when calling FindById");
@@ -694,7 +694,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Snapshot</returns>
-        public Snapshot Update(Dictionary<string, string> snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null)
+        public Snapshot Update(string snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Snapshot> response = UpdateWithHttpInfo(snapshotId, snapshot, parameter, depth);
             return response.Data;
@@ -708,7 +708,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Snapshot</returns>
-        public ApiResponse<Snapshot> UpdateWithHttpInfo(Dictionary<string, string> snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null)
+        public ApiResponse<Snapshot> UpdateWithHttpInfo(string snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'snapshotId' is set
@@ -797,7 +797,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Snapshot</returns>
-        public async System.Threading.Tasks.Task<Snapshot> UpdateAsync(Dictionary<string, string> snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Snapshot> UpdateAsync(string snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Snapshot> response = await UpdateAsyncWithHttpInfo(snapshotId, snapshot, parameter, depth);
             return response.Data;
@@ -812,7 +812,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Snapshot)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Snapshot>> UpdateAsyncWithHttpInfo(Dictionary<string, string> snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Snapshot>> UpdateAsyncWithHttpInfo(string snapshotId, Snapshot snapshot, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'snapshotId' is set
             if (snapshotId == null) throw new ApiException(400, "Missing required parameter 'snapshotId' when calling Update");
@@ -891,7 +891,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>InlineResponse202</returns>
-        public InlineResponse202 Delete(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null)
+        public InlineResponse202 Delete(string snapshotId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = DeleteWithHttpInfo(snapshotId, parameter, depth);
             return response.Data;
@@ -904,7 +904,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null)
+        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string snapshotId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'snapshotId' is set
@@ -981,7 +981,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string snapshotId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = await DeleteAsyncWithHttpInfo(snapshotId, parameter, depth);
             return response.Data;
@@ -995,7 +995,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(Dictionary<string, string> snapshotId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string snapshotId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'snapshotId' is set
             if (snapshotId == null) throw new ApiException(400, "Missing required parameter 'snapshotId' when calling Delete");
@@ -1072,7 +1072,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Snapshot</returns>
-        public Snapshot PartialUpdate(Dictionary<string, string> snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null)
+        public Snapshot PartialUpdate(string snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Snapshot> response = PartialUpdateWithHttpInfo(snapshotId, snapshot, parameter, depth);
             return response.Data;
@@ -1086,7 +1086,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Snapshot</returns>
-        public ApiResponse<Snapshot> PartialUpdateWithHttpInfo(Dictionary<string, string> snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null)
+        public ApiResponse<Snapshot> PartialUpdateWithHttpInfo(string snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'snapshotId' is set
@@ -1175,7 +1175,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Snapshot</returns>
-        public async System.Threading.Tasks.Task<Snapshot> PartialUpdateAsync(Dictionary<string, string> snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Snapshot> PartialUpdateAsync(string snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Snapshot> response = await PartialUpdateAsyncWithHttpInfo(snapshotId, snapshot, parameter, depth);
             return response.Data;
@@ -1190,7 +1190,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Snapshot)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Snapshot>> PartialUpdateAsyncWithHttpInfo(Dictionary<string, string> snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Snapshot>> PartialUpdateAsyncWithHttpInfo(string snapshotId, SnapshotProperties snapshot, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'snapshotId' is set
             if (snapshotId == null) throw new ApiException(400, "Missing required parameter 'snapshotId' when calling PartialUpdate");

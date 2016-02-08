@@ -204,7 +204,7 @@ namespace ProfitbricksV2.Tests
                 return;
             var requestApi = new RequestApi(configuration);
 
-            var sub = server.Request.Substring(requestUrl.IndexOf("requests/") + 9, 36);
+            var sub = requestUrl.Substring(requestUrl.IndexOf("requests/") + 9, 36);
             var request = new RequestStatus();
             int counter = 0;
 
