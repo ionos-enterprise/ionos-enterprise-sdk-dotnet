@@ -58,7 +58,7 @@ namespace ProfitbricksV2.Tests
                     {
                         Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
                         Cores = 1,
-                        Ram = 256
+                        Ram = 1024
                     }
                 };
 
@@ -70,7 +70,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void Create()
+        public void VolumeCreate()
         {
             Configure();
             volume = new Volume
@@ -98,7 +98,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void Get()
+        public void VolumeGet()
         {
             Configure();
 
@@ -108,7 +108,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void List()
+        public void VolumeList()
         {
             Configure();
 
@@ -118,7 +118,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void Update()
+        public void VolumeUpdate()
         {
             Configure();
             var newProps = new VolumeProperties { Size = volume.Properties.Size + 1 };
@@ -136,6 +136,15 @@ namespace ProfitbricksV2.Tests
                 Thread.Sleep(2000);
             }
 
+            isBusy = true;
+
+            while (isBusy == true)
+            {
+                newVolume = volumeApi.FindById(datacenter.Id, volume.Id);
+                if (newVolume.Metadata.State != "BUSY") isBusy = false;
+                Thread.Sleep(2000);
+            }
+
             newVolume = volumeApi.FindById(datacenter.Id, volume.Id);
 
             Assert.AreEqual(newVolume.Properties.Size, volume.Properties.Size + 1);
@@ -143,7 +152,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void Attach()
+        public void VolumeAttach()
         {
             Configure();
             var resp = attachedVolumesApi.AttachVolume(datacenter.Id, server.Id, new Volume { Id = volume.Id });
@@ -169,7 +178,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void Detach()
+        public void VolumeDetach()
         {
             Configure();
             var resp = attachedVolumesApi.DetachVolume(datacenter.Id, server.Id, volume.Id);
@@ -178,7 +187,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void Delete()
+        public void VolumeDelete()
         {
             Configure();
             var response = volumeApi.Delete(datacenter.Id, volume.Id);
@@ -206,6 +215,8 @@ namespace ProfitbricksV2.Tests
                 Thread.Sleep(1000);
                 if (counter == 35)
                     break;
+                else if (request.Metadata.Status == "FAILED")
+                    throw new Exception(request.Metadata.Message);
             } while (request.Metadata.Status != "DONE" && counter != 35);
         }
     }

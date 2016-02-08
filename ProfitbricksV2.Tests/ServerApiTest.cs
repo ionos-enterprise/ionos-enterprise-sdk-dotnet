@@ -48,7 +48,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void CreateServer()
+        public void ServerCreate()
         {
             Configure();
 
@@ -68,7 +68,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void GetServer()
+        public void ServerGet()
         {
             Configure();
             DoWait(server.Request);
@@ -80,7 +80,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void PatchServer()
+        public void ServerUpdate()
         {
             Configure();
             DoWait(server.Request);
@@ -91,7 +91,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void ListServers()
+        public void ServerList()
         {
             Configure();
 
@@ -101,7 +101,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void StopServer()
+        public void ServerStop()
         {
             Configure();
 
@@ -121,7 +121,7 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void StartServer()
+        public void ServerStart()
         {
             Configure();
 
@@ -142,7 +142,18 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void DeleteServer()
+
+        public void ServerReboot()
+        {
+            Configure();
+
+            var resp = serverApi.Reboot(datacenter.Id, server.Id);
+
+            Assert.IsNull(resp);
+        }
+
+        [TestMethod]
+        public void ServerDelete()
         {
             Configure();
             var response = serverApi.Delete(datacenter.Id, server.Id);
