@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfitbricksV2", "ProfitbricksV2\ProfitbricksV2.csproj", "{021A463D-DCB6-4CF2-BCF6-7836724E2BEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PB TEST", "PB TEST\PB TEST.csproj", "{608C3C57-1F04-47A3-872F-57DF31A937C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfitbricksV2.Tests", "ProfitbricksV2.Tests\ProfitbricksV2.Tests.csproj", "{170413FF-0A5F-4326-8552-71ABFA055F4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{021A463D-DCB6-4CF2-BCF6-7836724E2BEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021A463D-DCB6-4CF2-BCF6-7836724E2BEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021A463D-DCB6-4CF2-BCF6-7836724E2BEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021A463D-DCB6-4CF2-BCF6-7836724E2BEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{608C3C57-1F04-47A3-872F-57DF31A937C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{608C3C57-1F04-47A3-872F-57DF31A937C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{608C3C57-1F04-47A3-872F-57DF31A937C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{608C3C57-1F04-47A3-872F-57DF31A937C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{170413FF-0A5F-4326-8552-71ABFA055F4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{170413FF-0A5F-4326-8552-71ABFA055F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{170413FF-0A5F-4326-8552-71ABFA055F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{170413FF-0A5F-4326-8552-71ABFA055F4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
