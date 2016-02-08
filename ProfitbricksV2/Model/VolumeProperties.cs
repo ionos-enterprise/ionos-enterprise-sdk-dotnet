@@ -19,16 +19,6 @@ namespace  Model
         /// </summary>
         public VolumeProperties()
         {
-            this.CpuHotPlug = false;
-            this.CpuHotUnplug = false;
-            this.RamHotPlug = false;
-            this.RamHotUnplug = false;
-            this.NicHotPlug = false;
-            this.NicHotUnplug = false;
-            this.DiscVirtioHotPlug = false;
-            this.DiscVirtioHotUnplug = false;
-            this.DiscScsiHotPlug = false;
-            this.DiscScsiHotUnplug = false;
 
         }
 
@@ -54,7 +44,7 @@ namespace  Model
         /// </summary>
         /// <value>The size of the volume in GB</value>
         [DataMember(Name = "size", EmitDefaultValue = false)]
-        public double? Size { get; set; }
+        public int? Size { get; set; }
 
 
         /// <summary>

@@ -127,7 +127,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Volume</returns>
-        Volume FindById(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null);
+        Volume FindById(string datacenterId, string volumeId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Volume
@@ -140,7 +140,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Volume</returns>
-        ApiResponse<Volume> FindByIdWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null);
+        ApiResponse<Volume> FindByIdWithHttpInfo(string datacenterId, string volumeId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Volume
@@ -153,7 +153,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Volume</returns>
-        System.Threading.Tasks.Task<Volume> FindByIdAsync(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Volume> FindByIdAsync(string datacenterId, string volumeId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Volume
@@ -166,7 +166,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Volume)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Volume>> FindByIdAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Volume>> FindByIdAsyncWithHttpInfo(string datacenterId, string volumeId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Volume
@@ -180,7 +180,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Volume</returns>
-        Volume Update(string datacenterId, Dictionary<string, string> volumeId, Volume volume, bool? parameter = null, int? depth = null);
+        Volume Update(string datacenterId, string volumeId, Volume volume, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Volume
@@ -194,7 +194,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Volume</returns>
-        ApiResponse<Volume> UpdateWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, Volume volume, bool? parameter = null, int? depth = null);
+        ApiResponse<Volume> UpdateWithHttpInfo(string datacenterId, string volumeId, Volume volume, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Volume
@@ -208,7 +208,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Volume</returns>
-        System.Threading.Tasks.Task<Volume> UpdateAsync(string datacenterId, Dictionary<string, string> volumeId, Volume volume, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Volume> UpdateAsync(string datacenterId, string volumeId, Volume volume, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Volume
@@ -222,7 +222,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Volume)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Volume>> UpdateAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, Volume volume, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Volume>> UpdateAsyncWithHttpInfo(string datacenterId, string volumeId, Volume volume, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Volume
@@ -235,7 +235,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>InlineResponse202</returns>
-        InlineResponse202 Delete(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null);
+        InlineResponse202 Delete(string datacenterId, string volumeId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Volume
@@ -248,7 +248,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null);
+        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string volumeId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Volume
@@ -261,7 +261,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string volumeId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Volume
@@ -274,7 +274,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string volumeId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Volume
@@ -288,7 +288,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Volume</returns>
-        Volume PartialUpdate(string datacenterId, Dictionary<string, string> volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null);
+        Volume PartialUpdate(string datacenterId, string volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Volume
@@ -302,7 +302,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Volume</returns>
-        ApiResponse<Volume> PartialUpdateWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null);
+        ApiResponse<Volume> PartialUpdateWithHttpInfo(string datacenterId, string volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Volume
@@ -316,7 +316,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Volume</returns>
-        System.Threading.Tasks.Task<Volume> PartialUpdateAsync(string datacenterId, Dictionary<string, string> volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Volume> PartialUpdateAsync(string datacenterId, string volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Volume
@@ -330,7 +330,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Volume)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Volume>> PartialUpdateAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Volume>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Create Volume Snapshot
@@ -717,6 +717,7 @@ namespace  Api
         public Volume Create(string datacenterId, Volume volume, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Volume> response = CreateWithHttpInfo(datacenterId, volume, parameter, depth);
+            response.Data.Request = response.Headers["Location"];
             return response.Data;
         }
 
@@ -912,7 +913,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Volume</returns>
-        public Volume FindById(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null)
+        public Volume FindById(string datacenterId, string volumeId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Volume> response = FindByIdWithHttpInfo(datacenterId, volumeId, parameter, depth);
             return response.Data;
@@ -926,7 +927,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Volume</returns>
-        public ApiResponse<Volume> FindByIdWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null)
+        public ApiResponse<Volume> FindByIdWithHttpInfo(string datacenterId, string volumeId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1009,7 +1010,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Volume</returns>
-        public async System.Threading.Tasks.Task<Volume> FindByIdAsync(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Volume> FindByIdAsync(string datacenterId, string volumeId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Volume> response = await FindByIdAsyncWithHttpInfo(datacenterId, volumeId, parameter, depth);
             return response.Data;
@@ -1024,7 +1025,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Volume)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Volume>> FindByIdAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Volume>> FindByIdAsyncWithHttpInfo(string datacenterId, string volumeId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling FindById");
@@ -1105,7 +1106,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Volume</returns>
-        public Volume Update(string datacenterId, Dictionary<string, string> volumeId, Volume volume, bool? parameter = null, int? depth = null)
+        public Volume Update(string datacenterId, string volumeId, Volume volume, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Volume> response = UpdateWithHttpInfo(datacenterId, volumeId, volume, parameter, depth);
             return response.Data;
@@ -1120,7 +1121,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Volume</returns>
-        public ApiResponse<Volume> UpdateWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, Volume volume, bool? parameter = null, int? depth = null)
+        public ApiResponse<Volume> UpdateWithHttpInfo(string datacenterId, string volumeId, Volume volume, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1215,7 +1216,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Volume</returns>
-        public async System.Threading.Tasks.Task<Volume> UpdateAsync(string datacenterId, Dictionary<string, string> volumeId, Volume volume, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Volume> UpdateAsync(string datacenterId, string volumeId, Volume volume, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Volume> response = await UpdateAsyncWithHttpInfo(datacenterId, volumeId, volume, parameter, depth);
             return response.Data;
@@ -1231,7 +1232,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Volume)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Volume>> UpdateAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, Volume volume, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Volume>> UpdateAsyncWithHttpInfo(string datacenterId, string volumeId, Volume volume, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling Update");
@@ -1314,7 +1315,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>InlineResponse202</returns>
-        public InlineResponse202 Delete(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null)
+        public InlineResponse202 Delete(string datacenterId, string volumeId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = DeleteWithHttpInfo(datacenterId, volumeId, parameter, depth);
             return response.Data;
@@ -1328,7 +1329,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null)
+        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string volumeId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1411,7 +1412,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string volumeId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = await DeleteAsyncWithHttpInfo(datacenterId, volumeId, parameter, depth);
             return response.Data;
@@ -1426,7 +1427,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string volumeId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling Delete");
@@ -1507,9 +1508,10 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Volume</returns>
-        public Volume PartialUpdate(string datacenterId, Dictionary<string, string> volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null)
+        public Volume PartialUpdate(string datacenterId, string volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Volume> response = PartialUpdateWithHttpInfo(datacenterId, volumeId, volume, parameter, depth);
+            response.Data.Request = response.Headers["Location"];
             return response.Data;
         }
 
@@ -1522,7 +1524,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Volume</returns>
-        public ApiResponse<Volume> PartialUpdateWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null)
+        public ApiResponse<Volume> PartialUpdateWithHttpInfo(string datacenterId, string volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1617,7 +1619,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Volume</returns>
-        public async System.Threading.Tasks.Task<Volume> PartialUpdateAsync(string datacenterId, Dictionary<string, string> volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Volume> PartialUpdateAsync(string datacenterId, string volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Volume> response = await PartialUpdateAsyncWithHttpInfo(datacenterId, volumeId, volume, parameter, depth);
             return response.Data;
@@ -1633,7 +1635,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Volume)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Volume>> PartialUpdateAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Volume>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string volumeId, VolumeProperties volume, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling PartialUpdate");

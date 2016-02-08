@@ -166,7 +166,7 @@ namespace ProfitbricksV2.Tests
                 request = requestApi.GetStatus(sub);
                 counter++;
                 Thread.Sleep(1000);
-            } while (request.Metadata.Status != "DONE" || counter == 15);
+            } while (request.Metadata.Status != "DONE" && counter != 35);
         }
     }
 }
