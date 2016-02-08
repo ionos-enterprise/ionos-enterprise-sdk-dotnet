@@ -960,6 +960,7 @@ namespace Api
         public Server FindById(string datacenterId, string serverId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Server> response = FindByIdWithHttpInfo(datacenterId, serverId, parameter, depth);
+          
             return response.Data;
         }
 

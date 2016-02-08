@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Client;
 using Model;
 using Api;
+using System.Threading;
 
 namespace ProfitbricksV2.Tests
 {
@@ -70,8 +71,6 @@ namespace ProfitbricksV2.Tests
         public void GetServer()
         {
             Configure();
-
-
             DoWait(server.Request);
 
             var oldServer = serverApi.FindById(datacenter.Id, server.Id);
@@ -84,13 +83,12 @@ namespace ProfitbricksV2.Tests
         public void PatchServer()
         {
             Configure();
-
             DoWait(server.Request);
+
             var updated = serverApi.PartialUpdate(datacenter.Id, server.Id, new ServerProperties { Name = server.Properties.Name + " -Updated" });
 
             Assert.AreEqual(updated.Properties.Name, server.Properties.Name + " -Updated");
         }
-
 
         [TestMethod]
         public void ListServers()
@@ -103,15 +101,44 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
+        public void StopServer()
+        {
+            Configure();
+
+            var error = serverApi.Stop(datacenter.Id, server.Id);
+            Assert.IsNull(error);
+            Thread.Sleep(20000);
+
+            var counter = 0;
+            Server stoppedServer;
+
+            do {
+                stoppedServer = serverApi.FindById(datacenter.Id, server.Id);
+                Thread.Sleep(1);
+            }while(counter == 15);
+
+            Assert.AreEqual("SHUTOFF", stoppedServer.Properties.VmState);
+        }
+
+        [TestMethod]
         public void StartServer()
         {
             Configure();
 
-           var error = serverApi.Start(datacenter.Id, server.Id);
+            var error = serverApi.Start(datacenter.Id, server.Id);
             Assert.IsNull(error);
-            var stoppedServer = serverApi.FindById(datacenter.Id, server.Id);
-            
-            Assert.IsTrue(stoppedServer.Properties.VmState != "RUNNING");
+            Thread.Sleep(20000);
+
+            var counter = 0;
+            Server runningServer;
+
+            do
+            {
+                runningServer = serverApi.FindById(datacenter.Id, server.Id);
+                Thread.Sleep(1);
+            } while (counter == 15);
+
+            Assert.AreEqual("RUNNING", runningServer.Properties.VmState);
         }
 
         [TestMethod]
@@ -120,21 +147,26 @@ namespace ProfitbricksV2.Tests
             Configure();
             var response = serverApi.Delete(datacenter.Id, server.Id);
             response = dcApi.Delete(datacenter.Id);
+
             Assert.IsNull(response);
         }
 
         private void DoWait(string requestUrl)
         {
+            if (string.IsNullOrEmpty(requestUrl))
+                return;
             var requestApi = new RequestApi(configuration);
 
             var sub = server.Request.Substring(requestUrl.IndexOf("requests/") + 9, 36);
             var request = new RequestStatus();
-
+            int counter = 0;
 
             do
             {
                 request = requestApi.GetStatus(sub);
-            } while (request.Metadata.Status != "DONE");
+                counter++;
+                Thread.Sleep(1000);
+            } while (request.Metadata.Status != "DONE" || counter == 15);
         }
     }
 }
