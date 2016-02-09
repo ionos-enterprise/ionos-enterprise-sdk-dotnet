@@ -74,7 +74,7 @@ namespace  Model
         [DataMember(Name = "entities", EmitDefaultValue = false)]
         public LoadbalancerEntities Entities { get; set; }
 
-
+        public string Request { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

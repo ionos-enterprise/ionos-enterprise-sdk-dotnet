@@ -1,23 +1,24 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Client;
-using Model;
 using Api;
+using Model;
 using System.Threading;
-using System.Linq;
 
 namespace ProfitbricksV2.Tests
 {
     [TestClass]
-    public class SnapshotApiTest
+    public class NicApiTest
     {
         Configuration configuration;
         IDataCenterApi dcApi;
-        IVolumeApi volumeApi;
-        ISnapshotApi snapshotApi;
+        IServerApi serverApi;
+        INetworkInterfacesApi nicApi;
+        ILoadBalancerApi lbApi;
         static Datacenter datacenter;
-        static Volume volume;
-        static Snapshot snapshot;
+        static Server server;
+        static Nic nic;
+        static Loadbalancer lb;
 
         private void Configure()
         {
@@ -25,11 +26,14 @@ namespace ProfitbricksV2.Tests
             {
                 Username = "muhamed@stackpointcloud.com",
                 Password = "test123!",
+
             };
 
             dcApi = new DataCenterApi(configuration);
-            volumeApi = new VolumeApi(configuration);
-            snapshotApi = new SnapshotApi(configuration);
+            serverApi = new ServerApi(configuration);
+            nicApi = new NetworkInterfacesApi(configuration);
+            lbApi = new LoadBalancerApi(configuration);
+
             //Create a datacenter.
             if (datacenter == null)
             {
@@ -46,78 +50,104 @@ namespace ProfitbricksV2.Tests
                 datacenter = dcApi.Create(datacenter);
             }
 
-            if (volume == null)
+            if(server == null)
             {
-                volume = new Volume
+                server = new Server
                 {
-                    Properties = new VolumeProperties
+                    Properties = new ServerProperties
                     {
-                        Size = 1,
-                        LicenceType = "LINUX",
-                        Type = "HDD",
                         Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
+                        Cores = 1,
+                        Ram = 256
                     }
                 };
-                volume = volumeApi.Create(datacenter.Id, volume);
-                DoWait(volume.Request);
+
+                server = serverApi.Create(datacenter.Id, server);
+                DoWait(server.Request);
+            }
+
+            if (lb == null)
+            {
+                lb = new Loadbalancer
+                {
+                    Properties = new LoadbalancerProperties { Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString() }
+                };
+
+                lb = lbApi.Create(datacenter.Id, lb);
+
+                DoWait(lb.Request);
             }
         }
 
         [TestMethod]
-        public void SnapshotCreate()
-        {
+        public void NicCreate() {
             Configure();
-            var resp = volumeApi.CreateSnapshot(datacenter.Id, volume.Id, "Test Snapshot", "Snapshot Description");
+            nic = new Nic { Properties = new NicProperties { Lan = 1 } };
 
-            Assert.IsNull(resp.Messages);
+            nic = nicApi.Create(datacenter.Id, server.Id, nic);
+
+            DoWait(nic.Request);
+
+
+            bool isBusy = true;
+
+            while (isBusy == true)
+            {
+                var temp = dcApi.FindById(datacenter.Id);
+                if (temp.Metadata.State != "BUSY") isBusy = false;
+                Thread.Sleep(1500);
+            }
+
+
+            Assert.IsNotNull(nic);
         }
 
         [TestMethod]
-        public void SnapshotList()
+        public void NicGet()
         {
             Configure();
-            var list = snapshotApi.FindAll(depth: 5);
+            var newNic = nicApi.FindById(datacenter.Id, server.Id, nic.Id);
+
+            Assert.AreEqual(nic.Id, newNic.Id);
+        }
+
+        [TestMethod]
+        public void NicList()
+        {
+            Configure();
+            var list = nicApi.FindAll(datacenter.Id, server.Id);
 
             Assert.IsTrue(list.Items.Count > 0);
-            snapshot = list.Items.FirstOrDefault();
         }
 
         [TestMethod]
-        public void SnapshotGet()
+        public void NicUpdate()
         {
             Configure();
-            var snapsht = snapshotApi.FindById(snapshot.Id);
+            var updated = nicApi.PartialUpdate(datacenter.Id, server.Id, nic.Id, new NicProperties { Name = nic.Properties.Name + " -Update" });
 
-            Assert.AreEqual(snapsht.Id, snapshot.Id);
-            Assert.AreEqual(snapsht.Properties.Name, snapshot.Properties.Name);
+            Assert.AreEqual(nic.Properties.Name + " -Update", updated.Properties.Name);
         }
 
         [TestMethod]
-        public void SnapshotUpdate()
+        public void NicAssociate()
         {
             Configure();
-            var updated = snapshotApi.PartialUpdate(snapshot.Id, new SnapshotProperties { Name = snapshot.Properties.Name + " -Updated" });
+          //  lbApi.
 
-            Assert.AreEqual(updated.Properties.Name, snapshot.Properties.Name + " -Updated");
         }
 
-        [TestMethod]
-        public void RestoreSnapshot()
-        {
-            Configure();
-            var resp = volumeApi.RestoreSnapshot(datacenter.Id, snapshot.Id);
-
-            Assert.IsNull(resp);
-        }
 
         [TestMethod]
-        public void SnapshotDelete()
+        public void NicDelete()
         {
             Configure();
-            var resp = snapshotApi.Delete(snapshot.Id);
+            var resp = nicApi.Delete(datacenter.Id, server.Id, nic.Id);
+
             resp = dcApi.Delete(datacenter.Id);
             Assert.IsNull(resp);
         }
+
 
         private void DoWait(string requestUrl)
         {
@@ -134,10 +164,6 @@ namespace ProfitbricksV2.Tests
                 request = requestApi.GetStatus(sub);
                 counter++;
                 Thread.Sleep(1000);
-                if (counter == 35)
-                    break;
-                else if (request.Metadata.Status == "FAILED")
-                    throw new Exception(request.Metadata.Message);
             } while (request.Metadata.Status != "DONE" && counter != 35);
         }
 

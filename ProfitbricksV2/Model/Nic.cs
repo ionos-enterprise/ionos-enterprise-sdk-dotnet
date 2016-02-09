@@ -70,7 +70,7 @@ namespace  Model
         [DataMember(Name = "entities", EmitDefaultValue = false)]
         public NicEntities Entities { get; set; }
 
-
+        public string Request { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

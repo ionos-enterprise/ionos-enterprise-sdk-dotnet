@@ -135,7 +135,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Nic</returns>
-        Nic FindById(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null);
+        Nic FindById(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Nic
@@ -149,7 +149,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Nic</returns>
-        ApiResponse<Nic> FindByIdWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null);
+        ApiResponse<Nic> FindByIdWithHttpInfo(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Nic
@@ -163,7 +163,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Nic</returns>
-        System.Threading.Tasks.Task<Nic> FindByIdAsync(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Nic> FindByIdAsync(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Nic
@@ -177,7 +177,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Nic)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Nic>> FindByIdAsyncWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Nic>> FindByIdAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Nic
@@ -192,7 +192,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Nic</returns>
-        Nic Update(string datacenterId, string serverId, Dictionary<string, string> nicId, Nic nic, bool? parameter = null, int? depth = null);
+        Nic Update(string datacenterId, string serverId, string nicId, Nic nic, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Nic
@@ -207,7 +207,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Nic</returns>
-        ApiResponse<Nic> UpdateWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, Nic nic, bool? parameter = null, int? depth = null);
+        ApiResponse<Nic> UpdateWithHttpInfo(string datacenterId, string serverId, string nicId, Nic nic, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Nic
@@ -222,7 +222,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Nic</returns>
-        System.Threading.Tasks.Task<Nic> UpdateAsync(string datacenterId, string serverId, Dictionary<string, string> nicId, Nic nic, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Nic> UpdateAsync(string datacenterId, string serverId, string nicId, Nic nic, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Nic
@@ -237,7 +237,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Nic)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Nic>> UpdateAsyncWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, Nic nic, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Nic>> UpdateAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, Nic nic, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Nic
@@ -251,7 +251,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>InlineResponse202</returns>
-        InlineResponse202 Delete(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null);
+        InlineResponse202 Delete(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Nic
@@ -265,7 +265,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null);
+        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Nic
@@ -279,7 +279,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Nic
@@ -293,7 +293,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Nic
@@ -308,7 +308,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Nic</returns>
-        Nic PartialUpdate(string datacenterId, string serverId, Dictionary<string, string> nicId, NicProperties nic, bool? parameter = null, int? depth = null);
+        Nic PartialUpdate(string datacenterId, string serverId, string nicId, NicProperties nic, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Nic
@@ -323,7 +323,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Nic</returns>
-        ApiResponse<Nic> PartialUpdateWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, NicProperties nic, bool? parameter = null, int? depth = null);
+        ApiResponse<Nic> PartialUpdateWithHttpInfo(string datacenterId, string serverId, string nicId, NicProperties nic, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Nic
@@ -338,7 +338,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Nic</returns>
-        System.Threading.Tasks.Task<Nic> PartialUpdateAsync(string datacenterId, string serverId, Dictionary<string, string> nicId, NicProperties nic, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Nic> PartialUpdateAsync(string datacenterId, string serverId, string nicId, NicProperties nic, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Nic
@@ -353,7 +353,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Nic)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Nic>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, NicProperties nic, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Nic>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, NicProperties nic, bool? parameter = null, int? depth = null);
 
     }
 
@@ -844,7 +844,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Nic</returns>
-        public Nic FindById(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null)
+        public Nic FindById(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Nic> response = FindByIdWithHttpInfo(datacenterId, serverId, nicId, parameter, depth);
             return response.Data;
@@ -859,7 +859,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Nic</returns>
-        public ApiResponse<Nic> FindByIdWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null)
+        public ApiResponse<Nic> FindByIdWithHttpInfo(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -948,7 +948,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Nic</returns>
-        public async System.Threading.Tasks.Task<Nic> FindByIdAsync(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Nic> FindByIdAsync(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Nic> response = await FindByIdAsyncWithHttpInfo(datacenterId, serverId, nicId, parameter, depth);
             return response.Data;
@@ -964,7 +964,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Nic)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Nic>> FindByIdAsyncWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Nic>> FindByIdAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling FindById");
@@ -1049,7 +1049,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Nic</returns>
-        public Nic Update(string datacenterId, string serverId, Dictionary<string, string> nicId, Nic nic, bool? parameter = null, int? depth = null)
+        public Nic Update(string datacenterId, string serverId, string nicId, Nic nic, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Nic> response = UpdateWithHttpInfo(datacenterId, serverId, nicId, nic, parameter, depth);
             return response.Data;
@@ -1065,7 +1065,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Nic</returns>
-        public ApiResponse<Nic> UpdateWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, Nic nic, bool? parameter = null, int? depth = null)
+        public ApiResponse<Nic> UpdateWithHttpInfo(string datacenterId, string serverId, string nicId, Nic nic, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1166,7 +1166,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Nic</returns>
-        public async System.Threading.Tasks.Task<Nic> UpdateAsync(string datacenterId, string serverId, Dictionary<string, string> nicId, Nic nic, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Nic> UpdateAsync(string datacenterId, string serverId, string nicId, Nic nic, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Nic> response = await UpdateAsyncWithHttpInfo(datacenterId, serverId, nicId, nic, parameter, depth);
             return response.Data;
@@ -1183,7 +1183,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Nic)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Nic>> UpdateAsyncWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, Nic nic, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Nic>> UpdateAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, Nic nic, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling Update");
@@ -1270,7 +1270,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>InlineResponse202</returns>
-        public InlineResponse202 Delete(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null)
+        public InlineResponse202 Delete(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = DeleteWithHttpInfo(datacenterId, serverId, nicId, parameter, depth);
             return response.Data;
@@ -1285,7 +1285,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null)
+        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1374,7 +1374,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = await DeleteAsyncWithHttpInfo(datacenterId, serverId, nicId, parameter, depth);
             return response.Data;
@@ -1390,7 +1390,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling Delete");
@@ -1475,7 +1475,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Nic</returns>
-        public Nic PartialUpdate(string datacenterId, string serverId, Dictionary<string, string> nicId, NicProperties nic, bool? parameter = null, int? depth = null)
+        public Nic PartialUpdate(string datacenterId, string serverId, string nicId, NicProperties nic, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Nic> response = PartialUpdateWithHttpInfo(datacenterId, serverId, nicId, nic, parameter, depth);
             return response.Data;
@@ -1491,7 +1491,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Nic</returns>
-        public ApiResponse<Nic> PartialUpdateWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, NicProperties nic, bool? parameter = null, int? depth = null)
+        public ApiResponse<Nic> PartialUpdateWithHttpInfo(string datacenterId, string serverId, string nicId, NicProperties nic, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1592,7 +1592,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Nic</returns>
-        public async System.Threading.Tasks.Task<Nic> PartialUpdateAsync(string datacenterId, string serverId, Dictionary<string, string> nicId, NicProperties nic, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Nic> PartialUpdateAsync(string datacenterId, string serverId, string nicId, NicProperties nic, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Nic> response = await PartialUpdateAsyncWithHttpInfo(datacenterId, serverId, nicId, nic, parameter, depth);
             return response.Data;
@@ -1609,7 +1609,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Nic)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Nic>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string serverId, Dictionary<string, string> nicId, NicProperties nic, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Nic>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, NicProperties nic, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling PartialUpdate");

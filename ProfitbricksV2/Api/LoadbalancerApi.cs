@@ -126,7 +126,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Loadbalancer</returns>
-        Loadbalancer FindById(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null);
+        Loadbalancer FindById(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a loadbalancer
@@ -139,7 +139,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Loadbalancer</returns>
-        ApiResponse<Loadbalancer> FindByIdWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null);
+        ApiResponse<Loadbalancer> FindByIdWithHttpInfo(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a loadbalancer
@@ -152,7 +152,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Loadbalancer</returns>
-        System.Threading.Tasks.Task<Loadbalancer> FindByIdAsync(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Loadbalancer> FindByIdAsync(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a loadbalancer
@@ -165,7 +165,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Loadbalancer)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Loadbalancer>> FindByIdAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Loadbalancer>> FindByIdAsyncWithHttpInfo(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Loadbalancer
@@ -180,7 +180,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Loadbalancer</returns>
-        Loadbalancer Update(string datacenterId, Dictionary<string, string> loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null);
+        Loadbalancer Update(string datacenterId, string loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Loadbalancer
@@ -195,7 +195,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Loadbalancer</returns>
-        ApiResponse<Loadbalancer> UpdateWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null);
+        ApiResponse<Loadbalancer> UpdateWithHttpInfo(string datacenterId, string loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Loadbalancer
@@ -210,7 +210,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Loadbalancer</returns>
-        System.Threading.Tasks.Task<Loadbalancer> UpdateAsync(string datacenterId, Dictionary<string, string> loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Loadbalancer> UpdateAsync(string datacenterId, string loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Loadbalancer
@@ -225,7 +225,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Loadbalancer)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Loadbalancer>> UpdateAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Loadbalancer>> UpdateAsyncWithHttpInfo(string datacenterId, string loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Loadbalancer.
@@ -238,7 +238,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>InlineResponse202</returns>
-        InlineResponse202 Delete(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null);
+        InlineResponse202 Delete(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Loadbalancer.
@@ -251,7 +251,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null);
+        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Loadbalancer.
@@ -264,7 +264,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Loadbalancer.
@@ -277,7 +277,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Loadbalancer
@@ -292,7 +292,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Loadbalancer</returns>
-        Loadbalancer PartialUpdate(string datacenterId, Dictionary<string, string> loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null);
+        Loadbalancer PartialUpdate(string datacenterId, string loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Loadbalancer
@@ -307,7 +307,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Loadbalancer</returns>
-        ApiResponse<Loadbalancer> PartialUpdateWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null);
+        ApiResponse<Loadbalancer> PartialUpdateWithHttpInfo(string datacenterId, string loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Loadbalancer
@@ -322,7 +322,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Loadbalancer</returns>
-        System.Threading.Tasks.Task<Loadbalancer> PartialUpdateAsync(string datacenterId, Dictionary<string, string> loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Loadbalancer> PartialUpdateAsync(string datacenterId, string loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Loadbalancer
@@ -337,7 +337,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Loadbalancer)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Loadbalancer>> PartialUpdateAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Loadbalancer>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null);
 
     }
 
@@ -608,6 +608,7 @@ namespace  Api
         public Loadbalancer Create(string datacenterId, Loadbalancer loadbalancer, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Loadbalancer> response = CreateWithHttpInfo(datacenterId, loadbalancer, parameter, depth);
+            response.Data.Request = response.Headers["Location"];
             return response.Data;
         }
 
@@ -803,7 +804,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Loadbalancer</returns>
-        public Loadbalancer FindById(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null)
+        public Loadbalancer FindById(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Loadbalancer> response = FindByIdWithHttpInfo(datacenterId, loadbalancerId, parameter, depth);
             return response.Data;
@@ -817,7 +818,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Loadbalancer</returns>
-        public ApiResponse<Loadbalancer> FindByIdWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null)
+        public ApiResponse<Loadbalancer> FindByIdWithHttpInfo(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -900,7 +901,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Loadbalancer</returns>
-        public async System.Threading.Tasks.Task<Loadbalancer> FindByIdAsync(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Loadbalancer> FindByIdAsync(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Loadbalancer> response = await FindByIdAsyncWithHttpInfo(datacenterId, loadbalancerId, parameter, depth);
             return response.Data;
@@ -915,7 +916,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Loadbalancer)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Loadbalancer>> FindByIdAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Loadbalancer>> FindByIdAsyncWithHttpInfo(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling FindById");
@@ -997,7 +998,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Loadbalancer</returns>
-        public Loadbalancer Update(string datacenterId, Dictionary<string, string> loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null)
+        public Loadbalancer Update(string datacenterId, string loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Loadbalancer> response = UpdateWithHttpInfo(datacenterId, loadbalancerId, loadbalancer, body, parameter, depth);
             return response.Data;
@@ -1013,7 +1014,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Loadbalancer</returns>
-        public ApiResponse<Loadbalancer> UpdateWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null)
+        public ApiResponse<Loadbalancer> UpdateWithHttpInfo(string datacenterId, string loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1109,7 +1110,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Loadbalancer</returns>
-        public async System.Threading.Tasks.Task<Loadbalancer> UpdateAsync(string datacenterId, Dictionary<string, string> loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Loadbalancer> UpdateAsync(string datacenterId, string loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Loadbalancer> response = await UpdateAsyncWithHttpInfo(datacenterId, loadbalancerId, loadbalancer, body, parameter, depth);
             return response.Data;
@@ -1126,7 +1127,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Loadbalancer)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Loadbalancer>> UpdateAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Loadbalancer>> UpdateAsyncWithHttpInfo(string datacenterId, string loadbalancerId, Loadbalancer loadbalancer, Body1 body = null, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling Update");
@@ -1209,7 +1210,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>InlineResponse202</returns>
-        public InlineResponse202 Delete(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null)
+        public InlineResponse202 Delete(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = DeleteWithHttpInfo(datacenterId, loadbalancerId, parameter, depth);
             return response.Data;
@@ -1223,7 +1224,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null)
+        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1306,7 +1307,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = await DeleteAsyncWithHttpInfo(datacenterId, loadbalancerId, parameter, depth);
             return response.Data;
@@ -1321,7 +1322,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string loadbalancerId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling Delete");
@@ -1403,7 +1404,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Loadbalancer</returns>
-        public Loadbalancer PartialUpdate(string datacenterId, Dictionary<string, string> loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null)
+        public Loadbalancer PartialUpdate(string datacenterId, string loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Loadbalancer> response = PartialUpdateWithHttpInfo(datacenterId, loadbalancerId, loadbalancer, body, parameter, depth);
             return response.Data;
@@ -1419,7 +1420,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Loadbalancer</returns>
-        public ApiResponse<Loadbalancer> PartialUpdateWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null)
+        public ApiResponse<Loadbalancer> PartialUpdateWithHttpInfo(string datacenterId, string loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1515,7 +1516,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Loadbalancer</returns>
-        public async System.Threading.Tasks.Task<Loadbalancer> PartialUpdateAsync(string datacenterId, Dictionary<string, string> loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Loadbalancer> PartialUpdateAsync(string datacenterId, string loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Loadbalancer> response = await PartialUpdateAsyncWithHttpInfo(datacenterId, loadbalancerId, loadbalancer, body, parameter, depth);
             return response.Data;
@@ -1532,7 +1533,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Loadbalancer)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Loadbalancer>> PartialUpdateAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Loadbalancer>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string loadbalancerId, LoadbalancerProperties loadbalancer, Body2 body = null, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling PartialUpdate");

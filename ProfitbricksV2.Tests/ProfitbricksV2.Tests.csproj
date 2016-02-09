@@ -65,6 +65,8 @@
     <Compile Include="Properties\PexAssemblyInfo.cs" />
     <Compile Include="ServerApiTest.cs" />
     <Compile Include="SnapshotApiTest.cs" />
+    <Compile Include="LoadbalancerApiTest.cs" />
+    <Compile Include="NicApiTest.cs" />
     <Compile Include="VolumeApiTest.cs" />
   </ItemGroup>
   <Choose>
