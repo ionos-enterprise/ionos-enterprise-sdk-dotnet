@@ -81,6 +81,7 @@ namespace ProfitbricksV2.Tests
                     Image = imageId,
                     Type = "HDD",
                     Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
+                    SshKeys = new System.Collections.Generic.List<string> { "hQGOEJeFL91EG3+l9TtRbWNjzhDVHeLuL3NWee6bekA=" }
                 }
             };
             volume = volumeApi.Create(datacenter.Id, volume);

@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -166,7 +167,8 @@ namespace  Model
         [DataMember(Name = "deviceNumber", EmitDefaultValue = false)]
         public long? DeviceNumber { get; set; }
 
-
+        [DataMember(Name = "sshKeys", EmitDefaultValue = false)]
+        public System.Collections.Generic.List<string> SshKeys { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
