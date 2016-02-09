@@ -73,6 +73,7 @@ namespace  Model
         /// <value>Attached children and references. May be included in create calls. Disallowed in update calls</value>
         [DataMember(Name = "entities", EmitDefaultValue = false)]
         public LanEntities Entities { get; set; }
+        public string Request { get; internal set; }
 
 
 

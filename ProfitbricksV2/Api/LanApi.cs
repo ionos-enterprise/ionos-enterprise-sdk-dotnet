@@ -126,7 +126,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Lan</returns>
-        Lan FindById(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null);
+        Lan FindById(string datacenterId, string lanId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Lan
@@ -139,7 +139,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Lan</returns>
-        ApiResponse<Lan> FindByIdWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null);
+        ApiResponse<Lan> FindByIdWithHttpInfo(string datacenterId, string lanId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Lan
@@ -152,7 +152,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Lan</returns>
-        System.Threading.Tasks.Task<Lan> FindByIdAsync(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Lan> FindByIdAsync(string datacenterId, string lanId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Lan
@@ -165,7 +165,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Lan)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Lan>> FindByIdAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Lan>> FindByIdAsyncWithHttpInfo(string datacenterId, string lanId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Lan
@@ -179,7 +179,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Lan</returns>
-        Lan Update(string datacenterId, Dictionary<string, string> lanId, Lan lan, bool? parameter = null, int? depth = null);
+        Lan Update(string datacenterId, string lanId, Lan lan, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Lan
@@ -193,7 +193,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Lan</returns>
-        ApiResponse<Lan> UpdateWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, Lan lan, bool? parameter = null, int? depth = null);
+        ApiResponse<Lan> UpdateWithHttpInfo(string datacenterId, string lanId, Lan lan, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Lan
@@ -207,7 +207,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Lan</returns>
-        System.Threading.Tasks.Task<Lan> UpdateAsync(string datacenterId, Dictionary<string, string> lanId, Lan lan, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Lan> UpdateAsync(string datacenterId, string lanId, Lan lan, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Lan
@@ -221,7 +221,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Lan)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Lan>> UpdateAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, Lan lan, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Lan>> UpdateAsyncWithHttpInfo(string datacenterId, string lanId, Lan lan, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Lan.
@@ -234,7 +234,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>InlineResponse202</returns>
-        InlineResponse202 Delete(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null);
+        InlineResponse202 Delete(string datacenterId, string lanId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Lan.
@@ -247,7 +247,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null);
+        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string lanId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Lan.
@@ -260,7 +260,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string lanId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Lan.
@@ -273,7 +273,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string lanId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Lan
@@ -287,7 +287,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Lan</returns>
-        Lan PartialUpdate(string datacenterId, Dictionary<string, string> lanId, LanProperties lan, bool? parameter = null, int? depth = null);
+        Lan PartialUpdate(string datacenterId, string lanId, LanProperties lan, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Lan
@@ -301,7 +301,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Lan</returns>
-        ApiResponse<Lan> PartialUpdateWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, LanProperties lan, bool? parameter = null, int? depth = null);
+        ApiResponse<Lan> PartialUpdateWithHttpInfo(string datacenterId, string lanId, LanProperties lan, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Lan
@@ -315,7 +315,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Lan</returns>
-        System.Threading.Tasks.Task<Lan> PartialUpdateAsync(string datacenterId, Dictionary<string, string> lanId, LanProperties lan, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Lan> PartialUpdateAsync(string datacenterId, string lanId, LanProperties lan, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Lan
@@ -329,7 +329,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Lan)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Lan>> PartialUpdateAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, LanProperties lan, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Lan>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string lanId, LanProperties lan, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// List Lan Members
@@ -764,6 +764,7 @@ namespace  Api
         public Lan Create(string datacenterId, Lan lan, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Lan> response = CreateWithHttpInfo(datacenterId, lan, parameter, depth);
+            response.Data.Request = response.Headers["Location"];
             return response.Data;
         }
 
@@ -959,7 +960,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Lan</returns>
-        public Lan FindById(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null)
+        public Lan FindById(string datacenterId, string lanId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Lan> response = FindByIdWithHttpInfo(datacenterId, lanId, parameter, depth);
             return response.Data;
@@ -973,7 +974,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Lan</returns>
-        public ApiResponse<Lan> FindByIdWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null)
+        public ApiResponse<Lan> FindByIdWithHttpInfo(string datacenterId, string lanId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1056,7 +1057,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Lan</returns>
-        public async System.Threading.Tasks.Task<Lan> FindByIdAsync(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Lan> FindByIdAsync(string datacenterId, string lanId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Lan> response = await FindByIdAsyncWithHttpInfo(datacenterId, lanId, parameter, depth);
             return response.Data;
@@ -1071,7 +1072,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Lan)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Lan>> FindByIdAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Lan>> FindByIdAsyncWithHttpInfo(string datacenterId, string lanId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling FindById");
@@ -1152,7 +1153,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Lan</returns>
-        public Lan Update(string datacenterId, Dictionary<string, string> lanId, Lan lan, bool? parameter = null, int? depth = null)
+        public Lan Update(string datacenterId, string lanId, Lan lan, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Lan> response = UpdateWithHttpInfo(datacenterId, lanId, lan, parameter, depth);
             return response.Data;
@@ -1167,7 +1168,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Lan</returns>
-        public ApiResponse<Lan> UpdateWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, Lan lan, bool? parameter = null, int? depth = null)
+        public ApiResponse<Lan> UpdateWithHttpInfo(string datacenterId, string lanId, Lan lan, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1262,7 +1263,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Lan</returns>
-        public async System.Threading.Tasks.Task<Lan> UpdateAsync(string datacenterId, Dictionary<string, string> lanId, Lan lan, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Lan> UpdateAsync(string datacenterId, string lanId, Lan lan, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Lan> response = await UpdateAsyncWithHttpInfo(datacenterId, lanId, lan, parameter, depth);
             return response.Data;
@@ -1278,7 +1279,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Lan)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Lan>> UpdateAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, Lan lan, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Lan>> UpdateAsyncWithHttpInfo(string datacenterId, string lanId, Lan lan, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling Update");
@@ -1361,7 +1362,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>InlineResponse202</returns>
-        public InlineResponse202 Delete(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null)
+        public InlineResponse202 Delete(string datacenterId, string lanId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = DeleteWithHttpInfo(datacenterId, lanId, parameter, depth);
             return response.Data;
@@ -1375,7 +1376,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null)
+        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string lanId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1458,7 +1459,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string lanId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = await DeleteAsyncWithHttpInfo(datacenterId, lanId, parameter, depth);
             return response.Data;
@@ -1473,7 +1474,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string lanId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling Delete");
@@ -1554,7 +1555,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Lan</returns>
-        public Lan PartialUpdate(string datacenterId, Dictionary<string, string> lanId, LanProperties lan, bool? parameter = null, int? depth = null)
+        public Lan PartialUpdate(string datacenterId, string lanId, LanProperties lan, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Lan> response = PartialUpdateWithHttpInfo(datacenterId, lanId, lan, parameter, depth);
             return response.Data;
@@ -1569,7 +1570,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Lan</returns>
-        public ApiResponse<Lan> PartialUpdateWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, LanProperties lan, bool? parameter = null, int? depth = null)
+        public ApiResponse<Lan> PartialUpdateWithHttpInfo(string datacenterId, string lanId, LanProperties lan, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1664,7 +1665,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Lan</returns>
-        public async System.Threading.Tasks.Task<Lan> PartialUpdateAsync(string datacenterId, Dictionary<string, string> lanId, LanProperties lan, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Lan> PartialUpdateAsync(string datacenterId, string lanId, LanProperties lan, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Lan> response = await PartialUpdateAsyncWithHttpInfo(datacenterId, lanId, lan, parameter, depth);
             return response.Data;
@@ -1680,7 +1681,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Lan)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Lan>> PartialUpdateAsyncWithHttpInfo(string datacenterId, Dictionary<string, string> lanId, LanProperties lan, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Lan>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string lanId, LanProperties lan, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling PartialUpdate");

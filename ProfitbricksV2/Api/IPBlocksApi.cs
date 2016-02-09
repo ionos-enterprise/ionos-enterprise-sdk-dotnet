@@ -117,7 +117,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>IpBlock</returns>
-        IpBlock FindById(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null);
+        IpBlock FindById(string ipblockId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve an IP Block
@@ -129,7 +129,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of IpBlock</returns>
-        ApiResponse<IpBlock> FindByIdWithHttpInfo(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null);
+        ApiResponse<IpBlock> FindByIdWithHttpInfo(string ipblockId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve an IP Block
@@ -141,7 +141,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of IpBlock</returns>
-        System.Threading.Tasks.Task<IpBlock> FindByIdAsync(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<IpBlock> FindByIdAsync(string ipblockId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve an IP Block
@@ -153,7 +153,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (IpBlock)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IpBlock>> FindByIdAsyncWithHttpInfo(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<IpBlock>> FindByIdAsyncWithHttpInfo(string ipblockId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete IP Block
@@ -165,7 +165,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>InlineResponse202</returns>
-        InlineResponse202 Delete(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null);
+        InlineResponse202 Delete(string ipblockId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete IP Block
@@ -177,7 +177,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> DeleteWithHttpInfo(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null);
+        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string ipblockId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete IP Block
@@ -189,7 +189,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string ipblockId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete IP Block
@@ -201,7 +201,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string ipblockId, bool? parameter = null, int? depth = null);
 
     }
 
@@ -459,6 +459,7 @@ namespace  Api
         public IpBlock Create(IpBlock ipblock, bool? parameter = null, int? depth = null)
         {
             ApiResponse<IpBlock> response = CreateWithHttpInfo(ipblock, parameter, depth);
+            response.Data.Request = response.Headers["Location"];
             return response.Data;
         }
 
@@ -642,7 +643,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>IpBlock</returns>
-        public IpBlock FindById(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null)
+        public IpBlock FindById(string ipblockId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<IpBlock> response = FindByIdWithHttpInfo(ipblockId, parameter, depth);
             return response.Data;
@@ -655,7 +656,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of IpBlock</returns>
-        public ApiResponse<IpBlock> FindByIdWithHttpInfo(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null)
+        public ApiResponse<IpBlock> FindByIdWithHttpInfo(string ipblockId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'ipblockId' is set
@@ -732,7 +733,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of IpBlock</returns>
-        public async System.Threading.Tasks.Task<IpBlock> FindByIdAsync(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<IpBlock> FindByIdAsync(string ipblockId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<IpBlock> response = await FindByIdAsyncWithHttpInfo(ipblockId, parameter, depth);
             return response.Data;
@@ -746,7 +747,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (IpBlock)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IpBlock>> FindByIdAsyncWithHttpInfo(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<IpBlock>> FindByIdAsyncWithHttpInfo(string ipblockId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'ipblockId' is set
             if (ipblockId == null) throw new ApiException(400, "Missing required parameter 'ipblockId' when calling FindById");
@@ -822,7 +823,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>InlineResponse202</returns>
-        public InlineResponse202 Delete(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null)
+        public InlineResponse202 Delete(string ipblockId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = DeleteWithHttpInfo(ipblockId, parameter, depth);
             return response.Data;
@@ -835,7 +836,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null)
+        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string ipblockId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'ipblockId' is set
@@ -912,7 +913,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string ipblockId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = await DeleteAsyncWithHttpInfo(ipblockId, parameter, depth);
             return response.Data;
@@ -926,7 +927,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(Dictionary<string, string> ipblockId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string ipblockId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'ipblockId' is set
             if (ipblockId == null) throw new ApiException(400, "Missing required parameter 'ipblockId' when calling Delete");

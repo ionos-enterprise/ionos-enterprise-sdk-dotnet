@@ -69,6 +69,8 @@
     <Compile Include="NicApiTest.cs" />
     <Compile Include="FirewallRuleApiTest.cs" />
     <Compile Include="ImageApiTest.cs" />
+    <Compile Include="IPBlocksApiTest.cs" />
+    <Compile Include="LanApiTest.cs" />
     <Compile Include="VolumeApiTest.cs" />
   </ItemGroup>
   <Choose>
