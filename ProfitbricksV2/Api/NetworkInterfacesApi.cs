@@ -15,6 +15,10 @@ namespace  Api
     public interface INetworkInterfacesApi
     {
 
+        Nic AttachNic(string datacenterId, string serverId, Nic nic);
+
+        string DetachNic(string datacenterId, string loadbalancerId, string nicId);
+
         /// <summary>
         /// List Nics
         /// </summary>
@@ -623,6 +627,97 @@ namespace  Api
                 response.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Nics)Configuration.ApiClient.Deserialize(response, typeof(Nics)));
 
+        }
+
+        public Nic AttachNic(string datacenterId, string serverId, Nic nic)
+        {
+            ApiResponse<Nic> response = AttachNicWithHttpInfo(datacenterId, serverId, nic);
+            response.Data.Request = response.Headers["Location"];
+            return response.Data;
+        }
+
+        public ApiResponse<Nic> AttachNicWithHttpInfo(string datacenterId, string loadbalancerId, Nic nic, bool? parameter = null, int? depth = null)
+        {
+            // verify the required parameter 'datacenterId' is set
+            if (datacenterId == null)
+                throw new ApiException(400, "Missing required parameter 'datacenterId' when calling AttachedVolumesApi->AttachVolume");
+
+            // verify the required parameter 'serverId' is set
+            if (loadbalancerId == null)
+                throw new ApiException(400, "Missing required parameter 'serverId' when calling AttachedVolumesApi->AttachVolume");
+
+            // verify the required parameter 'volume' is set
+            if (nic == null)
+                throw new ApiException(400, "Missing required parameter 'volume' when calling AttachedVolumesApi->AttachVolume");
+
+
+            var path_ = "/datacenters/{datacenterId}/loadbalancers/{loadbalancerId}/balancednics";
+
+            var pathParams = new Dictionary<String, String>();
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            Object postBody = null;
+
+            // to determine the Content-Type header
+            String[] httpContentTypes = new String[] {
+                "application/json", "application/vnd.profitbricks.resource+json"
+            };
+            String httpContentType = Configuration.ApiClient.SelectHeaderContentType(httpContentTypes);
+
+            // to determine the Accept header
+            String[] httpHeaderAccepts = new String[] {
+                "application/vnd.profitbricks.resource+json"
+            };
+            String httpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(httpHeaderAccepts);
+            if (httpHeaderAccept != null)
+                headerParams.Add("Accept", httpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            pathParams.Add("format", "json");
+            if (datacenterId != null) pathParams.Add("datacenterId", Configuration.ApiClient.ParameterToString(datacenterId)); // path parameter
+            if (loadbalancerId != null) pathParams.Add("loadbalancerId", Configuration.ApiClient.ParameterToString(loadbalancerId)); // path parameter
+
+            if (parameter != null) queryParams.Add("parameter", Configuration.ApiClient.ParameterToString(parameter)); // query parameter
+            if (depth != null) queryParams.Add("depth", Configuration.ApiClient.ParameterToString(depth)); // query parameter
+
+
+
+            if (nic.GetType() != typeof(byte[]))
+            {
+                postBody = Configuration.ApiClient.Serialize(nic); // http body (model) parameter
+            }
+            else
+            {
+                postBody = nic; // byte array
+            }
+
+            // authentication (basicAuth) required
+
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
+            {
+                headerParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
+            }
+
+
+            // make the HTTP request
+            IRestResponse response = (IRestResponse)Configuration.ApiClient.CallApi(path_,
+                Method.POST, queryParams, postBody, headerParams, formParams, fileParams,
+                pathParams, httpContentType);
+
+            int statusCode = (int)response.StatusCode;
+
+            if (statusCode >= 400)
+                throw new ApiException(statusCode, "Error calling AttachNic: " + response.Content, response.Content);
+            else if (statusCode == 0)
+                throw new ApiException(statusCode, "Error calling AttachNic: " + response.ErrorMessage, response.ErrorMessage);
+
+            return new ApiResponse<Nic>(statusCode,
+                response.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Nic)Configuration.ApiClient.Deserialize(response, typeof(Nic)));
         }
 
         /// <summary>
@@ -1687,6 +1782,82 @@ namespace  Api
 
         }
 
+        public string DetachNic(string datacenterId, string loadbalancerId, string nicId)
+        {
+            ApiResponse<InlineResponse202> response = DetachNicWithHttpInfo(datacenterId, loadbalancerId, nicId);
+            return response.Headers["Location"];
+        }
+
+        private ApiResponse<InlineResponse202> DetachNicWithHttpInfo(string datacenterId, string loadbalancerId, string nicId)
+        {
+            // verify the required parameter 'datacenterId' is set
+            if (datacenterId == null)
+                throw new ApiException(400, "Missing required parameter 'datacenterId' when calling NetworkInterfacesApi->Delete");
+
+            // verify the required parameter 'serverId' is set
+            if (loadbalancerId == null)
+                throw new ApiException(400, "Missing required parameter 'serverId' when calling NetworkInterfacesApi->Delete");
+
+            // verify the required parameter 'nicId' is set
+            if (nicId == null)
+                throw new ApiException(400, "Missing required parameter 'nicId' when calling NetworkInterfacesApi->Delete");
+
+
+            var path_ = "/datacenters/{datacenterId}/loadbalancers/{loadbalancerId}/balancednics/{nicId}";
+
+            var pathParams = new Dictionary<String, String>();
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            Object postBody = null;
+
+            // to determine the Content-Type header
+            String[] httpContentTypes = new String[] {
+                "*/*"
+            };
+            String httpContentType = Configuration.ApiClient.SelectHeaderContentType(httpContentTypes);
+
+            // to determine the Accept header
+            String[] httpHeaderAccepts = new String[] {
+                "application/vnd.profitbricks.resource+json"
+            };
+            String httpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(httpHeaderAccepts);
+            if (httpHeaderAccept != null)
+                headerParams.Add("Accept", httpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            pathParams.Add("format", "json");
+            if (datacenterId != null) pathParams.Add("datacenterId", Configuration.ApiClient.ParameterToString(datacenterId)); // path parameter
+            if (loadbalancerId != null) pathParams.Add("loadbalancerId", Configuration.ApiClient.ParameterToString(loadbalancerId)); // path parameter
+            if (nicId != null) pathParams.Add("nicId", Configuration.ApiClient.ParameterToString(nicId)); // path parameter
+            
+            // authentication (basicAuth) required
+
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
+            {
+                headerParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
+            }
+
+
+            // make the HTTP request
+            IRestResponse response = (IRestResponse)Configuration.ApiClient.CallApi(path_,
+                Method.DELETE, queryParams, postBody, headerParams, formParams, fileParams,
+                pathParams, httpContentType);
+
+            int statusCode = (int)response.StatusCode;
+
+            if (statusCode >= 400)
+                throw new ApiException(statusCode, "Error calling Delete: " + response.Content, response.Content);
+            else if (statusCode == 0)
+                throw new ApiException(statusCode, "Error calling Delete: " + response.ErrorMessage, response.ErrorMessage);
+
+            return new ApiResponse<InlineResponse202>(statusCode,
+                response.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse202)Configuration.ApiClient.Deserialize(response, typeof(InlineResponse202)));
+        }
     }
 
 }

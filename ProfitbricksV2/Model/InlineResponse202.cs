@@ -22,7 +22,7 @@ namespace  Model
 
         }
 
-
+        public string Request { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

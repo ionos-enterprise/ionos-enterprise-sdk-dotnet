@@ -95,7 +95,7 @@ namespace ProfitbricksV2.Tests
             {
                 var temp = dcApi.FindById(datacenter.Id);
                 if (temp.Metadata.State != "BUSY") isBusy = false;
-                Thread.Sleep(1500);
+                Thread.Sleep(5000);
             }
 
 
@@ -130,13 +130,45 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
-        public void NicAssociate()
+        public void NicAttach()
         {
             Configure();
-          //  lbApi.
+            var attachedNic = nicApi.AttachNic(datacenter.Id, lb.Id, new Nic { Id = nic.Id });
+            DoWait(attachedNic.Request);
 
+            Assert.IsNotNull(attachedNic);
         }
 
+        [TestMethod]
+        public void BalancedNicList()
+        {
+            Configure();
+            var balancedNics = lbApi.FindAll(datacenter.Id, lb.Id, 5);
+
+            Assert.IsTrue(balancedNics.Items.Count > 0);
+        }
+
+        [TestMethod]
+        public void BalancedNicGet()
+        {
+            Configure();
+            var balancedNic = lbApi.FindById(datacenter.Id, lb.Id, nic.Id, 5);
+
+            Assert.AreEqual(nic.Id, balancedNic.Id);
+        }
+
+        [TestMethod]
+        public void NicDetach()
+        {
+            Configure();
+            var resp = nicApi.DetachNic(datacenter.Id, lb.Id, nic.Id);
+
+            DoWait(resp);
+
+            var balancedNics = lbApi.FindAll(datacenter.Id, lb.Id, 5);
+
+            Assert.IsTrue(balancedNics.Items.Count == 0);
+        }
 
         [TestMethod]
         public void NicDelete()

@@ -27,6 +27,10 @@ namespace  Api
         /// <returns>Loadbalancers</returns>
         Loadbalancers FindAll(string datacenterId, bool? parameter = null, int? depth = null);
 
+        BalancedNics FindAll(string datacenterId, string loadbalancerId, int? depth = null);
+
+        Nic FindById(string datacenterId, string loadbalancerId, string nicId, int? depth = null);
+
         /// <summary>
         /// List Load Balancers
         /// </summary>
@@ -428,6 +432,157 @@ namespace  Api
         {
             ApiResponse<Loadbalancers> response = FindAllWithHttpInfo(datacenterId, parameter, depth);
             return response.Data;
+        }
+
+        public BalancedNics FindAll(string datacenterId, string loadbalancerId, int? depth = null)
+        {
+            ApiResponse<BalancedNics> response = FindBalancedAllWithHttpInfo(datacenterId, loadbalancerId,  depth);
+            return response.Data;
+
+        }
+
+        public Nic FindById(string datacenterId, string loadbalancerId, string nicId,int? depth = null)
+        {
+            ApiResponse<Nic> response = FindBalancedByIdWithHttpInfo(datacenterId, loadbalancerId,nicId, depth);
+            return response.Data;
+
+        }
+
+        public ApiResponse<BalancedNics> FindBalancedAllWithHttpInfo(string datacenterId, string loadbalancerId, int? depth = null)
+        {
+
+            // verify the required parameter 'datacenterId' is set
+            if (datacenterId == null)
+                throw new ApiException(400, "Missing required parameter 'datacenterId' when calling LoadBalancerApi->FindAll");
+
+            if (loadbalancerId == null)
+                throw new ApiException(400, "Missing required parameter 'loadbalancerId' when calling LoadBalancerApi->FindBalancedAll");
+
+
+            var path_ = "/datacenters/{datacenterId}/loadbalancers/{loadbalancerId}/balancednics";
+
+            var pathParams = new Dictionary<String, String>();
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            Object postBody = null;
+
+            // to determine the Content-Type header
+            String[] httpContentTypes = new String[] {
+                "*/*"
+            };
+            String httpContentType = Configuration.ApiClient.SelectHeaderContentType(httpContentTypes);
+
+            // to determine the Accept header
+            String[] httpHeaderAccepts = new String[] {
+                "application/vnd.profitbricks.collection+json"
+            };
+            String httpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(httpHeaderAccepts);
+            if (httpHeaderAccept != null)
+                headerParams.Add("Accept", httpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            pathParams.Add("format", "json");
+            if (datacenterId != null) pathParams.Add("datacenterId", Configuration.ApiClient.ParameterToString(datacenterId)); // path parameter
+            if (loadbalancerId != null) pathParams.Add("loadbalancerId", Configuration.ApiClient.ParameterToString(loadbalancerId)); // path parameter
+
+            if (depth != null) queryParams.Add("depth", Configuration.ApiClient.ParameterToString(depth)); // query parameter
+
+            // authentication (basicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
+            {
+                headerParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
+            }
+
+
+            // make the HTTP request
+            IRestResponse response = (IRestResponse)Configuration.ApiClient.CallApi(path_,
+                Method.GET, queryParams, postBody, headerParams, formParams, fileParams,
+                pathParams, httpContentType);
+
+            int statusCode = (int)response.StatusCode;
+
+            if (statusCode >= 400)
+                throw new ApiException(statusCode, "Error calling FindAll: " + response.Content, response.Content);
+            else if (statusCode == 0)
+                throw new ApiException(statusCode, "Error calling FindAll: " + response.ErrorMessage, response.ErrorMessage);
+
+            return new ApiResponse<BalancedNics>(statusCode,
+                response.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (BalancedNics)Configuration.ApiClient.Deserialize(response, typeof(BalancedNics)));
+        }
+
+        public ApiResponse<Nic> FindBalancedByIdWithHttpInfo(string datacenterId, string loadbalancerId,string nicId, int? depth = null)
+        {
+
+            // verify the required parameter 'datacenterId' is set
+            if (datacenterId == null)
+                throw new ApiException(400, "Missing required parameter 'datacenterId' when calling LoadBalancerApi->FindById");
+
+            if (nicId == null)
+                throw new ApiException(400, "Missing required parameter 'nicId' when calling LoadBalancerApi->FindById");
+
+            if (loadbalancerId == null)
+                throw new ApiException(400, "Missing required parameter 'loadbalancerId' when calling LoadBalancerApi->FindById");
+
+            var path_ = "/datacenters/{datacenterId}/loadbalancers/{loadbalancerId}/balancednics/{nicId}";
+
+            var pathParams = new Dictionary<String, String>();
+            var queryParams = new Dictionary<String, String>();
+            var headerParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var formParams = new Dictionary<String, String>();
+            var fileParams = new Dictionary<String, FileParameter>();
+            Object postBody = null;
+
+            // to determine the Content-Type header
+            String[] httpContentTypes = new String[] {
+                "*/*"
+            };
+            String httpContentType = Configuration.ApiClient.SelectHeaderContentType(httpContentTypes);
+
+            // to determine the Accept header
+            String[] httpHeaderAccepts = new String[] {
+                "application/vnd.profitbricks.resource+json"
+            };
+            String httpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(httpHeaderAccepts);
+            if (httpHeaderAccept != null)
+                headerParams.Add("Accept", httpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            pathParams.Add("format", "json");
+            if (datacenterId != null) pathParams.Add("datacenterId", Configuration.ApiClient.ParameterToString(datacenterId)); // path parameter
+            if (loadbalancerId != null) pathParams.Add("loadbalancerId", Configuration.ApiClient.ParameterToString(loadbalancerId)); // path parameter
+            if (nicId != null) pathParams.Add("nicId", Configuration.ApiClient.ParameterToString(nicId)); // path parameter
+
+            if (depth != null) queryParams.Add("depth", Configuration.ApiClient.ParameterToString(depth)); // query parameter
+
+            // authentication (basicAuth) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(Configuration.Username) || !String.IsNullOrEmpty(Configuration.Password))
+            {
+                headerParams["Authorization"] = "Basic " + ApiClient.Base64Encode(Configuration.Username + ":" + Configuration.Password);
+            }
+
+
+            // make the HTTP request
+            IRestResponse response = (IRestResponse)Configuration.ApiClient.CallApi(path_,
+                Method.GET, queryParams, postBody, headerParams, formParams, fileParams,
+                pathParams, httpContentType);
+
+            int statusCode = (int)response.StatusCode;
+
+            if (statusCode >= 400)
+                throw new ApiException(statusCode, "Error calling FindAll: " + response.Content, response.Content);
+            else if (statusCode == 0)
+                throw new ApiException(statusCode, "Error calling FindAll: " + response.ErrorMessage, response.ErrorMessage);
+
+            return new ApiResponse<Nic>(statusCode,
+                response.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Nic)Configuration.ApiClient.Deserialize(response, typeof(Nic)));
         }
 
         /// <summary>
