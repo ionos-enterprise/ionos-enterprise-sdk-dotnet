@@ -69,7 +69,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Image</returns>
-        Image FindById(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null);
+        Image FindById(string imageId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve an Image
@@ -81,7 +81,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Image</returns>
-        ApiResponse<Image> FindByIdWithHttpInfo(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null);
+        ApiResponse<Image> FindByIdWithHttpInfo(string imageId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve an Image
@@ -93,7 +93,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Image</returns>
-        System.Threading.Tasks.Task<Image> FindByIdAsync(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Image> FindByIdAsync(string imageId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve an Image
@@ -105,7 +105,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Image)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Image>> FindByIdAsyncWithHttpInfo(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Image>> FindByIdAsyncWithHttpInfo(string imageId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify an Image
@@ -118,7 +118,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Image</returns>
-        Image Update(Dictionary<string, string> imageId, Image image, bool? parameter = null, int? depth = null);
+        Image Update(string imageId, Image image, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify an Image
@@ -131,7 +131,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Image</returns>
-        ApiResponse<Image> UpdateWithHttpInfo(Dictionary<string, string> imageId, Image image, bool? parameter = null, int? depth = null);
+        ApiResponse<Image> UpdateWithHttpInfo(string imageId, Image image, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify an Image
@@ -144,7 +144,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Image</returns>
-        System.Threading.Tasks.Task<Image> UpdateAsync(Dictionary<string, string> imageId, Image image, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Image> UpdateAsync(string imageId, Image image, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify an Image
@@ -157,7 +157,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Image)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Image>> UpdateAsyncWithHttpInfo(Dictionary<string, string> imageId, Image image, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Image>> UpdateAsyncWithHttpInfo(string imageId, Image image, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete an Image
@@ -169,7 +169,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>InlineResponse202</returns>
-        InlineResponse202 Delete(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null);
+        InlineResponse202 Delete(string imageId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete an Image
@@ -181,7 +181,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> DeleteWithHttpInfo(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null);
+        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string imageId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete an Image
@@ -193,7 +193,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string imageId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete an Image
@@ -205,7 +205,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string imageId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify an Image
@@ -218,7 +218,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Image</returns>
-        Image PartialUpdate(Dictionary<string, string> imageId, ImageProperties image, bool? parameter = null, int? depth = null);
+        Image PartialUpdate(string imageId, ImageProperties image, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify an Image
@@ -231,7 +231,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Image</returns>
-        ApiResponse<Image> PartialUpdateWithHttpInfo(Dictionary<string, string> imageId, ImageProperties image, bool? parameter = null, int? depth = null);
+        ApiResponse<Image> PartialUpdateWithHttpInfo(string imageId, ImageProperties image, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify an Image
@@ -244,7 +244,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Image</returns>
-        System.Threading.Tasks.Task<Image> PartialUpdateAsync(Dictionary<string, string> imageId, ImageProperties image, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Image> PartialUpdateAsync(string imageId, ImageProperties image, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify an Image
@@ -257,7 +257,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Image)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Image>> PartialUpdateAsyncWithHttpInfo(Dictionary<string, string> imageId, ImageProperties image, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Image>> PartialUpdateAsyncWithHttpInfo(string imageId, ImageProperties image, bool? parameter = null, int? depth = null);
 
     }
 
@@ -512,7 +512,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Image</returns>
-        public Image FindById(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null)
+        public Image FindById(string imageId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Image> response = FindByIdWithHttpInfo(imageId, parameter, depth);
             return response.Data;
@@ -525,7 +525,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Image</returns>
-        public ApiResponse<Image> FindByIdWithHttpInfo(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null)
+        public ApiResponse<Image> FindByIdWithHttpInfo(string imageId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'imageId' is set
@@ -602,7 +602,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Image</returns>
-        public async System.Threading.Tasks.Task<Image> FindByIdAsync(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Image> FindByIdAsync(string imageId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Image> response = await FindByIdAsyncWithHttpInfo(imageId, parameter, depth);
             return response.Data;
@@ -616,7 +616,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Image)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Image>> FindByIdAsyncWithHttpInfo(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Image>> FindByIdAsyncWithHttpInfo(string imageId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'imageId' is set
             if (imageId == null) throw new ApiException(400, "Missing required parameter 'imageId' when calling FindById");
@@ -693,7 +693,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Image</returns>
-        public Image Update(Dictionary<string, string> imageId, Image image, bool? parameter = null, int? depth = null)
+        public Image Update(string imageId, Image image, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Image> response = UpdateWithHttpInfo(imageId, image, parameter, depth);
             return response.Data;
@@ -707,7 +707,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Image</returns>
-        public ApiResponse<Image> UpdateWithHttpInfo(Dictionary<string, string> imageId, Image image, bool? parameter = null, int? depth = null)
+        public ApiResponse<Image> UpdateWithHttpInfo(string imageId, Image image, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'imageId' is set
@@ -796,7 +796,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Image</returns>
-        public async System.Threading.Tasks.Task<Image> UpdateAsync(Dictionary<string, string> imageId, Image image, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Image> UpdateAsync(string imageId, Image image, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Image> response = await UpdateAsyncWithHttpInfo(imageId, image, parameter, depth);
             return response.Data;
@@ -811,7 +811,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Image)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Image>> UpdateAsyncWithHttpInfo(Dictionary<string, string> imageId, Image image, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Image>> UpdateAsyncWithHttpInfo(string imageId, Image image, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'imageId' is set
             if (imageId == null) throw new ApiException(400, "Missing required parameter 'imageId' when calling Update");
@@ -890,7 +890,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>InlineResponse202</returns>
-        public InlineResponse202 Delete(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null)
+        public InlineResponse202 Delete(string imageId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = DeleteWithHttpInfo(imageId, parameter, depth);
             return response.Data;
@@ -903,7 +903,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null)
+        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string imageId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'imageId' is set
@@ -980,7 +980,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string imageId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = await DeleteAsyncWithHttpInfo(imageId, parameter, depth);
             return response.Data;
@@ -994,7 +994,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(Dictionary<string, string> imageId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string imageId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'imageId' is set
             if (imageId == null) throw new ApiException(400, "Missing required parameter 'imageId' when calling Delete");
@@ -1071,7 +1071,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Image</returns>
-        public Image PartialUpdate(Dictionary<string, string> imageId, ImageProperties image, bool? parameter = null, int? depth = null)
+        public Image PartialUpdate(string imageId, ImageProperties image, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Image> response = PartialUpdateWithHttpInfo(imageId, image, parameter, depth);
             return response.Data;
@@ -1085,7 +1085,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Image</returns>
-        public ApiResponse<Image> PartialUpdateWithHttpInfo(Dictionary<string, string> imageId, ImageProperties image, bool? parameter = null, int? depth = null)
+        public ApiResponse<Image> PartialUpdateWithHttpInfo(string imageId, ImageProperties image, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'imageId' is set
@@ -1174,7 +1174,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Image</returns>
-        public async System.Threading.Tasks.Task<Image> PartialUpdateAsync(Dictionary<string, string> imageId, ImageProperties image, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Image> PartialUpdateAsync(string imageId, ImageProperties image, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Image> response = await PartialUpdateAsyncWithHttpInfo(imageId, image, parameter, depth);
             return response.Data;
@@ -1189,7 +1189,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Image)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Image>> PartialUpdateAsyncWithHttpInfo(Dictionary<string, string> imageId, ImageProperties image, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Image>> PartialUpdateAsyncWithHttpInfo(string imageId, ImageProperties image, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'imageId' is set
             if (imageId == null) throw new ApiException(400, "Missing required parameter 'imageId' when calling PartialUpdate");

@@ -144,7 +144,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>FirewallRule</returns>
-        FirewallRule FindById(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null);
+        FirewallRule FindById(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Firewall Rule
@@ -159,7 +159,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of FirewallRule</returns>
-        ApiResponse<FirewallRule> FindByIdWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null);
+        ApiResponse<FirewallRule> FindByIdWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Firewall Rule
@@ -174,7 +174,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of FirewallRule</returns>
-        System.Threading.Tasks.Task<FirewallRule> FindByIdAsync(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<FirewallRule> FindByIdAsync(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Firewall Rule
@@ -189,7 +189,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (FirewallRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FirewallRule>> FindByIdAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<FirewallRule>> FindByIdAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Firewall Rule
@@ -205,7 +205,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>FirewallRule</returns>
-        FirewallRule Update(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null);
+        FirewallRule Update(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Firewall Rule
@@ -221,7 +221,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of FirewallRule</returns>
-        ApiResponse<FirewallRule> UpdateWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null);
+        ApiResponse<FirewallRule> UpdateWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Firewall Rule
@@ -237,7 +237,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of FirewallRule</returns>
-        System.Threading.Tasks.Task<FirewallRule> UpdateAsync(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<FirewallRule> UpdateAsync(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Modify a Firewall Rule
@@ -253,7 +253,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (FirewallRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FirewallRule>> UpdateAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<FirewallRule>> UpdateAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Firewall Rule
@@ -268,7 +268,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>InlineResponse202</returns>
-        InlineResponse202 Delete(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null);
+        InlineResponse202 Delete(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Firewall Rule
@@ -283,7 +283,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of InlineResponse202</returns>
-        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null);
+        ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Firewall Rule
@@ -298,7 +298,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Delete a Firewall Rule
@@ -313,7 +313,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Firewall Rule
@@ -329,7 +329,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>FirewallRule</returns>
-        FirewallRule PartialUpdate(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null);
+        FirewallRule PartialUpdate(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Firewall Rule
@@ -345,7 +345,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of FirewallRule</returns>
-        ApiResponse<FirewallRule> PartialUpdateWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null);
+        ApiResponse<FirewallRule> PartialUpdateWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Firewall Rule
@@ -361,7 +361,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of FirewallRule</returns>
-        System.Threading.Tasks.Task<FirewallRule> PartialUpdateAsync(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<FirewallRule> PartialUpdateAsync(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Partially modify a Firewall Rule
@@ -377,7 +377,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (FirewallRule)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FirewallRule>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<FirewallRule>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null);
 
     }
 
@@ -674,6 +674,7 @@ namespace  Api
         public FirewallRule Create(string datacenterId, string serverId, string nicId, FirewallRule firewallrule, bool? parameter = null, int? depth = null)
         {
             ApiResponse<FirewallRule> response = CreateWithHttpInfo(datacenterId, serverId, nicId, firewallrule, parameter, depth);
+            response.Data.Request = response.Headers["Location"];
             return response.Data;
         }
 
@@ -893,7 +894,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>FirewallRule</returns>
-        public FirewallRule FindById(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null)
+        public FirewallRule FindById(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<FirewallRule> response = FindByIdWithHttpInfo(datacenterId, serverId, nicId, firewallruleId, parameter, depth);
             return response.Data;
@@ -909,7 +910,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of FirewallRule</returns>
-        public ApiResponse<FirewallRule> FindByIdWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null)
+        public ApiResponse<FirewallRule> FindByIdWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1004,7 +1005,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of FirewallRule</returns>
-        public async System.Threading.Tasks.Task<FirewallRule> FindByIdAsync(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<FirewallRule> FindByIdAsync(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<FirewallRule> response = await FindByIdAsyncWithHttpInfo(datacenterId, serverId, nicId, firewallruleId, parameter, depth);
             return response.Data;
@@ -1021,7 +1022,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (FirewallRule)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FirewallRule>> FindByIdAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<FirewallRule>> FindByIdAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling FindById");
@@ -1110,7 +1111,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>FirewallRule</returns>
-        public FirewallRule Update(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null)
+        public FirewallRule Update(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null)
         {
             ApiResponse<FirewallRule> response = UpdateWithHttpInfo(datacenterId, serverId, nicId, firewallruleId, firewallrule, parameter, depth);
             return response.Data;
@@ -1127,7 +1128,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of FirewallRule</returns>
-        public ApiResponse<FirewallRule> UpdateWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null)
+        public ApiResponse<FirewallRule> UpdateWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1234,7 +1235,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of FirewallRule</returns>
-        public async System.Threading.Tasks.Task<FirewallRule> UpdateAsync(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<FirewallRule> UpdateAsync(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null)
         {
             ApiResponse<FirewallRule> response = await UpdateAsyncWithHttpInfo(datacenterId, serverId, nicId, firewallruleId, firewallrule, parameter, depth);
             return response.Data;
@@ -1252,7 +1253,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (FirewallRule)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FirewallRule>> UpdateAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<FirewallRule>> UpdateAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallRule firewallrule, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling Update");
@@ -1343,7 +1344,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>InlineResponse202</returns>
-        public InlineResponse202 Delete(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null)
+        public InlineResponse202 Delete(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = DeleteWithHttpInfo(datacenterId, serverId, nicId, firewallruleId, parameter, depth);
             return response.Data;
@@ -1359,7 +1360,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of InlineResponse202</returns>
-        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null)
+        public ApiResponse<InlineResponse202> DeleteWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1454,7 +1455,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of InlineResponse202</returns>
-        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<InlineResponse202> DeleteAsync(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null)
         {
             ApiResponse<InlineResponse202> response = await DeleteAsyncWithHttpInfo(datacenterId, serverId, nicId, firewallruleId, parameter, depth);
             return response.Data;
@@ -1471,7 +1472,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (InlineResponse202)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse202>> DeleteAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling Delete");
@@ -1560,7 +1561,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>FirewallRule</returns>
-        public FirewallRule PartialUpdate(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null)
+        public FirewallRule PartialUpdate(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null)
         {
             ApiResponse<FirewallRule> response = PartialUpdateWithHttpInfo(datacenterId, serverId, nicId, firewallruleId, firewallrule, parameter, depth);
             return response.Data;
@@ -1577,7 +1578,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of FirewallRule</returns>
-        public ApiResponse<FirewallRule> PartialUpdateWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null)
+        public ApiResponse<FirewallRule> PartialUpdateWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1684,7 +1685,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of FirewallRule</returns>
-        public async System.Threading.Tasks.Task<FirewallRule> PartialUpdateAsync(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<FirewallRule> PartialUpdateAsync(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null)
         {
             ApiResponse<FirewallRule> response = await PartialUpdateAsyncWithHttpInfo(datacenterId, serverId, nicId, firewallruleId, firewallrule, parameter, depth);
             return response.Data;
@@ -1702,7 +1703,7 @@ namespace  Api
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (FirewallRule)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FirewallRule>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, Dictionary<string, string> firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<FirewallRule>> PartialUpdateAsyncWithHttpInfo(string datacenterId, string serverId, string nicId, string firewallruleId, FirewallruleProperties firewallrule, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling PartialUpdate");

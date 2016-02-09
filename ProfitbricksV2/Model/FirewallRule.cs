@@ -65,6 +65,7 @@ namespace  Model
         /// <value>Resource's properties</value>
         [DataMember(Name = "properties", EmitDefaultValue = false)]
         public FirewallruleProperties Properties { get; set; }
+        public string Request { get; internal set; }
 
 
 
