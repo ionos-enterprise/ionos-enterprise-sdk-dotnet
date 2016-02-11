@@ -31,49 +31,13 @@ Or you can add the SDK by using nuget:
 
 	Install-Package ProfitBricksSDK
 
-### Configuration
-
-Depending on the type of project, you will need to create either an App.config or Web.config file to interact with the service before you begin. This file should contain the following values: 
-
-```sh
-<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-  <appSettings>
-    <add key="UserName" value="[Your User Name]"/>
-    <add key="Password" value="[Your Password]"/>
-  </appSettings>
-  <system.serviceModel>
-    <bindings>
-      <basicHttpBinding>
-        <binding name="ProfitBricksProxy.ProfitbricksApiServicePortType">
-          <security mode="Transport">
-            <transport clientCredentialType="Basic" proxyCredentialType="None" realm="" />
-            <message clientCredentialType="UserName" algorithmSuite="Default" />
-          </security>
-        </binding>
-    </bindings>
-    <client>
-      <endpoint address="https://api.profitbricks.com/1.3" binding="basicHttpBinding"
-          bindingConfiguration="ProfitBricksProxy.ProfitbricksApiServicePortType" contract="ProfitBricksProxy.ProfitbricksApiServicePortType"
-          name="ProfitBricksProxy.ProfitbricksApiServicePortType" />
-    </client>
-  </system.serviceModel>
-</configuration>
-```
-
-If you prefere not to pass credentials using config file you can pass them as optional parameters like this:
-	
-	     var dcs = ProfitBricksSoapClient.Instance("username", "password").DataCenters.Get();
-		 
-		 var dcs = ProfitBricksSoapClient.Instance(username: "username", password: "password").DataCenters.Get();
-
 ### Using the Driver
 
 Here is a simple example on how to use the library.
 
 List all data centers: 
 
-     var dcs = ProfitBricksSoapClient.Instance().DataCenters.Get();
+     var dcs = dcApi.FindAll(depth: 5);
     
 This will list all virtual data centers you have under your account.
 
@@ -89,26 +53,43 @@ You are required to have a data center created before you can create any other o
 
 The following code example shows you how to programmatically create a data center: 
 
-	using ProfitBricks.Client;
-	using ProfitBricks.POCO.Requests;
+	
 
-	namespace ProfitBricksExample
-	{
-		class Program
-		{
-			static void Main(string[] args)
-			{
-				var dcCreateRequest = new CreateDataCenterRequest
-				{
-					DataCenterName = "test",
-					Location = ProfitBricks.POCO.Enums.Location.uslas
-				};
+    namespace ProfitbricksV2.Example
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var configuration = new Configuration
+                {
+                    Username = "muhamed@stackpointcloud.com",
+                    Password = "test123!",
 
-				var dcCreateResponse = ProfitBricksSoapClient.Instance().DataCenters.Create(dcCreateRequest);
+                };
+                var dcApi = new DataCenterApi(configuration);
+            
 
-			}
-		}
-	}
+
+                // CreateDataCenterRequest. 
+                // The only required field is DataCenterName. 
+                // If location parameter is left empty data center will be created in the default region of the customer
+                var datacenter = new Datacenter
+                {
+                    Properties = new DatacenterProperties
+                    {
+                        Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
+                        Description = "Unit test for .Net SDK PB REST V2",
+                        Location = "us/lasdev"
+                    }
+                };
+
+
+                datacenter = dcApi.Create(datacenter);
+            }
+        }
+    }
+
 
 ## <a name="DeleteDataCenter"></a>How to: Delete a Data Center
 
@@ -116,23 +97,24 @@ You will want to exercise a bit of caution here. Removing a data center will **d
 
 The following is an example on how to remove the data center created above:
 
-    ProfitBricksSoapClient.Instance().DataCenters.Delete(dcCreateResponse.Id);
+    dcApi.Delete(datacenter.Id);
 
 ## <a name="CreateServer"></a>How to: Create a Server
 
 The following example illustrates how you would create a server and assign it an OS, cores, and memory. We urge you to check the [documentation](https://devops.profitbricks.com/api/soap/) to see the complete list attributes available.
 
-	var serverCreateRequest = new CreateServerRequest
-	{
-		DataCenterId = dcCreateResponse.Id,
-		AvailabilityZone = AvailabilityZone.AUTO,
-		Cores = 4,
-		InternetAccess = true,
-		OsType = OsType.WINDOWS,
-		Ram = 256
-	};
+    var server = new Server
+    {
+    Properties = new ServerProperties
+    {
+        Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
+        Cores = 1,
+        Ram = 256
+    }
+    };
 
-	var serverCreateResponse = ProfitBricksSoapClient.Instance().Servers.Create(serverCreateRequest);
+    // response will contain Id of a newly created server.
+    server = serverApi.Create(datacenter.Id, server);
 
 One of the unique features of the ProfitBricks platform when compared with the other providers is that it allows you to define your own settings for cores, memory, and disk size without being tied to a particular size.  
 
@@ -142,14 +124,8 @@ ProfitBricks allows users to dynamically update cores, memory, and disk independ
 
 The following code illustrates how you can update cores and memory: 
 
-	var updateServerRequest = new UpdateServerRequest 
-	{ 
-		ServerId = serverCreateResponse.Id, 
-		ServerName = "newName", 
-		Cores = 3, Ram = 512 
-	};
-	
-	ProfitBricksSoapClient.Instance().Servers.Update(updateServerRequest);
+    server = serverApi.PartialUpdate(datacenter.Id, server.Id, new ServerProperties { Name = server.Properties.Name + " -Updated" });
+
 
 ## <a name="DetachReattachStorageVolume"></a>How to: Detach and Reattach a Storage Volume
 
@@ -157,27 +133,26 @@ ProfitBricks allows for the creation of multiple storage volumes. You can detach
 
 The following illustrates how you would attach a volume and then detach it from a server:
 
-	//First we need to create a volume.
-	var createVolumeRequest = new CreateVolumeRequest
-	{
-		DataCenterId = dcCreateResponse.Id,
-		Size = 1
-	};
+    //First we need to create a volume.
+    var volume = new Volume
+    {
+        Properties = new VolumeProperties
+        {
+            Size = 4,
+            Image = "fbaae2b2-c899-11e5-aa10-52540005ab80",
+            Type = "HDD",
+            Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
+            SshKeys = new System.Collections.Generic.List<string> { "hQGOEJeFL91EG3+l9TtRbWNjzhDVHeLuL3NWee6bekA=" }
+        }
+    };
 
-	var createVolumeResponse = ProfitBricksSoapClient.Instance().Volumes.Create(createVolumeRequest);
-	
-	//Then we are going to attach the newly volume to a server.
-	var connectStorageRequest = new ConnectStorageRequest
-	{
-		ServerId = createServerResponse.Id,
-		StorageId = createVolumeResponse.Id,
-		BusType = BusType.SCSI,
-	};
+    volume = volumeApi.Create(datacenter.Id, volume);
 
-	ProfitBricksSoapClient.Instance().Volumes.ConnectVolume(connectStorageRequest);
+    //Then we are going to attach the newly volume to a server.   
+    attachedVolumesApi.AttachVolume(datacenter.Id, server.Id, new Volume { Id = volume.Id });
 
-	//Here we are going to detach it from the server.
-	ProfitBricksSoapClient.Instance().Volumes.DisconnectVolume(createVolumeResponse.Id, createServerResponse.Id);
+    //Here we are going to detach it from the server.
+    attachedVolumesApi.DetachVolume(datacenter.Id, server.Id, volume.Id);
 
 ## <a name="ListServersVolumesDataCenters"></a>How to: List Servers, Volumes, and Data Centers
 
@@ -185,133 +160,138 @@ You can pull various resource lists from your data centers using the .NET librar
 
 The following code illustrates how to pull these three list types: 
 
-	var dcs = ProfitBricksSoapClient.Instance().DataCenters.Get();
-	var servers = ProfitBricksSoapClient.Instance().Servers.Get();
-	var volumes = ProfitBricksSoapClient.Instance().Volumes.Get();
+    var dcs = dcApi.FindAll(depth: 5);
+    var servers = serverApi.FindAll(datacenter.Id, depth: 5);
+    var volumes = volumeApi.FindAll(datacenter.Id, depth: 5);
+
 
 ## <a name="CreateNic"></a>How to: Create Additional Network Interfaces
 
 The ProfitBricks platform supports adding multiple NICs to a server. These NICs can be used to create different, segmented networks on the platform.
 The sample below shows you how to add a second NIC to an existing server: 
 
-	var createNicRequest = new CreateNicRequest 
-	{ 
-		ServerId = createServerResponse.Id, 
-		NicName = "new nic name", 
-		DhcpActive = true 
-	};
+    var nic = new Nic { Properties = new NicProperties { Lan = 1 , Dhcp = true, Name = "Nic name"} };
 
-	ProfitBricksSoapClient.Instance().Nics.Create(createNicRequest);
+    nic = nicApi.Create(datacenter.Id, server.Id, nic);
 
 One item to note is this function will result in the server being rebooted. 
 
 ## <a name="Example"></a> Example
 
-	using ProfitBricks.Client;
-	using ProfitBricks.POCO.Enums;
-	using ProfitBricks.POCO.Requests;
+    using Api;
+    using Client;
+    using Model;
+    using System;
 
-	namespace ProfitBricksExample
-	{
-		class Program
-		{
-			static void Main(string[] args)
-			{
-				// CreateDataCenterRequest. 
-				// The only required field is DataCenterName. 
-				// If location parameter is left empty data center will be created in the default region of the customer
-				var dcCreateRequest = new CreateDataCenterRequest
-				{
-					DataCenterName = "test",
-					Location = ProfitBricks.POCO.Enums.Location.uslas
-				};
+    namespace ProfitbricksV2.Example
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var configuration = new Configuration
+                {
+                    Username = "muhamed@stackpointcloud.com",
+                    Password = "test123!",
 
-				// Response will contain Id of a newly created data center.
-				var dcCreateResponse = ProfitBricksSoapClient.Instance().DataCenters.Create(dcCreateRequest);
+                };
+                var dcApi = new DataCenterApi(configuration);
+                var serverApi = new ServerApi(configuration);
+                var volumeApi = new VolumeApi(configuration);
+                var attachedVolumesApi = new AttachedVolumesApi(configuration);
+                var nicApi = new NetworkInterfacesApi(configuration);
 
-				// CreateServerRequest. 
-				// DataCenterId: Defines the data center wherein the server is to be created.
-				// AvailabilityZone: Selects the zone in which the server is going to be created (AUTO, ZONE_1, ZONE_2).
-				// Cores: Number of cores to be assigned to the specified server. Required field.
-				// InternetAccess: Set to TRUE to connect the server to the Internet via the specified LAN ID.
-				// OsType: Sets the OS type of the server.
-				// Ram: Number of RAM memory (in MiB) to be assigned to the server.
-				var serverCreateRequest = new CreateServerRequest
-				{
-					DataCenterId = dcCreateResponse.Id,
-					AvailabilityZone = AvailabilityZone.AUTO,
-					Cores = 4,
-					InternetAccess = true,
-					OsType = OsType.WINDOWS,
-					Ram = 256
-				};
 
-				// response will contain Id of a newly created server.
-				var createServerResponse = ProfitBricksSoapClient.Instance().Servers.Create(serverCreateRequest);
+                // CreateDataCenterRequest. 
+                // The only required field is DataCenterName. 
+                // If location parameter is left empty data center will be created in the default region of the customer
+                var datacenter = new Datacenter
+                {
+                    Properties = new DatacenterProperties
+                    {
+                        Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
+                        Description = "Unit test for .Net SDK PB REST V2",
+                        Location = "us/lasdev"
+                    }
+                };
 
-				// UpdateServerRequest
-				// ServerId: Id of the server to be updated.
-				// ServerName: Renames target virtual server
-				// Cores: Updates the amount of cores of the target virtual server
-				// Ram: Updates the RAM memory (in MiB) of the target virtual server. The minimum RAM size is 256 MiB
-				var updateServerRequest = new UpdateServerRequest
-				{
-					ServerId = createServerResponse.Id,
-					ServerName = "newName",
-					Cores = 3,
-					Ram = 512
-				};
+                // Response will contain Id of a newly created data center.
+                datacenter = dcApi.Create(datacenter);
 
-				ProfitBricksSoapClient.Instance().Servers.Update(updateServerRequest);
+                // CreateServer. 
+                // DataCenterId: Defines the data center wherein the server is to be created.
+                // AvailabilityZone: Selects the zone in which the server is going to be created (AUTO, ZONE_1, ZONE_2).
+                // Cores: Number of cores to be assigned to the specified server. Required field.
+                // InternetAccess: Set to TRUE to connect the server to the Internet via the specified LAN ID.
+                // OsType: Sets the OS type of the server.
+                // Ram: Number of RAM memory (in MiB) to be assigned to the server.
+                var server = new Server
+                {
+                    Properties = new ServerProperties
+                    {
+                        Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
+                        Cores = 1,
+                        Ram = 256
+                    }
+                };
 
-				// CreateVolumeRequest
-				// DataCenterId: Defines the data center wherein the storage is to be created. If left empty, the storage will be created in a new data center
-				// Size: Storage size (in GiB). Required Field.
-				var createVolumeRequest = new CreateVolumeRequest
-				{
-					DataCenterId = dcCreateResponse.Id,
-					Size = 1
-				};
+                // response will contain Id of a newly created server.
+                server = serverApi.Create(datacenter.Id, server);
 
-				// Response will contain Id of a newly created volume.
-				var createVolumeResponse = ProfitBricksSoapClient.Instance().Volumes.Create(createVolumeRequest);
+                // UpdateServer
+                // ServerId: Id of the server to be updated.
+                // ServerName: Renames target virtual server
+                // Cores: Updates the amount of cores of the target virtual server
+                // Ram: Updates the RAM memory (in MiB) of the target virtual server. The minimum RAM size is 256 MiB
+                server = serverApi.PartialUpdate(datacenter.Id, server.Id, new ServerProperties { Name = server.Properties.Name + " -Updated" });
 
-				// ConnectStorageRequest
-				// ServerId: Identifier of the target virtual storage. Required field.
-				// StorageId: Identifier of the virtual storage to be connected. Required field.
-				// BusType: Bus type to which the storage will be connected
-				var connectStorageRequest = new ConnectStorageRequest
-				{
-					ServerId = createServerResponse.Id,
-					StorageId = createVolumeResponse.Id,
-					BusType = BusType.SCSI,
-				};
 
-				ProfitBricksSoapClient.Instance().Volumes.ConnectVolume(connectStorageRequest);
+                // CreateVolume
+                // DataCenterId: Defines the data center wherein the storage is to be created. If left empty, the storage will be created in a new data center
+                // Size: Storage size (in GiB). Required Field.
+                // Type: SSD or HDD disk type, Required Field
+                // SshKeys: Ssh key, Optional field
+                var volume = new Volume
+                {
+                    Properties = new VolumeProperties
+                    {
+                        Size = 4,
+                        Image = "fbaae2b2-c899-11e5-aa10-52540005ab80",
+                        Type = "HDD",
+                        Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
+                        SshKeys = new System.Collections.Generic.List<string> { "hQGOEJeFL91EG3+l9TtRbWNjzhDVHeLuL3NWee6bekA=" }
+                    }
+                };
 
-				ProfitBricksSoapClient.Instance().Volumes.DisconnectVolume(createVolumeResponse.Id, createServerResponse.Id);
+                // Response will contain Id of a newly created volume.
+                volume = volumeApi.Create(datacenter.Id, volume);
 
-				// Fetches list of all Data Centers
-				var dcs = ProfitBricksSoapClient.Instance().DataCenters.Get();
+                // AttachVolume
+                // ServerId: Identifier of the target virtual storage. Required field.
+                // StorageId: Identifier of the virtual storage to be connected. Required field.
+                // BusType: Bus type to which the storage will be connected
+                attachedVolumesApi.AttachVolume(datacenter.Id, server.Id, new Volume { Id = volume.Id });
 
-				// Fetches list of all Servers
-				var servers = ProfitBricksSoapClient.Instance().Servers.Get();
+                attachedVolumesApi.DetachVolume(datacenter.Id, server.Id, volume.Id);
 
-				// Fetches list of all Volumes
-				var volumes = ProfitBricksSoapClient.Instance().Volumes.Get();
+                // Fetches list of all Data Centers
+                var dcs = dcApi.FindAll(depth: 5);
 
-				// CreateNicRequest
-				// Identifier of the target virtual server. Required field.
-				// NicName: Names the NIC
-				// Toggles usage of ProfitBricks DHCP
-				var createNicRequest = new CreateNicRequest
-				{
-					ServerId = createServerResponse.Id,
-					NicName = "new nic name",
-					DhcpActive = true
-				};
+                // Fetches list of all Servers
+                var servers = serverApi.FindAll(datacenter.Id, depth: 5);
 
-				ProfitBricksSoapClient.Instance().Nics.Create(createNicRequest);
-			}
-		}
-	}
+                // Fetches list of all Volumes
+                var volumes = volumeApi.FindAll(datacenter.Id, depth: 5);
+
+                // CreateNicRequest
+                // Identifier of the target virtual server. Required field.
+                // Nic: Names the NIC
+                // Toggles usage of ProfitBricks DHCP
+                // Lan
+                var nic = new Nic { Properties = new NicProperties { Lan = 1 , Dhcp = true, Name = "Nic name"} };
+
+                nic = nicApi.Create(datacenter.Id, server.Id, nic);
+
+            }
+        }
+    }
