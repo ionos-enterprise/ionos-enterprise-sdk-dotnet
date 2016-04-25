@@ -567,6 +567,7 @@ namespace Api
         public Datacenter Create(Datacenter datacenter, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Datacenter> response = CreateWithHttpInfo(datacenter, parameter, depth);
+            response.Data.Request = response.Headers["Location"];
             return response.Data;
         }
 
