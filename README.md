@@ -63,8 +63,8 @@ The following code example shows you how to programmatically create a data cente
             {
                 var configuration = new Configuration
                 {
-                    Username = "muhamed@stackpointcloud.com",
-                    Password = "test123!",
+                    Username = "username",
+                    Password = "password",
 
                 };
                 var dcApi = new DataCenterApi(configuration);
@@ -191,8 +191,8 @@ One item to note is this function will result in the server being rebooted.
             {
                 var configuration = new Configuration
                 {
-                    Username = "muhamed@stackpointcloud.com",
-                    Password = "test123!",
+                    Username = "username",
+                    Password = "password",
 
                 };
                 var dcApi = new DataCenterApi(configuration);
