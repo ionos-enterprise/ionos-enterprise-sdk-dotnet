@@ -1983,7 +1983,7 @@ namespace  Api
             if (depth != null) queryParams.Add("depth", Configuration.ApiClient.ParameterToString(depth)); // query parameter
 
 
-            if (name != null) formParams.Add("name", Configuration.ApiClient.ParameterToString(name)); // form parameter
+            if (name != null) formParams.Add("snapshotId", Configuration.ApiClient.ParameterToString(name)); // form parameter
 
 
 

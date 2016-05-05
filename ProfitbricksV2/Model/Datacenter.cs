@@ -74,6 +74,7 @@ namespace  Model
         [DataMember(Name = "entities", EmitDefaultValue = false)]
         public DatacenterEntities Entities { get; set; }
 
+        public string Request { get; set; }
 
 
         /// <summary>
