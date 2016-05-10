@@ -732,6 +732,7 @@ namespace  Api
         public Nic Create(string datacenterId, string serverId, Nic nic, bool? parameter = null, int? depth = null)
         {
             ApiResponse<Nic> response = CreateWithHttpInfo(datacenterId, serverId, nic, parameter, depth);
+            response.Data.Request = response.Headers["Location"];
             return response.Data;
         }
 
