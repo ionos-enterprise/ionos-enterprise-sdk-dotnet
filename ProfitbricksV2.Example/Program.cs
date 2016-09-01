@@ -11,8 +11,8 @@ namespace ProfitbricksV2.Example
         {
             var configuration = new Configuration
             {
-                Username = "test@stackpointcloud.com",
-                Password = "pwd",
+                Username = "",
+                Password = "",
 
             };
             var dcApi = new DataCenterApi(configuration);
@@ -31,7 +31,7 @@ namespace ProfitbricksV2.Example
                 {
                     Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
                     Description = "Unit test for .Net SDK PB REST V2",
-                    Location = "us/lasdev"
+                    Location = "us/las"
                 }
             };
 
@@ -51,7 +51,8 @@ namespace ProfitbricksV2.Example
                 {
                     Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
                     Cores = 1,
-                    Ram = 256
+                    Ram = 256,
+                    CpuFamily = "INTEL_XEON"
                 }
             };
 

@@ -109,7 +109,8 @@ The following example illustrates how you would create a server and assign it an
     {
         Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
         Cores = 1,
-        Ram = 256
+        Ram = 256,
+        CpuFamily = "INTEL_XEON"
     }
     };
 
