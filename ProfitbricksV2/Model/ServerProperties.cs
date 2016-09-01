@@ -66,6 +66,8 @@ namespace  Model
         [DataMember(Name = "vmState", EmitDefaultValue = false)]
         public string VmState { get; set; }
 
+        [DataMember(Name = "cpuFamily", EmitDefaultValue =false)]
+        public string CpuFamily { get; set; }
 
         /// <summary>
         /// Reference to a CD-ROM used for booting. If not 'null' then bootVolume has to be 'null'
