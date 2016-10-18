@@ -11,8 +11,8 @@ namespace ProfitbricksV2.Example
         {
             var configuration = new Configuration
             {
-                Username = "",
-                Password = "",
+                Username = "jasmin.gacic@gmail.com",
+                Password = "magribija123!",
 
             };
             var dcApi = new DataCenterApi(configuration);

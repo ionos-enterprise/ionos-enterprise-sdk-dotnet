@@ -31,6 +31,8 @@ namespace  Model
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
+        [DataMember(Name = "availabilityZone", EmitDefaultValue = false)]
+        public string AvailabilityZone { get; set; }
 
         /// <summary>
         /// Hardware type of the volume. Default is HDD

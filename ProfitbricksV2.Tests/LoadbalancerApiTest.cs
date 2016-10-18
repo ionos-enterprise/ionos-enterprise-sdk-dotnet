@@ -10,24 +10,14 @@ namespace ProfitbricksV2.Tests
     [TestClass]
     public class LoadbalancerApiTest
     {
-        Configuration configuration;
-        IDataCenterApi dcApi;
-        ILoadBalancerApi lbApi;
+        IDataCenterApi dcApi = new DataCenterApi(Config.Configuration);
+        ILoadBalancerApi lbApi = new LoadBalancerApi(Config.Configuration);
         static Datacenter datacenter;
         static Loadbalancer lb;
 
-        private void Configure()
+        [TestInitialize]
+        public void LoadBalancerCreate()
         {
-            configuration = new Configuration
-            {
-                Username = "test@stackpointcloud.com",
-                Password = "pwd",
-
-            };
-
-            dcApi = new DataCenterApi(configuration);
-            lbApi = new LoadBalancerApi(configuration);
-
             //Create a datacenter.
             if (datacenter == null)
             {
@@ -35,36 +25,33 @@ namespace ProfitbricksV2.Tests
                 {
                     Properties = new DatacenterProperties
                     {
-                        Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
+                        Name = ".Net V2 - LB Test " + DateTime.Now.ToShortTimeString(),
                         Description = "Unit test for .Net SDK PB REST V2",
-                        Location = "us/lasdev"
+                        Location = "us/las"
                     }
                 };
 
                 datacenter = dcApi.Create(datacenter);
+                Assert.IsNotNull(datacenter);
+
+                Config.DoWait(datacenter.Request);
+                lb = new Loadbalancer
+                {
+                    Properties = new LoadbalancerProperties
+                    {
+                        Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString()
+                    }
+                };
+
+                lb = lbApi.Create(datacenter.Id, lb, depth: 5);
+                Assert.IsNotNull(lb);
+                Config.DoWait(lb.Request);
             }
         }
 
         [TestMethod]
-        public void LoadbalancerCreate()
-        {
-            Configure();
-            lb = new Loadbalancer
-            {
-                Properties = new LoadbalancerProperties { Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString() }
-            };
-
-            lb = lbApi.Create(datacenter.Id, lb);
-
-            DoWait(lb.Request);
-
-            Assert.IsNotNull(lb);
-        }
-        
-        [TestMethod]
         public void LoadbalancerGet()
         {
-            Configure();
             var newLb = lbApi.FindById(datacenter.Id, lb.Id);
 
             Assert.AreEqual(lb.Id, newLb.Id);
@@ -73,7 +60,6 @@ namespace ProfitbricksV2.Tests
         [TestMethod]
         public void LoadbalancerList()
         {
-            Configure();
             var list = lbApi.FindAll(datacenter.Id);
 
             Assert.IsTrue(list.Items.Count > 0);
@@ -82,36 +68,17 @@ namespace ProfitbricksV2.Tests
         [TestMethod]
         public void LoadbalancerUpdate()
         {
-            Configure();
             var newLb = lbApi.PartialUpdate(datacenter.Id, lb.Id, new LoadbalancerProperties { Name = lb.Properties.Name + " -Updated" });
 
             Assert.AreEqual(newLb.Properties.Name, lb.Properties.Name + " -Updated");
         }
 
-        [TestMethod]
+        [TestCleanup]
         public void LoadbalancerDelete()
         {
-            Configure();
             var resp = lbApi.Delete(datacenter.Id, lb.Id);
             resp = dcApi.Delete(datacenter.Id);
         }
 
-        private void DoWait(string requestUrl)
-        {
-            if (string.IsNullOrEmpty(requestUrl))
-                return;
-            var requestApi = new RequestApi(configuration);
-
-            var sub = requestUrl.Substring(requestUrl.IndexOf("requests/") + 9, 36);
-            var request = new RequestStatus();
-            int counter = 0;
-
-            do
-            {
-                request = requestApi.GetStatus(sub);
-                counter++;
-                Thread.Sleep(1000);
-            } while (request.Metadata.Status != "DONE" && counter != 35);
-        }
     }
 }

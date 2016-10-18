@@ -9,37 +9,24 @@ namespace ProfitbricksV2.Tests
     [TestClass]
     public class ImageApiTest
     {
-        Configuration configuration;
-        ImageApi imageApi;
+        ImageApi imageApi = new ImageApi(Config.Configuration);
         static string imageId;
-
-        private void Configure()
+        
+        [TestInitialize]
+        public void ImagesListImages()
         {
-            configuration = new Configuration
-            {
-                Username = "test@stackpointcloud.com",
-                Password = "pwd",
-
-            };
-            imageApi = new ImageApi(configuration);
-        }
-
-        [TestMethod]
-        public void ImagesList()
-        {
-            Configure();
             var list = imageApi.FindAll(depth: 5);
 
             Assert.IsTrue(list.Items.Count > 0);
 
             imageId = list.Items.FirstOrDefault().Id;
 
+            ImagesGetImage();
         }
 
         [TestMethod]
-        public void ImageGet()
+        public void ImagesGetImage()
         {
-            Configure();
             var img = imageApi.FindById(imageId);
 
             Assert.AreEqual(imageId, img.Id);

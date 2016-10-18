@@ -75,8 +75,10 @@ namespace  Model
         /// <value>Once you add a firewall rule this will reflect a true value. Can also be used to temporarily disable a firewall without losing defined rules.</value>
         [DataMember(Name = "firewallActive", EmitDefaultValue = false)]
         public bool? FirewallActive { get; set; }
+       
 
-
+        [DataMember(Name = "nat", EmitDefaultValue = false)]
+        public bool? Nat { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

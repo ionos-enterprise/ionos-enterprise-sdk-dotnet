@@ -1,3 +1,4 @@
+using Api;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -15,21 +16,12 @@ namespace Client
     /// </summary>
     public class ApiClient
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default configuration and base path (https://api.profitbricks.com/rest/v2).
-        /// </summary>
         public ApiClient()
         {
             Configuration = Configuration.Default;
-            RestClient = new RestClient("https://api.profitbricks.com/rest/v2");
+            RestClient = new RestClient(PBHeaders.EndPoint);
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://api.profitbricks.com/rest/v2).
-        /// </summary>
-        /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config = null)
         {
             if (config == null)
@@ -37,7 +29,7 @@ namespace Client
             else
                 Configuration = config;
 
-            RestClient = new RestClient("https://api.profitbricks.com/rest/v2");
+            RestClient = new RestClient(PBHeaders.EndPoint);
         }
 
         /// <summary>
@@ -45,7 +37,7 @@ namespace Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://api.profitbricks.com/rest/v2")
+        public ApiClient(String basePath = PBHeaders.EndPoint)
         {
             if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
@@ -80,6 +72,7 @@ namespace Client
             String contentType)
         {
             var request = new RestRequest(path, method);
+            request.AddHeader("User-Agent", PBHeaders.UserAgent);
 
             // add path parameter, if any
             foreach (var param in pathParams)
