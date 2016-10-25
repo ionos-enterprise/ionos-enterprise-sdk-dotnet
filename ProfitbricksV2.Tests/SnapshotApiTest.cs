@@ -11,25 +11,16 @@ namespace ProfitbricksV2.Tests
     [TestClass]
     public class SnapshotApiTest
     {
-        Configuration configuration;
-        IDataCenterApi dcApi;
-        IVolumeApi volumeApi;
-        ISnapshotApi snapshotApi;
+        IDataCenterApi dcApi = new DataCenterApi(Config.Configuration);
+        IVolumeApi volumeApi = new VolumeApi(Config.Configuration);
+        ISnapshotApi snapshotApi = new SnapshotApi(Config.Configuration);
         static Datacenter datacenter;
         static Volume volume;
         static Snapshot snapshot;
 
-        private void Configure()
+        [TestInitialize]
+        public void SnapshotCreate()
         {
-            configuration = new Configuration
-            {
-                Username = "test@stackpointcloud.com",
-                Password = "pwd",
-            };
-
-            dcApi = new DataCenterApi(configuration);
-            volumeApi = new VolumeApi(configuration);
-            snapshotApi = new SnapshotApi(configuration);
             //Create a datacenter.
             if (datacenter == null)
             {
@@ -37,9 +28,9 @@ namespace ProfitbricksV2.Tests
                 {
                     Properties = new DatacenterProperties
                     {
-                        Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
+                        Name = ".Net V2 - SNAPSHOT Test " + DateTime.Now.ToShortTimeString(),
                         Description = "Unit test for .Net SDK PB REST V2",
-                        Location = "us/lasdev"
+                        Location = "us/las"
                     }
                 };
 
@@ -59,23 +50,16 @@ namespace ProfitbricksV2.Tests
                     }
                 };
                 volume = volumeApi.Create(datacenter.Id, volume);
-                DoWait(volume.Request);
+               Config.DoWait(volume.Request);
             }
-        }
 
-        [TestMethod]
-        public void SnapshotCreate()
-        {
-            Configure();
             var resp = volumeApi.CreateSnapshot(datacenter.Id, volume.Id, "Test Snapshot", "Snapshot Description");
-
             Assert.IsNull(resp.Messages);
         }
 
         [TestMethod]
         public void SnapshotList()
         {
-            Configure();
             var list = snapshotApi.FindAll(depth: 5);
 
             Assert.IsTrue(list.Items.Count > 0);
@@ -85,7 +69,6 @@ namespace ProfitbricksV2.Tests
         [TestMethod]
         public void SnapshotGet()
         {
-            Configure();
             var snapsht = snapshotApi.FindById(snapshot.Id);
 
             Assert.AreEqual(snapsht.Id, snapshot.Id);
@@ -95,7 +78,6 @@ namespace ProfitbricksV2.Tests
         [TestMethod]
         public void SnapshotUpdate()
         {
-            Configure();
             var updated = snapshotApi.PartialUpdate(snapshot.Id, new SnapshotProperties { Name = snapshot.Properties.Name + " -Updated" });
 
             Assert.AreEqual(updated.Properties.Name, snapshot.Properties.Name + " -Updated");
@@ -104,42 +86,17 @@ namespace ProfitbricksV2.Tests
         [TestMethod]
         public void RestoreSnapshot()
         {
-            Configure();
             var resp = volumeApi.RestoreSnapshot(datacenter.Id, snapshot.Id);
 
             Assert.IsNull(resp);
         }
 
-        [TestMethod]
+        [TestCleanup]
         public void SnapshotDelete()
         {
-            Configure();
             var resp = snapshotApi.Delete(snapshot.Id);
             resp = dcApi.Delete(datacenter.Id);
             Assert.IsNull(resp);
         }
-
-        private void DoWait(string requestUrl)
-        {
-            if (string.IsNullOrEmpty(requestUrl))
-                return;
-            var requestApi = new RequestApi(configuration);
-
-            var sub = requestUrl.Substring(requestUrl.IndexOf("requests/") + 9, 36);
-            var request = new RequestStatus();
-            int counter = 0;
-
-            do
-            {
-                request = requestApi.GetStatus(sub);
-                counter++;
-                Thread.Sleep(1000);
-                if (counter == 35)
-                    break;
-                else if (request.Metadata.Status == "FAILED")
-                    throw new Exception(request.Metadata.Message);
-            } while (request.Metadata.Status != "DONE" && counter != 35);
-        }
-
     }
 }

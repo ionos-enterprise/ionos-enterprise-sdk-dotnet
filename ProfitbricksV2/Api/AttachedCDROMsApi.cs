@@ -556,7 +556,7 @@ namespace  Api
 
             // to determine the Content-Type header
             String[] httpContentTypes = new String[] {
-                "application/json", "application/vnd.profitbricks.resource+json"
+                "application/json"
             };
             String httpContentType = Configuration.ApiClient.SelectHeaderContentType(httpContentTypes);
 
@@ -661,7 +661,7 @@ namespace  Api
 
             // to determine the Content-Type header
             String[] httpContentTypes = new String[] {
-                "application/json", "application/vnd.profitbricks.resource+json"
+                "application/json"
             };
             String httpContentType = Configuration.ApiClient.SelectHeaderContentType(httpContentTypes);
 

@@ -11,9 +11,8 @@ namespace ProfitbricksV2.Example
         {
             var configuration = new Configuration
             {
-                Username = "",
-                Password = "",
-
+                Username = Environment.GetEnvironmentVariable("PROFITBRICKS_USERNAME"),
+                Password = Environment.GetEnvironmentVariable("PROFITBRICKS_PASSWORD"),
             };
             var dcApi = new DataCenterApi(configuration);
             var serverApi = new ServerApi(configuration);

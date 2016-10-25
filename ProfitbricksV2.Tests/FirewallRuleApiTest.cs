@@ -10,46 +10,20 @@ namespace ProfitbricksV2.Tests
     [TestClass]
     public class FirewallRuleApiTest
     {
-        Configuration configuration;
-        IDataCenterApi dcApi;
-        IServerApi serverApi;
-        INetworkInterfacesApi nicApi;
-        ILoadBalancerApi lbApi;
-        IFirewallRuleApi fwApi;
+        IDataCenterApi dcApi = new DataCenterApi(Config.Configuration);
+        IServerApi serverApi = new ServerApi(Config.Configuration);
+        INetworkInterfacesApi nicApi = new NetworkInterfacesApi(Config.Configuration);
+        ILoadBalancerApi lbApi = new LoadBalancerApi(Config.Configuration);
+        IFirewallRuleApi fwApi = new FirewallRuleApi(Config.Configuration);
 
         static Datacenter datacenter;
         static Server server;
         static Nic nic;
         static FirewallRule fw;
 
-        public Configuration Configuration
+        [TestInitialize]
+        public void Configure()
         {
-            get
-            {
-                return configuration;
-            }
-
-            set
-            {
-                configuration = value;
-            }
-        }
-
-        private void Configure()
-        {
-            Configuration = new Configuration
-            {
-                Username = "test@stackpointcloud.com",
-                Password = "pwd",
-
-            };
-
-            dcApi = new DataCenterApi(configuration);
-            serverApi = new ServerApi(configuration);
-            nicApi = new NetworkInterfacesApi(configuration);
-            lbApi = new LoadBalancerApi(configuration);
-            fwApi = new FirewallRuleApi(configuration);
-
             //Create a datacenter.
             if (datacenter == null)
             {
@@ -57,7 +31,7 @@ namespace ProfitbricksV2.Tests
                 {
                     Properties = new DatacenterProperties
                     {
-                        Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
+                        Name = ".Net V2 - FW Test " + DateTime.Now.ToShortTimeString(),
                         Description = "Unit test for .Net SDK PB REST V2",
                         Location = "us/lasdev"
                     }
@@ -79,7 +53,7 @@ namespace ProfitbricksV2.Tests
                 };
 
                 server = serverApi.Create(datacenter.Id, server);
-                DoWait(server.Request);
+                Config.DoWait(server.Request);
             }
 
             if (nic == null)
@@ -88,27 +62,15 @@ namespace ProfitbricksV2.Tests
 
                 nic = nicApi.Create(datacenter.Id, server.Id, nic);
 
-                DoWait(nic.Request);
+               Config.DoWait(nic.Request);
             }
-
-            bool isBusy = true;
-            while (isBusy == true)
-            {
-                var temp = dcApi.FindById(datacenter.Id);
-                if (temp.Metadata.State != "BUSY") isBusy = false;
-                Thread.Sleep(5000);
-            }
-        }
-
-        [TestMethod]
-        public void FirewallCreate()
-        {
-            Configure();
+            
+        
             fw = new FirewallRule { Properties = new FirewallruleProperties { Protocol = "TCP", Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(), } };
 
             fw = fwApi.Create(datacenter.Id, server.Id, nic.Id, fw);
 
-            DoWait(fw.Request);
+            Config.DoWait(fw.Request);
 
             Assert.IsNotNull(fw);
         }
@@ -140,7 +102,7 @@ namespace ProfitbricksV2.Tests
             Assert.IsTrue(list.Items.Count > 0);
         }
 
-        [TestMethod]
+        [TestCleanup]
         public void FirewallDelete()
         {
             Configure();
@@ -152,28 +114,6 @@ namespace ProfitbricksV2.Tests
 
             Assert.IsNull(resp);
 
-        }
-
-        private void DoWait(string requestUrl)
-        {
-            if (string.IsNullOrEmpty(requestUrl))
-                return;
-            var requestApi = new RequestApi(configuration);
-
-            var sub = requestUrl.Substring(requestUrl.IndexOf("requests/") + 9, 36);
-            var request = new RequestStatus();
-            int counter = 0;
-
-            do
-            {
-                request = requestApi.GetStatus(sub);
-                counter++;
-                Thread.Sleep(1000);
-                if (counter == 35)
-                    break;
-                else if (request.Metadata.Status == "FAILED")
-                    throw new Exception(request.Metadata.Message);
-            } while (request.Metadata.Status != "DONE" && counter != 35);
         }
     }
 }

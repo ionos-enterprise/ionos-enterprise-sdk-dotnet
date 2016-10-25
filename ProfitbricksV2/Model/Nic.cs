@@ -16,7 +16,7 @@ namespace  Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Nic" /> class.
-        /// </summary>
+        /// </summary>nat
         public Nic()
         {
 
@@ -37,7 +37,6 @@ namespace  Model
         /// <value>The type of object that has been created</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
-
 
         /// <summary>
         /// URL to the object’s representation (absolute path)
