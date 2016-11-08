@@ -276,7 +276,7 @@ namespace  Api
 
             // to determine the Accept header
             String[] httpHeaderAccepts = new String[] {
-                "application/vnd.profitbricks.collection+json"
+                "application/json"
             };
             String httpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(httpHeaderAccepts);
             if (httpHeaderAccept != null)
@@ -360,7 +360,7 @@ namespace  Api
 
             // to determine the Accept header
             String[] httpHeaderAccepts = new String[] {
-                "application/vnd.profitbricks.collection+json"
+                "application/json"
             };
             String httpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(httpHeaderAccepts);
             if (httpHeaderAccept != null)
@@ -450,7 +450,7 @@ namespace  Api
 
             // to determine the Accept header
             String[] httpHeaderAccepts = new String[] {
-                "application/vnd.profitbricks.resource+json"
+                "application/json"
             };
             String httpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(httpHeaderAccepts);
             if (httpHeaderAccept != null)
@@ -539,7 +539,7 @@ namespace  Api
 
             // to determine the Accept header
             String[] httpHeaderAccepts = new String[] {
-                "application/vnd.profitbricks.resource+json"
+                "application/json"
             };
             String httpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(httpHeaderAccepts);
             if (httpHeaderAccept != null)
@@ -636,7 +636,7 @@ namespace  Api
 
             // to determine the Accept header
             String[] httpHeaderAccepts = new String[] {
-                "application/vnd.profitbricks.resource+json"
+                "application/json"
             };
             String httpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(httpHeaderAccepts);
             if (httpHeaderAccept != null)
@@ -730,7 +730,7 @@ namespace  Api
 
             // to determine the Accept header
             String[] httpHeaderAccepts = new String[] {
-                "application/vnd.profitbricks.resource+json"
+                "application/json"
             };
             String httpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(httpHeaderAccepts);
             if (httpHeaderAccept != null)
