@@ -19,7 +19,7 @@ namespace ProfitbricksV2.Tests
         static Datacenter datacenter;
         static Server server;
         static Volume volume;
-        
+
         [TestInitialize]
         public void VolumeCreate()
         {
@@ -78,6 +78,33 @@ namespace ProfitbricksV2.Tests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ApiException))]
+        public void DataCenterGetFail()
+        {
+            try
+            {
+                volume = new Volume
+                {
+                    Properties = new VolumeProperties
+                    {
+                        Size = 4,
+                        LicenceType = "UNKNOWN",
+                        Type = "HDD",
+                        Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(),
+                        AvailabilityZone = "ZONE_3"
+                    }
+                };
+                volume = volumeApi.Create(datacenter.Id, volume, depth: 5);
+
+                var vol = volumeApi.Create("rawera", volume, depth: 5);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(ex is ApiException);
+            }
+        }
+
+        [TestMethod]
         public void VolumeGet()
         {
             var newVolume = volumeApi.FindById(datacenter.Id, volume.Id);
@@ -114,7 +141,10 @@ namespace ProfitbricksV2.Tests
             var resp = attachedVolumesApi.AttachVolume(datacenter.Id, server.Id, new Volume { Id = volume.Id });
 
             Config.DoWait(resp.Request);
-        
+
+            var attachedVol = attachedVolumesApi.FindById(datacenter.Id, server.Id, volume.Id);
+            Assert.IsNotNull(attachedVol);
+
             var resp1 = attachedVolumesApi.DetachVolume(datacenter.Id, server.Id, volume.Id);
 
             Assert.IsNull(resp1);
