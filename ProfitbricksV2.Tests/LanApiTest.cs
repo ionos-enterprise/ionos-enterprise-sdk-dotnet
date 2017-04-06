@@ -4,6 +4,7 @@ using System.Threading;
 using Client;
 using Api;
 using Model;
+using System.Collections.Generic;
 
 namespace ProfitbricksV2.Tests
 {
@@ -11,9 +12,13 @@ namespace ProfitbricksV2.Tests
     public class LanApiTest
     {
         DataCenterApi dcApi = new DataCenterApi(Config.Configuration);
+        NetworkInterfacesApi nicApi = new NetworkInterfacesApi(Config.Configuration);
+        ServerApi serverApi = new ServerApi(Config.Configuration);
         LanApi lanApi = new LanApi(Config.Configuration);
         static Datacenter datacenter;
         static Lan lan;
+        static Nic nic;
+        static Server server;
 
 
         [TestInitialize]
@@ -29,28 +34,64 @@ namespace ProfitbricksV2.Tests
                 },
                 Entities = new DatacenterEntities
                 {
-                    Lans = new Lans
+
+                    Servers = new Servers
                     {
-                        Items = new System.Collections.Generic.List<Lan>
+                        Items = new List<Server>
+                        {
+                            new Server
                             {
-                                new Lan
+                                Properties = new ServerProperties
                                 {
-                                     Properties = new LanProperties {
-                                         Public = true,
-                                         Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString()
-                                         }
+                                    Cores = 1,
+                                    Ram = 1024,
+
                                 }
                             }
+                        }
                     }
                 }
             };
 
+
+
+
             datacenter = dcApi.Create(datacenter, depth: 5);
             Assert.IsNotNull(datacenter);
             Config.DoWait(datacenter.Request);
+            server = datacenter.Entities.Servers.Items[0];
+            //create nic to associate it later on with the lan
+            nic = new Nic { Properties = new NicProperties { Lan = 1, Nat = false } };
+            nic = nicApi.Create(datacenter.Id, server.Id, nic);
+            Config.DoWait(nic.Request);
+            // this was added because the DoWait is not enough and the lan would fail to create
+            Thread.Sleep(15000);
+            //creating a lan and associating an nic to it
+            lan = lanApi.Create(datacenter.Id, new Lan
+            {
+                Properties = new LanProperties
+                {
+                    Public = true,
+                    Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString()
+                },
+                Entities=new LanEntities{
+                    Nics= new LanNics
+                    {
+                        Items= new List<Nic>()
+                        {
+                            new Nic
+                            {
+                                Id=nic.Id
+                            }
+                        }
 
-            lan = datacenter.Entities.Lans.Items[0];
+                    }
+
+                }
+            });
+            Config.DoWait(lan.Request);
             Assert.IsNotNull(lan);
+            Assert.IsNotNull(lan.Entities.Nics);
         }
 
         [TestMethod]
@@ -77,8 +118,7 @@ namespace ProfitbricksV2.Tests
         [TestCleanup]
         public void LanDelete()
         {
-            var resp = lanApi.Delete(datacenter.Id, lan.Id);
-            resp = dcApi.Delete(datacenter.Id);
+           dcApi.Delete(datacenter.Id);
         }
     }
 }
