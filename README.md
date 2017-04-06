@@ -170,10 +170,10 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| datacenter_id | **yes** | string | The ID of the virtual data center. |
+| datacenterId | **yes** | string | The ID of the virtual data center. |
 
 ```
-var dc = dcApi.FindById(datacenter_id, depth: 5);
+var dc = dcApi.FindById(datacenterId, depth: 5);
 ```
 
 ---
@@ -249,12 +249,12 @@ The following table describes the available request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| datacenter_id | **yes** | string | The ID of the VDC. |
+| datacenterId | **yes** | string | The ID of the VDC. |
 | Name | no | string | The new name of the VDC. |
 | Description | no | string | The new description of the VDC. |
 
 ```
-var resp = dcApi.PartialUpdate(datacenter_id, new DatacenterProperties { Name = datacenter.Properties.Name + " - updated" });
+var resp = dcApi.PartialUpdate(datacenterId, new DatacenterProperties { Name = datacenter.Properties.Name + " - updated" });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -271,10 +271,10 @@ The following table describes the available request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| datacenter_id | **yes** | string | The ID of the VDC that you want to delete. |
+| datacenterId | **yes** | string | The ID of the VDC that you want to delete. |
 
 ```
-var resp = dcApi.Delete(datacenter_id);
+var resp = dcApi.Delete(datacenterId);
 ```
 
 ---
@@ -335,10 +335,10 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| datacenter_id | **yes**  | string | The ID of the VDC. |
+| datacenterId | **yes**  | string | The ID of the VDC. |
 
 ```
-var list = serverApi.FindAll(datacenter_id);
+var list = serverApi.FindAll(datacenterId);
 ```
 
 ---
@@ -351,7 +351,7 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| datacenter_id | **yes** | string | The ID of the VDC. |
+| datacenterId | **yes** | string | The ID of the VDC. |
 | server_id | **yes** | string | The ID of the server. |
 
 ```
@@ -368,7 +368,7 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| datacenter_id | **yes** | string | The ID of the VDC. |
+| datacenterId | **yes** | string | The ID of the VDC. |
 | Name | **yes** | string | The name of the server. |
 | Cores | **yes** | int | The total number of cores for the server. |
 | Ram | **yes** | int | The amount of memory for the server in MB, e.g. 2048. Size must be specified in multiples of 256 MB with a minimum of 256 MB; however, if you set `ram_hot_plug` to *True* then you must use a minimum of 1024 MB. |
@@ -397,7 +397,7 @@ var server = new Server
                     Ram = 1024,
                 }
             };
-serverApi.Create(datacenter_id, server);
+serverApi.Create(datacenterId, server);
 ```
 
 ---
@@ -410,7 +410,7 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| datacenter_id | **yes** | string | The ID of the VDC. |
+| datacenterId | **yes** | string | The ID of the VDC. |
 | serverId | **yes** | string | The ID of the server. |
 | Name | no | string | The name of the server. |
 | Cores | no | int | The number of cores for the server. |
@@ -423,7 +423,7 @@ The following table describes the request arguments:
 After retrieving a server, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
 
 ```
-var updated = serverApi.PartialUpdate(datacenter_id, serverId, new ServerProperties { Name = server.Properties.Name + " -Updated" });
+var updated = serverApi.PartialUpdate(datacenterId, serverId, new ServerProperties { Name = server.Properties.Name + " -Updated" });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -438,13 +438,13 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| datacenter_id | **yes** | string | The ID of the VDC. |
+| datacenterId | **yes** | string | The ID of the VDC. |
 | serverId | **yes** | string | The ID of the server. |
 
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `Delete` method directly:
 
 ```
-var response = serverApi.Delete(datacenter_id, serverId);
+var response = serverApi.Delete(datacenterId, serverId);
 ```
 
 ---
@@ -457,7 +457,7 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| datacenter_id | **yes** | string | The ID of the VDC. |
+| datacenterId | **yes** | string | The ID of the VDC. |
 | serverId | **yes** | string | The ID of the server. |
 
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindAll` method directly:
@@ -480,7 +480,7 @@ The following table describes the request arguments:
 | serverId | **yes** | string | The ID of the server. |
 | volumeId | **yes** | string | The ID of a storage volume. |
 
-After retrieving a server, either by getting it by id, or as a create response object, you can call the `AttachVolume` method directly on the object:
+After retrieving a server, either by getting it by id, or as a create response object, you can call the `AttachVolume` method directly.
 
 ```
 var resp = attachedVolumesApi.AttachVolume(datacenterId, serverId, new Volume { Id = volumeId });
@@ -500,7 +500,7 @@ The following table describes the request arguments:
 | serverId | **yes** | string | The ID of the server. |
 | volumeId | **yes** | string | The ID of the attached volume. |
 
-After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindById` method directly on the object:
+After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindById` method directly.
 
 ```
 var attachedVol = attachedVolumesApi.FindById(datacenterId, serverId, volumeId);
@@ -522,7 +522,7 @@ The following table describes the request arguments:
 | serverId | **yes** | string | The ID of the server. |
 | volumeId | **yes** | string | The ID of the attached volume. |
 
-After retrieving a server, either by getting it by id, or as a create response object, you can call the `DetachVolume` method directly on the object:
+After retrieving a server, either by getting it by id, or as a create response object, you can call the `DetachVolume` method directly.
 
 ```
 var resp = attachedVolumesApi.DetachVolume(datacenterId,serverId, volumeId);
@@ -541,7 +541,7 @@ The following table describes the request arguments:
 | datacenterId | **yes** | string | The ID of the VDC. |
 | serverId | **yes** | string | The ID of the server. |
 
-After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindAll` method directly on the object:
+After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindAll` method directly.
 
 ```
  var listAttached = attachCDROMApi.FindAll(datacenterId, serverId);
@@ -561,7 +561,7 @@ The following table describes the request arguments:
 | serverId | **yes** | string | The ID of the server. |
 | cdROMImageId | **yes** | string | The ID of a CD-ROM. |
 
-After retrieving a server, either by getting it by id, or as a create response object, you can call the `Attach` method directly on the object:
+After retrieving a server, either by getting it by id, or as a create response object, you can call the `Attach` method directly.
 
 ```
 var attached = attachCDROMApi.Attach(datacenterId, serverId, new Image { Id=cdROMImageId});
@@ -581,7 +581,7 @@ The following table describes the request arguments:
 | serverId | **yes** | string | The ID of the server. |
 | cdROMImageId | **yes** | string | The ID of the attached CD-ROM. |
 
-After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindById` method directly on the object:
+After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindById` method directly.
 
 ```
 var getAttached = attachCDROMApi.FindById(datacenterId, serverId, cdROMImageId);
@@ -601,7 +601,7 @@ The following table describes the request arguments:
 | serverId | **yes** | string | The ID of the server. |
 | cdROMImageId | **yes** | string | The ID of the attached CD-ROM. |
 
-After retrieving a server, either by getting it by id, or as a create response object, you can call the `Detach` method directly on the object:
+After retrieving a server, either by getting it by id, or as a create response object, you can call the `Detach` method directly.
 
 ```
 var removed = attachCDROMApi.Detach(datacenterId, serverId, cdROMImageId);
@@ -620,7 +620,7 @@ The following table describes the request arguments:
 | datacenterId | **yes** | string | The ID of the VDC. |
 | serverId | **yes** | string | The ID of the server. |
 
-After retrieving a server, either by getting it by id, or as a create response object, you can call the `Reboot` method directly on the object:
+After retrieving a server, either by getting it by id, or as a create response object, you can call the `Reboot` method directly.
 
 ```
 var resp = serverApi.Reboot(datacenterId, serverId);
@@ -639,7 +639,7 @@ The following table describes the request arguments:
 | datacenterId | **yes** | string | The ID of the VDC. |
 | serverId | **yes** | string | The ID of the server. |
 
-After retrieving a server, either by getting it by id, or as a create response object, you can call the `Start` method directly on the object:
+After retrieving a server, either by getting it by id, or as a create response object, you can call the `Start` method directly.
 
 ```
 var start = serverApi.Start(datacenterId, serverId);
@@ -658,7 +658,7 @@ The following table describes the request arguments:
 | datacenterId | **yes** | string | The ID of the VDC. |
 | serverId | **yes** | string | The ID of the server. |
 
-After retrieving a server, either by getting it by id, or as a create response object, you can call the `Stop` method directly on the object:
+After retrieving a server, either by getting it by id, or as a create response object, you can call the `Stop` method directly.
 
 ```
 var error = serverApi.Stop(datacenterId, serverId);
@@ -805,7 +805,7 @@ The following table describes the request arguments:
 | datacenterId | **yes** | string | The ID of the VDC. |
 | volumeId | **yes** | string | The ID of the volume. |
 
-After retrieving a volume, either by getting it by id, or as a create response object, you can call the `Delete` method directly on the object:
+After retrieving a volume, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
  var response = volumeApi.Delete(datacenterId, volumeId);
@@ -826,7 +826,7 @@ The following table describes the request arguments:
 | Name | no | string | The name of the snapshot. |
 | Description | no | string | The description of the snapshot. |
 
-After retrieving a volume, either by getting it by id, or as a create response object, you can call the `CreateSnapshot` method directly on the object:
+After retrieving a volume, either by getting it by id, or as a create response object, you can call the `CreateSnapshot` method directly.
 
 ```
 var resp = volumeApi.CreateSnapshot(datacenterId, volumeId, Name", Description);
@@ -845,7 +845,7 @@ The following table describes the request arguments:
 | datacenterId | **yes** | string | The ID of the VDC. |
 | snapshotId | **yes** | string |  The ID of the snapshot. |
 
-After retrieving a volume, either by getting it by id, or as a create response object, you can call the `RestoreSnapshot` method directly on the object:
+After retrieving a volume, either by getting it by id, or as a create response object, you can call the `RestoreSnapshot` method directly.
 
 ```
 var resp = volumeApi.RestoreSnapshot(datacenterId, snapshotId);
@@ -930,7 +930,7 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | snapshotId | **yes** | string | The ID of the snapshot. |
 
-After retrieving a snapshot, either by getting it by id, or as a create response object, you can call the `Delete` method directly on the object:
+After retrieving a snapshot, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
 var resp = snapshotApi.Delete(snapshotId);
@@ -1040,7 +1040,7 @@ The following table describes the request arguments:
 | datacenterId | **yes** | string | The ID of the VDC. |
 | loadbalancerId | **yes** | string | The ID of the load balancer. |
 
-After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `Delete` method directly on the object:
+After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
 var resp = lbApi.Delete(datacenterId, loadbalancerId);
@@ -1060,7 +1060,7 @@ The following table describes the request arguments:
 | loadbalancerId | **yes** | string | The ID of the load balancer. |
 | depth | no | int | The level of details returned. |
 
-After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `FindAll` method directly on the object:
+After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `FindAll` method directly.
 
 ```
  var balancedNics = lbApi.FindAll(datacenterId, loadbalancerId, depth);
@@ -1081,7 +1081,7 @@ The following table describes the request arguments:
 | nicId | **yes** | string | The ID of the NIC. |
 | depth | no | int | The level of details returned. |
 
-After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `get_loadbalanced_nic` method directly on the object:
+After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `get_loadbalanced_nic` method directly.
 
 ```
 var balancedNic = lbApi.FindById(datacenterId, loadbalancerId, nicId, depth);
@@ -1101,7 +1101,7 @@ The following table describes the request arguments:
 | loadbalancerId | **yes** | string | The ID of the load balancer. |
 | nicId | **yes** | string | The ID of the NIC. |
 
-After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `AttachNic` method directly on the object:
+After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `AttachNic` method directly.
 
 ```
 NetworkInterfacesApi nicApi = new NetworkInterfacesApi(Configuration);
@@ -1122,7 +1122,7 @@ The following table describes the request arguments:
 | loadbalancerId | **yes** | string | The ID of the load balancer. |
 | nicId | **yes** | string | The ID of the NIC. |
 
-After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `DetachNic` method directly on the object:
+After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `DetachNic` method directly.
 
 ```
 var resp = nicApi.DetachNic(datacenterId, loadbalancerId, nicId);
@@ -1244,7 +1244,7 @@ Removes the specific firewall rule.
 | nicId | **yes** | string | The ID of the NIC. |
 | fwId | **yes** | string | The ID of the firewall rule. |
 
-After retrieving a firewall rule, either by getting it by id, or as a create response object, you can call the `Delete` method directly on the object:
+After retrieving a firewall rule, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
 var resp = fwApi.Delete(datacenterId, serverId, nicId, fwId);
@@ -1373,7 +1373,7 @@ The following table describes the request arguments:
 | Lan | no | int | The LAN ID the NIC sits on. |
 | Nat | no | bool | Indicates the private IP address has outbound access to the public internet. |
 
-After retrieving a NIC, either by getting it by id, or as a create response object, you can call the `PartialUpdate` method directly on the object:
+After retrieving a NIC, either by getting it by id, or as a create response object, you can call the `PartialUpdate` method directly.
 
 ```
 var updated = nicApi.PartialUpdate(datacenterId, serverId, nicId, new NicProperties { Name = nic.Properties.Name + " -Update", Ips = new System.Collections.Generic.List<string> { "10.8.52.225", "1.1.1.1" } });
@@ -1395,7 +1395,7 @@ The following table describes the request arguments:
 | serverId | **yes** | string| The ID of the server. |
 | nicId | **yes** | string| The ID of the NIC. |
 
-After retrieving a NIC, either by getting it by id, or as a create response object, you can call the `Delete` method directly on the object:
+After retrieving a NIC, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
 var resp = nicApi.Delete(datacenterId, serverId, nicId);
@@ -1476,7 +1476,7 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | ipblockId | **yes** | string | The ID of the IP block. |
 
-After retrieving an IP block, either by getting it by id, or as a create response object, you can call the `Delete` method directly on the object:
+After retrieving an IP block, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
 var resp = ipApi.Delete(ipBlockId);
@@ -1642,7 +1642,7 @@ The following table describes the request arguments:
 | datacenterId | **yes** | string | The ID of the VDC. |
 | lanId | **yes** | string | The ID of the LAN. |
 
-After retrieving a LAN, either by getting it by id, or as a create response object, you can call the `Delete` method directly on the object:
+After retrieving a LAN, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
 lanApi.Delete(datacenterId,lanId);
