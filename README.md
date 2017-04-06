@@ -463,7 +463,7 @@ The following table describes the request arguments:
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindAll` method directly:
 
 ```
-var all = attachedVolumesApi.FindAll(datacenter.Id, serverId);)
+var all = attachedVolumesApi.FindAll(datacenter.Id, serverId);
 ```
 
 ---
@@ -545,7 +545,7 @@ After retrieving a server, either by getting it by id, or as a create response o
 
 ```
  var listAttached = attachCDROMApi.FindAll(datacenterId, serverId);
-```.
+```
 
 ---
 
