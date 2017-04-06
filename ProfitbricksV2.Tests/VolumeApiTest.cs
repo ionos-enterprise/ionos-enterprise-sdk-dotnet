@@ -145,6 +145,9 @@ namespace ProfitbricksV2.Tests
             var attachedVol = attachedVolumesApi.FindById(datacenter.Id, server.Id, volume.Id);
             Assert.IsNotNull(attachedVol);
 
+            var all = attachedVolumesApi.FindAll(datacenter.Id, server.Id);
+            Assert.IsTrue(all.Items.Count > 0);
+
             var resp1 = attachedVolumesApi.DetachVolume(datacenter.Id, server.Id, volume.Id);
 
             Assert.IsNull(resp1);

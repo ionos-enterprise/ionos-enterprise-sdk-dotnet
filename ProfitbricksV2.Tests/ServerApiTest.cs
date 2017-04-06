@@ -145,6 +145,9 @@ namespace ProfitbricksV2.Tests
             var getAttached = attachCDROMApi.FindById(datacenter.Id, server.Id, listAttached.Items[0].Id);
             Assert.AreEqual(listAttached.Items[0].Id, getAttached.Id);
 
+            var removed = attachCDROMApi.Detach(datacenter.Id, server.Id, getAttached.Id);
+            Assert.IsNull(removed);
+
         }
 
 
