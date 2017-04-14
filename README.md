@@ -13,9 +13,9 @@ Version: profitbricks-sdk-net **3.0.4**
   * [Data Centers](#data-centers)
     * [List Data Centers](#list-data-centers)
     * [Retrieve a Data Center](#retrieve-a-data-center)
-    * [Create a Data Centers](#create-a-data-center)
-    * [Update a Data Centers](#update-a-data-center)
-    * [Delete a Data Centers](#delete-a-data-center)
+    * [Create a Data Center](#create-a-data-center)
+    * [Update a Data Center](#update-a-data-center)
+    * [Delete a Data Center](#delete-a-data-center)
   * [Locations](#locations)
     * [List Locations](#list-locations)
     * [Get a Location](#get-a-location)
@@ -65,7 +65,7 @@ Version: profitbricks-sdk-net **3.0.4**
     * [Get a LAN](#get-a-lan)
     * [Update a LAN](#update-a-lan)
     * [Delete a LAN](#delete-a-lan)
-  * [Network Interfaces (NICs)](#network-interfaces-nics)
+  * [Network Interfaces (NICs)](#network-interfaces)
     * [List NICs](#list-nics)
     * [Get a NIC](#get-a-nic)
     * [Create a NIC](#create-a-nic)
@@ -1166,9 +1166,9 @@ lanApi.Delete(datacenterId,lanId);
 
 ---
 
-### Network Interfaces (NICs)
+### Network Interfaces
 
-Create an instace of the api class:
+Create an instance of the api class:
 
          NetworkInterfacesApi nicApi = new NetworkInterfacesApi(Configuration);
 
