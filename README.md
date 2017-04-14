@@ -36,6 +36,11 @@ Version: profitbricks-sdk-net **3.0.4**
     * [Reboot a Server](#reboot-a-server)
     * [Start a Server](#start-a-server)
     * [Stop a Server](#stop-a-server)
+  * [Images](#images)
+    * [List Images](#list-images)
+    * [Get an Image](#get-an-image)
+    * [Update an Image](#update-an-image)
+    * [Delete an Image](#delete-an-image)
   * [Volumes](#volumes)
     * [List Volumes](#list-volumes)
     * [Get a Volume](#get-a-volume)
@@ -49,6 +54,29 @@ Version: profitbricks-sdk-net **3.0.4**
     * [Get a Snapshot](#get-a-snapshot)
     * [Update a Snapshot](#update-a-snapshot)
     * [Delete a Snapshot](#delete-a-snapshot)
+  * [IP Blocks](#ip-blocks)
+    * [List IP Blocks](#list-ip-blocks)
+    * [Get an IP Block](#get-an-ip-block)
+    * [Create an IP Block](#create-an-ip-block)
+    * [Delete an IP Block](#delete-an-ip-block)
+  * [LANs](#lans)
+    * [List LANs](#list-lans)
+    * [Create a LAN](#create-a-lan)
+    * [Get a LAN](#get-a-lan)
+    * [Update a LAN](#update-a-lan)
+    * [Delete a LAN](#delete-a-lan)
+  * [Network Interfaces (NICs)](#network-interfaces-nics)
+    * [List NICs](#list-nics)
+    * [Get a NIC](#get-a-nic)
+    * [Create a NIC](#create-a-nic)
+    * [Update a NIC](#update-a-nic)
+    * [Delete a NIC](#delete-a-nic)
+  * [Firewall Rules](#firewall-rules)
+    * [List Firewall Rules](#list-firewall-rules)
+    * [Get a Firewall Rule](#get-a-firewall-rule)
+    * [Create a Firewall Rule](#create-a-firewall-rule)
+    * [Update a Firewall Rule](#update-a-firewall-rule)
+    * [Delete a Firewall Rule](#delete-a-firewall-rule)
   * [Load Balancers](#load-balancers)
     * [List Load Balancers](#list-load-balancers)
     * [Get a Load Balancer](#get-a-load-balancer)
@@ -58,38 +86,10 @@ Version: profitbricks-sdk-net **3.0.4**
     * [Get a Load Balanced NIC](#get-a-load-balanced-nic)
     * [Associate NIC to a Load Balancer](#associate-nic-to-a-load-balancer)
     * [Remove a NIC Association](#remove-a-nic-association)
-  * [Firewall Rules](#firewall-rules)
-    * [List Firewall Rules](#list-firewall-rules)
-    * [Get a Firewall Rule](#get-a-firewall-rule)
-    * [Create a Firewall Rule](#create-a-firewall-rule)
-    * [Update a Firewall Rule](#update-a-firewall-rule)
-    * [Delete a Firewall Rule](#delete-a-firewall-rule)
-  * [Images](#images)
-    * [List Images](#list-images)
-    * [Get an Image](#get-an-image)
-    * [Update an Image](#update-an-image)
-    * [Delete an Image](#delete-an-image)
-  * [Network Interfaces (NICs)](#network-interfaces-nics)
-    * [List NICs](#list-nics)
-    * [Get a NIC](#get-a-nic)
-    * [Create a NIC](#create-a-nic)
-    * [Update a NIC](#update-a-nic)
-    * [Delete a NIC](#delete-a-nic)
-  * [IP Blocks](#ip-blocks)
-    * [List IP Blocks](#list-ip-blocks)
-    * [Get an IP Block](#get-an-ip-block)
-    * [Create an IP Block](#create-an-ip-block)
-    * [Delete an IP Block](#delete-an-ip-block)
   * [Requests](#requests)
     * [List Requests](#list-requests)
     * [Get a Request](#get-a-request)
     * [Get a Request Status](#get-a-request-status)
-  * [LANs](#lans)
-    * [List LANs](#list-lans)
-    * [Create a LAN](#create-a-lan)
-    * [Get a LAN](#get-a-lan)
-    * [Update a LAN](#update-a-lan)
-    * [Delete a LAN](#delete-a-lan)
 * [Examples](#examples)
 * [Support](#support)
 * [Testing](#testing)
@@ -132,9 +132,9 @@ To setup your credentials you will have to provide an instance of the Configurat
             }
         }
 
-You can choose to read them from the Environment variables like in the example above, or just provide the strting value for *Username* and *Password* 
+You can choose to read them from the environment variables like in the example above, or just provide the strting value for *Username* and *Password*.
 
-You can now use create an instance of any API class and pass the configuration property for any future request.
+You can now use create an instance of any API class and pass the Configuration property for any future request.
 
 	 LocationApi locApi = new LocationApi(Configuration);
 
@@ -154,7 +154,7 @@ Create an instace of the api class:
 
 This operation will list all currently provisioned VDCs that your account credentials provide access to.
 
-depth parameter defines the level of information returned with the response from 1-5.
+The optional `depth` parameter defines the level, one being the least and five being the most, of information returned with the response.
 
 ```
 var list = dcApi.FindAll(depth: 5);
@@ -170,7 +170,7 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the virtual data center. |
+| datacenterId | **yes** | string | The ID of the VDC. |
 
 ```
 var dc = dcApi.FindById(datacenterId, depth: 5);
@@ -191,8 +191,8 @@ The following table describes the request arguments:
 | Description | no | string | A description for the data center, e.g. staging, production. |
 | Servers | no | collection | Details about creating one or more servers. See [create a server](#create-a-server). |
 | Volumes | no | collection | Details about creating one or more volumes. See [create a volume](#create-a-volume). |
-| Lans | no | collection | Details about creating one or more LANs. See [create-a-lan](#create-a-lan). |
-| Loadbalancers | no | collection | Details about creating one or more load balancers. See [create-a-loadbalancer](#create-a-loadbalancer). |
+| Lans | no | collection | Details about creating one or more LANs. See [create a lan](#create-a-lan). |
+| Loadbalancers | no | collection | Details about creating one or more load balancers. See [create a load balancer](#create-a-load- balancer). |
 
 The following table outlines the locations currently supported:
 
@@ -257,13 +257,13 @@ The following table describes the available request arguments:
 var resp = dcApi.PartialUpdate(datacenterId, new DatacenterProperties { Name = datacenter.Properties.Name + " - updated" });
 ```
 
-**NOTE**: You can also use `Update()`, for that operation you will update all the properties.
+**NOTE**: You may also use `Update()` instead of `PartialUpdate()`. For an `Update()` operation you will need to supply values for **all** the parameters.
 
 ---
 
 #### Delete a Data Center
 
-This will remove all objects within the data center and remove the data center object itself.
+This will remove all objects within the virtual data center AND remove the virtual data center object itself.
 
 **NOTE**: This is a highly destructive operation which should be used with extreme caution!
 
@@ -335,7 +335,7 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| datacenterId | **yes**  | string | The ID of the VDC. |
+| datacenterId | **yes** | string | The ID of the VDC. |
 
 ```
 var list = serverApi.FindAll(datacenterId);
@@ -666,6 +666,38 @@ var error = serverApi.Stop(datacenterId, serverId);
 
 ---
 
+### Images
+
+Create an instace of the api class:
+
+         ImageApi imageApi = new ImageApi(Configuration);
+
+#### List Images
+
+Retrieve a list of images.
+
+```
+var list = imageApi.FindAll();
+```
+
+---
+
+#### Get an Image
+
+Retrieves the attributes of a specific image.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| imageId | **yes** | string | The ID of the image. |
+
+```
+var img = imageApi.FindById(imageId);
+```
+
+---
+
 ### Volumes
 
 Create an instace of the api class:
@@ -938,6 +970,444 @@ var resp = snapshotApi.Delete(snapshotId);
 
 ---
 
+### IP Blocks
+
+The IP block operations assist with managing reserved /static public IP addresses.
+
+Create an instace of the api class:
+
+         IPBlocksApi ipApi = new IPBlocksApi(Configuration);
+
+#### List IP Blocks
+
+Retrieve a list of available IP blocks.
+
+```
+var list = ipApi.FindAll();
+```
+
+#### Get an IP Block
+
+Retrieves the attributes of a specific IP block.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| ipBlockId | **yes** | string | The ID of the IP block. |
+
+```
+var ip = ipApi.FindById(ipBlockId);
+```
+
+---
+
+#### Create an IP Block
+
+Creates an IP block. IP blocks are attached to a location, so you must specify a valid `location` along with a `size` parameter indicating the number of IP addresses you want to reserve in the IP block. Servers or other resources using an IP address from an IP block must be in the same `location`.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| Location | **yes** | string | This must be one of the locations: us/las, de/fra, de/fkb. |
+| Size | **yes** | int | The size of the IP block you want. |
+| Name | no | string | A descriptive name for the IP block |
+
+The following table outlines the locations currently supported:
+
+| Value| Country | City |
+|---|---|---|
+| us/las | United States | Las Vegas |
+| de/fra | Germany | Frankfurt |
+| de/fkb | Germany | Karlsruhe |
+
+To create an IP block, establish the parameters and then call `reserve_ipblock`.
+
+```
+var ipBlock = new IpBlock { Properties = new IpBlockProperties { Location = "us/las", Size = 1 } };
+ipBlock = ipApi.Create(ipBlock);
+```
+
+---
+
+#### Delete an IP Block
+
+Deletes the specified IP Block.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| ipblockId | **yes** | string | The ID of the IP block. |
+
+After retrieving an IP block, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
+
+```
+var resp = ipApi.Delete(ipBlockId);
+```
+
+---
+
+### LANs
+
+#### List LANs
+
+Retrieve a list of LANs within the virtual data center.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+
+```
+var list = lanApi.FindAll(datacenterId);
+```
+
+---
+
+#### Create a LAN
+
+Creates a LAN within a virtual data center.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| Name | no | string | The name of your LAN. |
+| Public | **Yes** | bool | Boolean indicating if the LAN faces the public Internet or not. |
+| Nics | no | object | A collection of NICs associated with the LAN. |
+
+```
+var lan = lanApi.Create(datacenterId, new Lan
+            {
+                Properties = new LanProperties
+                {
+                    Public = true,
+                    Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString()
+                },
+                Entities=new LanEntities{
+                    Nics= new LanNics
+                    {
+                        Items= new List<Nic>()
+                        {
+                            new Nic
+                            {
+                                Id=nic.Id
+                            }
+                        }
+
+                    }
+
+                }
+            });
+```
+
+---
+
+#### Get a LAN
+
+Retrieves the attributes of a given LAN.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| lanId | **yes** | int | The ID of the LAN. |
+
+```
+var lan = lanApi.FindById(datacenterId, lanId);
+```
+
+---
+
+#### Update a LAN
+
+Perform updates to attributes of a LAN.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| lanId | **yes** | int | The ID of the LAN. |
+| Name | no | string | A descriptive name for the LAN. |
+| Public | no | bool | Boolean indicating if the LAN faces the public Internet or not. |
+
+After retrieving a LAN, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
+
+```
+var updated = lanApi.PartialUpdate(datacenterId, lanId, new LanProperties { Public = !lan.Properties.Public });
+```
+
+**NOTE**: You can also use `Update()`, for that operation you will update all the properties.
+
+---
+
+#### Delete a LAN
+
+Deletes the specified LAN.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| lanId | **yes** | string | The ID of the LAN. |
+
+After retrieving a LAN, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
+
+```
+lanApi.Delete(datacenterId,lanId);
+```
+
+---
+
+### Network Interfaces (NICs)
+
+Create an instace of the api class:
+
+         NetworkInterfacesApi nicApi = new NetworkInterfacesApi(Configuration);
+
+#### List NICs
+
+Retrieve a list of LANs within the virtual data center.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| serverId | **yes** | string | The ID of the server. |
+
+```
+ var list = nicApi.FindAll(datacenterId, serverId);
+```
+
+---
+
+#### Get a NIC
+
+Retrieves the attributes of a given NIC.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| serverId | **yes** | string | The ID of the server. |
+| nicId | **yes** | string | The ID of the NIC. |
+
+```
+var nic = nicApi.FindById(datacenterId, serverId, nicId);
+```
+
+---
+
+#### Create a NIC
+
+Adds a NIC to the target server.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| serverId | **yes** | string| The ID of the server. |
+| Name | no | string | The name of the NIC. |
+| Ips | no | string collection | IPs assigned to the NIC. This can be a collection. |
+| Dhcp | no | bool | Set to FALSE if you wish to disable DHCP on the NIC. Default: TRUE. |
+| Lan | **yes** | int | The LAN ID the NIC will sit on. If the LAN ID does not exist it will be created. |
+| Nat | no | bool | Indicates the private IP address has outbound access to the public internet. |
+| FirewallActive | no | bool | Once you add a firewall rule this will reflect a true value. |
+| Firewallrules | no | object| A list of firewall rules associated to the NIC represented as a collection. |
+
+```
+var nic = new Nic { Properties = new NicProperties { Lan = 1, Nat = false } };
+
+nic = nicApi.Create(datacenter.Id, server.Id, nic);
+```
+
+---
+
+#### Update a NIC
+
+You can update -- in full or partially -- various attributes on the NIC; however, some restrictions are in place:
+
+The primary address of a NIC connected to a load balancer can only be changed by changing the IP of the load balancer. You can also add additional reserved, public IPs to the NIC.
+
+The user can specify and assign private IPs manually. Valid IP addresses for private networks are 10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| serverId | **yes** | string| The ID of the server. |
+| nicId | **yes** | string| The ID of the NIC. |
+| Name | no | string | The name of the NIC. |
+| Ips | no | string collection | IPs assigned to the NIC represented as a collection. |
+| Dhcp | no | bool | Boolean value that indicates if the NIC is using DHCP or not. |
+| Lan | no | int | The LAN ID the NIC sits on. |
+| Nat | no | bool | Indicates the private IP address has outbound access to the public internet. |
+
+After retrieving a NIC, either by getting it by id, or as a create response object, you can call the `PartialUpdate` method directly.
+
+```
+var updated = nicApi.PartialUpdate(datacenterId, serverId, nicId, new NicProperties { Name = nic.Properties.Name + " -Update", Ips = new System.Collections.Generic.List<string> { "10.8.52.225", "1.1.1.1" } });
+```
+
+**NOTE**: You can also use `Update()`, for that operation you will update all the properties.
+
+---
+
+#### Delete a NIC
+
+Deletes the specified NIC.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| serverId | **yes** | string| The ID of the server. |
+| nicId | **yes** | string| The ID of the NIC. |
+
+After retrieving a NIC, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
+
+```
+var resp = nicApi.Delete(datacenterId, serverId, nicId);
+```
+
+---
+
+### Firewall Rules
+
+Create an instace of the api class:
+
+         FirewallRuleApi fwApi = new FirewallRuleApi(Configuration);
+
+#### List Firewall Rules
+
+Retrieves a list of firewall rules associated with a particular NIC.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| serverId | **yes** | string | The ID of the server. |
+| nicId | **yes** | string | The ID of the NIC. |
+
+```
+var list = fwApi.FindAll(datacenterId, serverId, nicId);
+```
+
+---
+
+#### Get a Firewall Rule
+
+Retrieves the attributes of a given firewall rule.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| serverId | **yes** | string | The ID of the server. |
+| nicId | **yes** | string | The ID of the NIC. |
+| fwId | **yes** | string | The ID of the firewall rule. |
+
+```
+var newFw = fwApi.FindById(datacenterId, serverId, nicId, fwId);
+```
+
+---
+
+#### Create a Firewall Rule
+
+This will add a firewall rule to the NIC.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| serverId | **yes** | string | The ID of the server. |
+| nicId | **yes** | string | The ID of the NIC. |
+| Name | no | string | The name of the firewall rule. |
+| Protocol | **yes** | string | The protocol for the rule: TCP, UDP, ICMP, ANY. |
+| SourceMac | no | string | Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. A *null* value allows all source MAC address. |
+| SourceIp | no | string | Only traffic originating from the respective IPv4 address is allowed. A *null* value allows all source IPs. |
+| TargetIp | no | string | In case the target NIC has multiple IP addresses, only traffic directed to the respective IP address of the NIC is allowed. A *null* value allows all target IPs. |
+| PortRangeStart | no | string | Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave `PortRangeStart` and `PortRangeEnd` value as *null* to allow all ports. |
+| PortRangeEnd | no | string | Defines the end range of the allowed port (from 1 to 65534) if the protocol TCP or UDP is chosen. Leave `PortRangeStart` and `PortRangeEnd` value as *null* to allow all ports. |
+| IcmpType | no | string | Defines the allowed type (from 0 to 254) if the protocol ICMP is chosen. A *null* value allows all types. |
+| IcmpCode | no | string | Defines the allowed code (from 0 to 254) if protocol ICMP is chosen. A *null* value allows all codes. |
+
+```
+var fw = new FirewallRule { Properties = new FirewallruleProperties { Protocol = "TCP", Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(), } };
+
+fw = fwApi.Create(datacenterId, serverId, nicId, fw);
+```
+
+---
+
+#### Update a Firewall Rule
+
+Perform updates to attributes of a firewall rule.
+
+The following table describes the request arguments:
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| serverId | **yes** | string | The ID of the server. |
+| nicId | **yes** | string | The ID of the NIC. |
+| fwId | **yes** | string | The ID of the firewall rule. |
+| Name | no | string | The name of the firewall rule. |
+| SourceMac | no | string | Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. A *null* value allows all source MAC address. |
+| SourceIp | no | string | Only traffic originating from the respective IPv4 address is allowed. A *null* value allows all source IPs. |
+| TargetIp | no | string | In case the target NIC has multiple IP addresses, only traffic directed to the respective IP address of the NIC is allowed. A *null* value allows all target IPs. |
+| PortRangeStart | no | string | Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave `port_range_start` and `port_range_end` value as *null* to allow all ports. |
+| PortRangeEnd | no | string | Defines the end range of the allowed port (from 1 to 65534) if the protocol TCP or UDP is chosen. Leave `port_range_start` and `port_range_end` value as *null* to allow all ports. |
+| IcmpType | no | string | Defines the allowed type (from 0 to 254) if the protocol ICMP is chosen. A *null* value allows all types. |
+| IcmpCode | no | string | Defines the allowed code (from 0 to 254) if protocol ICMP is chosen. A *null* value allows all codes. |
+
+After retrieving a firewall rule, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
+
+```
+var updated = fwApi.PartialUpdate(datacenterId, serverId, nicId, fwId, new FirewallruleProperties {Name = fw.Properties.Name + " -Updated" });
+```
+
+**NOTE**: You can also use `Update()`, for that operation you will update all the properties.
+
+---
+
+#### Delete a Firewall Rule
+
+Removes the specific firewall rule.
+
+| Name| Required | Type | Description |
+|---|:-:|---|---|
+| datacenterId | **yes** | string | The ID of the VDC. |
+| serverId | **yes** | string | The ID of the server. |
+| nicId | **yes** | string | The ID of the NIC. |
+| fwId | **yes** | string | The ID of the firewall rule. |
+
+After retrieving a firewall rule, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
+
+```
+var resp = fwApi.Delete(datacenterId, serverId, nicId, fwId);
+```
+
+---
+
+
+
 ### Load Balancers
 
 Create an instace of the api class:
@@ -1130,359 +1600,6 @@ var resp = nicApi.DetachNic(datacenterId, loadbalancerId, nicId);
 
 ---
 
-### Firewall Rules
-
-Create an instace of the api class:
-
-         FirewallRuleApi fwApi = new FirewallRuleApi(Configuration);
-
-#### List Firewall Rules
-
-Retrieves a list of firewall rules associated with a particular NIC.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| serverId | **yes** | string | The ID of the server. |
-| nicId | **yes** | string | The ID of the NIC. |
-
-```
-var list = fwApi.FindAll(datacenterId, serverId, nicId);
-```
-
----
-
-#### Get a Firewall Rule
-
-Retrieves the attributes of a given firewall rule.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| serverId | **yes** | string | The ID of the server. |
-| nicId | **yes** | string | The ID of the NIC. |
-| fwId | **yes** | string | The ID of the firewall rule. |
-
-```
-var newFw = fwApi.FindById(datacenterId, serverId, nicId, fwId);
-```
-
----
-
-#### Create a Firewall Rule
-
-This will add a firewall rule to the NIC.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| serverId | **yes** | string | The ID of the server. |
-| nicId | **yes** | string | The ID of the NIC. |
-| Name | no | string | The name of the firewall rule. |
-| Protocol | **yes** | string | The protocol for the rule: TCP, UDP, ICMP, ANY. |
-| SourceMac | no | string | Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. A *null* value allows all source MAC address. |
-| SourceIp | no | string | Only traffic originating from the respective IPv4 address is allowed. A *null* value allows all source IPs. |
-| TargetIp | no | string | In case the target NIC has multiple IP addresses, only traffic directed to the respective IP address of the NIC is allowed. A *null* value allows all target IPs. |
-| PortRangeStart | no | string | Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave `PortRangeStart` and `PortRangeEnd` value as *null* to allow all ports. |
-| PortRangeEnd | no | string | Defines the end range of the allowed port (from 1 to 65534) if the protocol TCP or UDP is chosen. Leave `PortRangeStart` and `PortRangeEnd` value as *null* to allow all ports. |
-| IcmpType | no | string | Defines the allowed type (from 0 to 254) if the protocol ICMP is chosen. A *null* value allows all types. |
-| IcmpCode | no | string | Defines the allowed code (from 0 to 254) if protocol ICMP is chosen. A *null* value allows all codes. |
-
-```
-var fw = new FirewallRule { Properties = new FirewallruleProperties { Protocol = "TCP", Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(), } };
-
-fw = fwApi.Create(datacenterId, serverId, nicId, fw);
-```
-
----
-
-#### Update a Firewall Rule
-
-Perform updates to attributes of a firewall rule.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| serverId | **yes** | string | The ID of the server. |
-| nicId | **yes** | string | The ID of the NIC. |
-| fwId | **yes** | string | The ID of the firewall rule. |
-| Name | no | string | The name of the firewall rule. |
-| SourceMac | no | string | Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. A *null* value allows all source MAC address. |
-| SourceIp | no | string | Only traffic originating from the respective IPv4 address is allowed. A *null* value allows all source IPs. |
-| TargetIp | no | string | In case the target NIC has multiple IP addresses, only traffic directed to the respective IP address of the NIC is allowed. A *null* value allows all target IPs. |
-| PortRangeStart | no | string | Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave `port_range_start` and `port_range_end` value as *null* to allow all ports. |
-| PortRangeEnd | no | string | Defines the end range of the allowed port (from 1 to 65534) if the protocol TCP or UDP is chosen. Leave `port_range_start` and `port_range_end` value as *null* to allow all ports. |
-| IcmpType | no | string | Defines the allowed type (from 0 to 254) if the protocol ICMP is chosen. A *null* value allows all types. |
-| IcmpCode | no | string | Defines the allowed code (from 0 to 254) if protocol ICMP is chosen. A *null* value allows all codes. |
-
-After retrieving a firewall rule, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
-
-```
-var updated = fwApi.PartialUpdate(datacenterId, serverId, nicId, fwId, new FirewallruleProperties {Name = fw.Properties.Name + " -Updated" });
-```
-
-**NOTE**: You can also use `Update()`, for that operation you will update all the properties.
-
----
-
-#### Delete a Firewall Rule
-
-Removes the specific firewall rule.
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| serverId | **yes** | string | The ID of the server. |
-| nicId | **yes** | string | The ID of the NIC. |
-| fwId | **yes** | string | The ID of the firewall rule. |
-
-After retrieving a firewall rule, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
-
-```
-var resp = fwApi.Delete(datacenterId, serverId, nicId, fwId);
-```
-
----
-
-### Images
-
-Create an instace of the api class:
-
-         ImageApi imageApi = new ImageApi(Configuration);
-
-#### List Images
-
-Retrieve a list of images.
-
-```
-var list = imageApi.FindAll();
-```
-
----
-
-#### Get an Image
-
-Retrieves the attributes of a specific image.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| imageId | **yes** | string | The ID of the image. |
-
-```
-var img = imageApi.FindById(imageId);
-```
-
----
-
-
-### Network Interfaces (NICs)
-
-Create an instace of the api class:
-
-         NetworkInterfacesApi nicApi = new NetworkInterfacesApi(Configuration);
-
-#### List NICs
-
-Retrieve a list of LANs within the virtual data center.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| serverId | **yes** | string | The ID of the server. |
-
-```
- var list = nicApi.FindAll(datacenterId, serverId);
-```
-
----
-
-#### Get a NIC
-
-Retrieves the attributes of a given NIC.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| serverId | **yes** | string | The ID of the server. |
-| nicId | **yes** | string | The ID of the NIC. |
-
-```
-var nic = nicApi.FindById(datacenterId, serverId, nicId);
-```
-
----
-
-#### Create a NIC
-
-Adds a NIC to the target server.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| serverId | **yes** | string| The ID of the server. |
-| Name | no | string | The name of the NIC. |
-| Ips | no | string collection | IPs assigned to the NIC. This can be a collection. |
-| Dhcp | no | bool | Set to FALSE if you wish to disable DHCP on the NIC. Default: TRUE. |
-| Lan | **yes** | int | The LAN ID the NIC will sit on. If the LAN ID does not exist it will be created. |
-| Nat | no | bool | Indicates the private IP address has outbound access to the public internet. |
-| FirewallActive | no | bool | Once you add a firewall rule this will reflect a true value. |
-| Firewallrules | no | object| A list of firewall rules associated to the NIC represented as a collection. |
-
-```
-var nic = new Nic { Properties = new NicProperties { Lan = 1, Nat = false } };
-
-nic = nicApi.Create(datacenter.Id, server.Id, nic);
-```
-
----
-
-#### Update a NIC
-
-You can update -- in full or partially -- various attributes on the NIC; however, some restrictions are in place:
-
-The primary address of a NIC connected to a load balancer can only be changed by changing the IP of the load balancer. You can also add additional reserved, public IPs to the NIC.
-
-The user can specify and assign private IPs manually. Valid IP addresses for private networks are 10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| serverId | **yes** | string| The ID of the server. |
-| nicId | **yes** | string| The ID of the NIC. |
-| Name | no | string | The name of the NIC. |
-| Ips | no | string collection | IPs assigned to the NIC represented as a collection. |
-| Dhcp | no | bool | Boolean value that indicates if the NIC is using DHCP or not. |
-| Lan | no | int | The LAN ID the NIC sits on. |
-| Nat | no | bool | Indicates the private IP address has outbound access to the public internet. |
-
-After retrieving a NIC, either by getting it by id, or as a create response object, you can call the `PartialUpdate` method directly.
-
-```
-var updated = nicApi.PartialUpdate(datacenterId, serverId, nicId, new NicProperties { Name = nic.Properties.Name + " -Update", Ips = new System.Collections.Generic.List<string> { "10.8.52.225", "1.1.1.1" } });
-```
-
-**NOTE**: You can also use `Update()`, for that operation you will update all the properties.
-
----
-
-#### Delete a NIC
-
-Deletes the specified NIC.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| serverId | **yes** | string| The ID of the server. |
-| nicId | **yes** | string| The ID of the NIC. |
-
-After retrieving a NIC, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
-
-```
-var resp = nicApi.Delete(datacenterId, serverId, nicId);
-```
-
----
-
-### IP Blocks
-
-The IP block operations assist with managing reserved /static public IP addresses.
-
-Create an instace of the api class:
-
-         IPBlocksApi ipApi = new IPBlocksApi(Configuration);
-
-#### List IP Blocks
-
-Retrieve a list of available IP blocks.
-
-```
-var list = ipApi.FindAll();
-```
-
----
-
-#### Get an IP Block
-
-Retrieves the attributes of a specific IP block.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| ipBlockId | **yes** | string | The ID of the IP block. |
-
-```
-var ip = ipApi.FindById(ipBlockId);
-```
-
----
-
-#### Create an IP Block
-
-Creates an IP block. IP blocks are attached to a location, so you must specify a valid `location` along with a `size` parameter indicating the number of IP addresses you want to reserve in the IP block. Servers or other resources using an IP address from an IP block must be in the same `location`.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| Location | **yes** | string | This must be one of the locations: us/las, de/fra, de/fkb. |
-| Size | **yes** | int | The size of the IP block you want. |
-| Name | no | string | A descriptive name for the IP block |
-
-The following table outlines the locations currently supported:
-
-| Value| Country | City |
-|---|---|---|
-| us/las | United States | Las Vegas |
-| de/fra | Germany | Frankfurt |
-| de/fkb | Germany | Karlsruhe |
-
-To create an IP block, establish the parameters and then call `reserve_ipblock`.
-
-```
-var ipBlock = new IpBlock { Properties = new IpBlockProperties { Location = "us/las", Size = 1 } };
-ipBlock = ipApi.Create(ipBlock);
-```
-
----
-
-#### Delete an IP Block
-
-Deletes the specified IP Block.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| ipblockId | **yes** | string | The ID of the IP block. |
-
-After retrieving an IP block, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
-
-```
-var resp = ipApi.Delete(ipBlockId);
-```
----
-
 ### Requests
 
 Each call to the ProfitBricks Cloud API is assigned a request ID. These operations can be used to get information about the requests that have been submitted and their current status.
@@ -1503,7 +1620,7 @@ var requests = reqApi.List();
 
 #### Get a Request
 
-Retrieves the attributes of a specific request. 
+Retrieves the attributes of a specific request.
 
 The following table describes the request arguments:
 
@@ -1532,121 +1649,6 @@ RequestStatus req = reqApi.GetStatus(requestId);
 ```
 
 ---
-
-### LANs
-
-#### List LANs
-
-Retrieve a list of LANs within the virtual data center.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-
-```
-var list = lanApi.FindAll(datacenterId);
-```
-
----
-
-#### Create a LAN
-
-Creates a LAN within a virtual data center.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| Name | no | string | The name of your LAN. |
-| Public | **Yes** | bool | Boolean indicating if the LAN faces the public Internet or not. |
-| Nics | no | object | A collection of NICs associated with the LAN. |
-
-```
-var lan = lanApi.Create(datacenterId, new Lan
-            {
-                Properties = new LanProperties
-                {
-                    Public = true,
-                    Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString()
-                },
-                Entities=new LanEntities{
-                    Nics= new LanNics
-                    {
-                        Items= new List<Nic>()
-                        {
-                            new Nic
-                            {
-                                Id=nic.Id
-                            }
-                        }
-
-                    }
-
-                }
-            });
-```
-
----
-
-#### Get a LAN
-
-Retrieves the attributes of a given LAN.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| lanId | **yes** | int | The ID of the LAN. |
-
-```
-var lan = lanApi.FindById(datacenterId, lanId);
-```
-
----
-
-#### Update a LAN
-
-Perform updates to attributes of a LAN.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| lanId | **yes** | int | The ID of the LAN. |
-| Name | no | string | A descriptive name for the LAN. |
-| Public | no | bool | Boolean indicating if the LAN faces the public Internet or not. |
-
-After retrieving a LAN, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
-
-```
-var updated = lanApi.PartialUpdate(datacenterId, lanId, new LanProperties { Public = !lan.Properties.Public });
-```
-
-**NOTE**: You can also use `Update()`, for that operation you will update all the properties.
-
----
-
-#### Delete a LAN
-
-Deletes the specified LAN.
-
-The following table describes the request arguments:
-
-| Name| Required | Type | Description |
-|---|:-:|---|---|
-| datacenterId | **yes** | string | The ID of the VDC. |
-| lanId | **yes** | string | The ID of the LAN. |
-
-After retrieving a LAN, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
-
-```
-lanApi.Delete(datacenterId,lanId);
-```
 
 ## Examples
 
