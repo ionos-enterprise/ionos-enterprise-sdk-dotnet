@@ -8,7 +8,6 @@ Version: profitbricks-sdk-net **3.0.4**
 * [Getting Started](#getting-started)
   * [Installation](#installation)
   * [Authenticating](#authenticating)
-  * [Error Handling](#error-handling)
 * [Reference](#reference)
   * [Data Centers](#data-centers)
     * [List Data Centers](#list-data-centers)
@@ -106,6 +105,8 @@ This guide will show you how to programmatically perform common management tasks
 ## Getting Started
 
 Before you begin you will need to have [signed-up](https://www.profitbricks.com/signup) for a ProfitBricks account. The credentials you setup during sign-up will be used to authenticate against the Cloud API.
+
+### Installation
 
 The official .NET library is available from the [ProfitBricks GitHub account](https://github.com/profitbricks/profitbricks-sdk-net). You can download the latest stable version by cloning the repository and then adding the project to your solution.
 
