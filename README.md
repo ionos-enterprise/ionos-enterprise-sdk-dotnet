@@ -226,9 +226,9 @@ var datacenter = new Datacenter
                             {
                                 Properties = new ServerProperties
                                 {
+                                    Name = "Test Server",
                                     Cores = 1,
-                                    Ram = 1024,
-                             
+                                    Ram = 1024
                                 }
                             }
                         }
@@ -353,7 +353,7 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | datacenterId | **yes** | string | The ID of the VDC. |
-| server_id | **yes** | string | The ID of the server. |
+| serverId | **yes** | string | The ID of the server. |
 
 ```
 var server = serverApi.FindById(datacenter.Id, server.Id);
