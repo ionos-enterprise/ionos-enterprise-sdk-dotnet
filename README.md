@@ -480,12 +480,12 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
-| volumeId | **yes** | string | The ID of a storage volume. |
+| VolumeId | **yes** | string | The ID of a storage volume. |
 
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `AttachVolume` method directly.
 
 ```
-var resp = attachedVolumesApi.AttachVolume(DatacenterId, ServerId, new Volume { Id = volumeId });
+var resp = attachedVolumesApi.AttachVolume(DatacenterId, ServerId, new Volume { Id = VolumeId });
 ```
 
 ---
@@ -500,12 +500,12 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
-| volumeId | **yes** | string | The ID of the attached volume. |
+| VolumeId | **yes** | string | The ID of the attached volume. |
 
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindById` method directly.
 
 ```
-var attachedVol = attachedVolumesApi.FindById(DatacenterId, ServerId, volumeId);
+var attachedVol = attachedVolumesApi.FindById(DatacenterId, ServerId, VolumeId);
 ```
 
 ---
@@ -522,12 +522,12 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
-| volumeId | **yes** | string | The ID of the attached volume. |
+| VolumeId | **yes** | string | The ID of the attached volume. |
 
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `DetachVolume` method directly.
 
 ```
-var resp = attachedVolumesApi.DetachVolume(DatacenterId,ServerId, volumeId);
+var resp = attachedVolumesApi.DetachVolume(DatacenterId,ServerId, VolumeId);
 ```
 
 ---
@@ -731,10 +731,10 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| volumeId | **yes** | string | The ID of the volume. |
+| VolumeId | **yes** | string | The ID of the volume. |
 
 ```
-var volume = volumeApi.FindById(DatacenterId, volumeId);
+var volume = volumeApi.FindById(DatacenterId, VolumeId);
 ```
 
 ---
@@ -809,7 +809,7 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| volumeId | **yes** | string | The ID of the volume. |
+| VolumeId | **yes** | string | The ID of the volume. |
 | Name | no | string | The name of the volume. |
 | Size | no | int | The size of the volume in GB. Only increase when updating. |
 | Bus | no | string | The bus type of the volume (VIRTIO or IDE). Default: VIRTIO. |
@@ -821,7 +821,7 @@ The following table describes the request arguments:
 After retrieving a volume, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
 
 ```
-var newVolume = volumeApi.PartialUpdate(DatacenterId, volumeId, new VolumeProperties { Size = volume.Properties.Size + 1 });
+var newVolume = volumeApi.PartialUpdate(DatacenterId, VolumeId, new VolumeProperties { Size = volume.Properties.Size + 1 });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -837,12 +837,12 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| volumeId | **yes** | string | The ID of the volume. |
+| VolumeId | **yes** | string | The ID of the volume. |
 
 After retrieving a volume, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
- var response = volumeApi.Delete(DatacenterId, volumeId);
+ var response = volumeApi.Delete(DatacenterId, VolumeId);
 ```
 
 ---
@@ -856,14 +856,14 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| volumeId | **yes** | string | The ID of the volume. |
+| VolumeId | **yes** | string | The ID of the volume. |
 | Name | no | string | The name of the snapshot. |
 | Description | no | string | The description of the snapshot. |
 
 After retrieving a volume, either by getting it by id, or as a create response object, you can call the `CreateSnapshot` method directly.
 
 ```
-var resp = volumeApi.CreateSnapshot(DatacenterId, volumeId, Name, Description);
+var resp = volumeApi.CreateSnapshot(DatacenterId, VolumeId, Name, Description);
 ```
 
 ---
@@ -1201,10 +1201,10 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
-| nicId | **yes** | string | The ID of the NIC. |
+| NicId | **yes** | string | The ID of the NIC. |
 
 ```
-var nic = nicApi.FindById(DatacenterId, ServerId, nicId);
+var nic = nicApi.FindById(DatacenterId, ServerId, NicId);
 ```
 
 ---
@@ -1249,7 +1249,7 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string| The ID of the server. |
-| nicId | **yes** | string| The ID of the NIC. |
+| NicId | **yes** | string| The ID of the NIC. |
 | Name | no | string | The name of the NIC. |
 | Ips | no | string collection | IPs assigned to the NIC represented as a collection. |
 | Dhcp | no | bool | Boolean value that indicates if the NIC is using DHCP or not. |
@@ -1259,7 +1259,7 @@ The following table describes the request arguments:
 After retrieving a NIC, either by getting it by id, or as a create response object, you can call the `PartialUpdate` method directly.
 
 ```
-var updated = nicApi.PartialUpdate(DatacenterId, ServerId, nicId, new NicProperties { Name ="Update", Ips = new System.Collections.Generic.List<string> { "10.8.52.225", "1.1.1.1" } });
+var updated = nicApi.PartialUpdate(DatacenterId, ServerId, NicId, new NicProperties { Name ="Update", Ips = new System.Collections.Generic.List<string> { "10.8.52.225", "1.1.1.1" } });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -1276,12 +1276,12 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string| The ID of the server. |
-| nicId | **yes** | string| The ID of the NIC. |
+| NicId | **yes** | string| The ID of the NIC. |
 
 After retrieving a NIC, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
-var resp = nicApi.Delete(DatacenterId, ServerId, nicId);
+var resp = nicApi.Delete(DatacenterId, ServerId, NicId);
 ```
 
 ---
@@ -1302,10 +1302,10 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
-| nicId | **yes** | string | The ID of the NIC. |
+| NicId | **yes** | string | The ID of the NIC. |
 
 ```
-var list = fwApi.FindAll(DatacenterId, ServerId, nicId);
+var list = fwApi.FindAll(DatacenterId, ServerId, NicId);
 ```
 
 ---
@@ -1320,11 +1320,11 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
-| nicId | **yes** | string | The ID of the NIC. |
+| NicId | **yes** | string | The ID of the NIC. |
 | fwId | **yes** | string | The ID of the firewall rule. |
 
 ```
-var newFw = fwApi.FindById(DatacenterId, ServerId, nicId, fwId);
+var newFw = fwApi.FindById(DatacenterId, ServerId, NicId, fwId);
 ```
 
 ---
@@ -1339,7 +1339,7 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
-| nicId | **yes** | string | The ID of the NIC. |
+| NicId | **yes** | string | The ID of the NIC. |
 | Name | no | string | The name of the firewall rule. |
 | Protocol | **yes** | string | The protocol for the rule: TCP, UDP, ICMP, ANY. |
 | SourceMac | no | string | Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. A *null* value allows all source MAC address. |
@@ -1353,7 +1353,7 @@ The following table describes the request arguments:
 ```
 var fw = new FirewallRule { Properties = new FirewallruleProperties { Protocol = "TCP", Name = ".Net" } };
 
-fw = fwApi.Create(DatacenterId, ServerId, nicId, fw);
+fw = fwApi.Create(DatacenterId, ServerId, NicId, fw);
 ```
 
 ---
@@ -1368,7 +1368,7 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
-| nicId | **yes** | string | The ID of the NIC. |
+| NicId | **yes** | string | The ID of the NIC. |
 | fwId | **yes** | string | The ID of the firewall rule. |
 | Name | no | string | The name of the firewall rule. |
 | SourceMac | no | string | Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. A *null* value allows all source MAC address. |
@@ -1382,7 +1382,7 @@ The following table describes the request arguments:
 After retrieving a firewall rule, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
 
 ```
-var updated = fwApi.PartialUpdate(DatacenterId, ServerId, nicId, fwId, new FirewallruleProperties {Name = "Updated" });
+var updated = fwApi.PartialUpdate(DatacenterId, ServerId, NicId, fwId, new FirewallruleProperties {Name = "Updated" });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -1397,13 +1397,13 @@ Removes the specific firewall rule.
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
-| nicId | **yes** | string | The ID of the NIC. |
+| NicId | **yes** | string | The ID of the NIC. |
 | fwId | **yes** | string | The ID of the firewall rule. |
 
 After retrieving a firewall rule, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
-var resp = fwApi.Delete(DatacenterId, ServerId, nicId, fwId);
+var resp = fwApi.Delete(DatacenterId, ServerId, NicId, fwId);
 ```
 
 ---
@@ -1441,10 +1441,10 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| loadbalancerId | **yes** | string | The ID of the load balancer. |
+| LoadBalancerId | **yes** | string | The ID of the load balancer. |
 
 ```
-var lb = lbApi.FindById(DatacenterId, loadbalancerId);
+var lb = lbApi.FindById(DatacenterId, LoadBalancerId);
 ```
 
 ---
@@ -1486,7 +1486,7 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| loadbalancerId | **yes** | string | The ID of the load balancer. |
+| LoadBalancerId | **yes** | string | The ID of the load balancer. |
 | Name | no | string | The name of the load balancer. |
 | Ip | no | string | The IP of the load balancer. |
 | Dhcp | no | bool | Indicates if the load balancer will reserve an IP using DHCP. |
@@ -1494,7 +1494,7 @@ The following table describes the request arguments:
 After retrieving a load balancer, either by getting it by id, or as a create response object, you can change it's properties and call the `PartialUpdate` method:
 
 ```
-var newLb = lbApi.PartialUpdate(DatacenterId, loadbalancerId, new LoadbalancerProperties { Name = "Updated" });
+var newLb = lbApi.PartialUpdate(DatacenterId, LoadBalancerId, new LoadbalancerProperties { Name = "Updated" });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -1510,12 +1510,12 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| loadbalancerId | **yes** | string | The ID of the load balancer. |
+| LoadBalancerId | **yes** | string | The ID of the load balancer. |
 
 After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
-var resp = lbApi.Delete(DatacenterId, loadbalancerId);
+var resp = lbApi.Delete(DatacenterId, LoadBalancerId);
 ```
 
 ---
@@ -1529,13 +1529,13 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| loadbalancerId | **yes** | string | The ID of the load balancer. |
+| LoadBalancerId | **yes** | string | The ID of the load balancer. |
 | depth | no | int | The level of details returned. |
 
 After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `FindAll` method directly.
 
 ```
- var balancedNics = lbApi.FindAll(DatacenterId, loadbalancerId, depth);
+ var balancedNics = lbApi.FindAll(DatacenterId, LoadBalancerId, depth);
 ```
 
 ---
@@ -1549,14 +1549,14 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| loadbalancerId | **yes** | string | The ID of the load balancer. |
-| nicId | **yes** | string | The ID of the NIC. |
+| LoadBalancerId | **yes** | string | The ID of the load balancer. |
+| NicId | **yes** | string | The ID of the NIC. |
 | depth | no | int | The level of details returned. |
 
 After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `get_loadbalanced_nic` method directly.
 
 ```
-var balancedNic = lbApi.FindById(DatacenterId, loadbalancerId, nicId, depth);
+var balancedNic = lbApi.FindById(DatacenterId, LoadBalancerId, NicId, depth);
 ```
 
 ---
@@ -1570,14 +1570,14 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| loadbalancerId | **yes** | string | The ID of the load balancer. |
-| nicId | **yes** | string | The ID of the NIC. |
+| LoadBalancerId | **yes** | string | The ID of the load balancer. |
+| NicId | **yes** | string | The ID of the NIC. |
 
 After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `AttachNic` method directly.
 
 ```
 NetworkInterfacesApi nicApi = new NetworkInterfacesApi(Configuration);
-var attachedNic = nicApi.AttachNic(DatacenterId, loadbalancerId, new Nic { Id = nicId });
+var attachedNic = nicApi.AttachNic(DatacenterId, LoadBalancerId, new Nic { Id = NicId });
 ```
 
 ---
@@ -1591,13 +1591,13 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| loadbalancerId | **yes** | string | The ID of the load balancer. |
-| nicId | **yes** | string | The ID of the NIC. |
+| LoadBalancerId | **yes** | string | The ID of the load balancer. |
+| NicId | **yes** | string | The ID of the NIC. |
 
 After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `DetachNic` method directly.
 
 ```
-var resp = nicApi.DetachNic(DatacenterId, loadbalancerId, nicId);
+var resp = nicApi.DetachNic(DatacenterId, LoadBalancerId, NicId);
 ```
 
 ---
