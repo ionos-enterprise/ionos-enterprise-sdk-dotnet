@@ -255,7 +255,7 @@ The following table describes the available request arguments:
 | Description | no | string | The new description of the VDC. |
 
 ```
-var resp = dcApi.PartialUpdate(datacenterId, new DatacenterProperties { Name = datacenter.Properties.Name + " - updated" });
+var resp = dcApi.PartialUpdate(datacenterId, new DatacenterProperties { Name ="tes update"});
 ```
 
 **NOTE**: You may also use `Update()` instead of `PartialUpdate()`. For an `Update()` operation you will need to supply values for **all** the parameters.
@@ -356,7 +356,7 @@ The following table describes the request arguments:
 | serverId | **yes** | string | The ID of the server. |
 
 ```
-var server = serverApi.FindById(datacenter.Id, server.Id);
+var server = serverApi.FindById(datacenterId, serverId);
 ```
 
 ---
@@ -424,7 +424,7 @@ The following table describes the request arguments:
 After retrieving a server, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
 
 ```
-var updated = serverApi.PartialUpdate(datacenterId, serverId, new ServerProperties { Name = server.Properties.Name + " -Updated" });
+var updated = serverApi.PartialUpdate(datacenterId, serverId, new ServerProperties { Name ="Updated" });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -464,7 +464,7 @@ The following table describes the request arguments:
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindAll` method directly:
 
 ```
-var all = attachedVolumesApi.FindAll(datacenter.Id, serverId);
+var all = attachedVolumesApi.FindAll(datacenterId, serverId);
 ```
 
 ---
@@ -862,7 +862,7 @@ The following table describes the request arguments:
 After retrieving a volume, either by getting it by id, or as a create response object, you can call the `CreateSnapshot` method directly.
 
 ```
-var resp = volumeApi.CreateSnapshot(datacenterId, volumeId, Name", Description);
+var resp = volumeApi.CreateSnapshot(datacenterId, volumeId, Name, Description);
 ```
 
 ---
@@ -946,7 +946,7 @@ The following table describes the request arguments:
 After retrieving a snapshot, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
 
 ```
-var updated = snapshotApi.PartialUpdate(snapshotId, new SnapshotProperties { Name = snapshot.Properties.Name + " -Updated" });
+var updated = snapshotApi.PartialUpdate(snapshotId, new SnapshotProperties { Name ="Updated" });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -1141,7 +1141,7 @@ The following table describes the request arguments:
 After retrieving a LAN, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
 
 ```
-var updated = lanApi.PartialUpdate(datacenterId, lanId, new LanProperties { Public = !lan.Properties.Public });
+var updated = lanApi.PartialUpdate(datacenterId, lanId, new LanProperties { Public = True });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -1229,7 +1229,7 @@ The following table describes the request arguments:
 ```
 var nic = new Nic { Properties = new NicProperties { Lan = 1, Nat = false } };
 
-nic = nicApi.Create(datacenter.Id, server.Id, nic);
+nic = nicApi.Create(datacenterId, serverId, nic);
 ```
 
 ---
@@ -1258,7 +1258,7 @@ The following table describes the request arguments:
 After retrieving a NIC, either by getting it by id, or as a create response object, you can call the `PartialUpdate` method directly.
 
 ```
-var updated = nicApi.PartialUpdate(datacenterId, serverId, nicId, new NicProperties { Name = nic.Properties.Name + " -Update", Ips = new System.Collections.Generic.List<string> { "10.8.52.225", "1.1.1.1" } });
+var updated = nicApi.PartialUpdate(datacenterId, serverId, nicId, new NicProperties { Name ="Update", Ips = new System.Collections.Generic.List<string> { "10.8.52.225", "1.1.1.1" } });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -1350,7 +1350,7 @@ The following table describes the request arguments:
 | IcmpCode | no | string | Defines the allowed code (from 0 to 254) if protocol ICMP is chosen. A *null* value allows all codes. |
 
 ```
-var fw = new FirewallRule { Properties = new FirewallruleProperties { Protocol = "TCP", Name = ".Net V2 - Test " + DateTime.Now.ToShortTimeString(), } };
+var fw = new FirewallRule { Properties = new FirewallruleProperties { Protocol = "TCP", Name = ".Net" } };
 
 fw = fwApi.Create(datacenterId, serverId, nicId, fw);
 ```
@@ -1381,7 +1381,7 @@ The following table describes the request arguments:
 After retrieving a firewall rule, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
 
 ```
-var updated = fwApi.PartialUpdate(datacenterId, serverId, nicId, fwId, new FirewallruleProperties {Name = fw.Properties.Name + " -Updated" });
+var updated = fwApi.PartialUpdate(datacenterId, serverId, nicId, fwId, new FirewallruleProperties {Name = "Updated" });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -1493,7 +1493,7 @@ The following table describes the request arguments:
 After retrieving a load balancer, either by getting it by id, or as a create response object, you can change it's properties and call the `PartialUpdate` method:
 
 ```
-var newLb = lbApi.PartialUpdate(datacenterId, loadbalancerId, new LoadbalancerProperties { Name = lb.Properties.Name + " -Updated" });
+var newLb = lbApi.PartialUpdate(datacenterId, loadbalancerId, new LoadbalancerProperties { Name = "Updated" });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
