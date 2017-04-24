@@ -173,6 +173,7 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
+| depth | no | int | The level of details returned. |
 
 ```
 var dc = dcApi.FindById(DatacenterId, depth: 5);
@@ -293,7 +294,7 @@ Create an instace of the api class:
 
 This operation will return the list of currently available locations.
 
-There are no request parameters to supply.
+The optional `depth` parameter defines the level, one being the least and five being the most, of information returned with the response.
 
 ```
 var locations = locApi.FindAll();
@@ -309,7 +310,7 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| locationId | **yes** | string | The ID consisting of country/city. |
+| LocationId | **yes** | string | The ID consisting of country/city. |
 
 ```
 Location loc = locApi.FindById(locationId);
@@ -338,6 +339,7 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
+| depth | no | int | The level of details returned. |
 
 ```
 var list = serverApi.FindAll(DatacenterId);
@@ -355,6 +357,7 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
+| depth | no | int | The level of details returned. |
 
 ```
 var server = serverApi.FindById(DatacenterId, ServerId);
@@ -461,6 +464,7 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
+| depth | no | int | The level of details returned. |
 
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindAll` method directly:
 
@@ -501,6 +505,7 @@ The following table describes the request arguments:
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
 | VolumeId | **yes** | string | The ID of the attached volume. |
+| depth | no | int | The level of details returned. |
 
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindById` method directly.
 
@@ -542,6 +547,7 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
+| depth | no | int | The level of details returned. |
 
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindAll` method directly.
 
@@ -561,12 +567,12 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
-| cdROMImageId | **yes** | string | The ID of a CD-ROM. |
+| CdRomImageId | **yes** | string | The ID of a CD-ROM. |
 
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `Attach` method directly.
 
 ```
-var attached = attachCDROMApi.Attach(DatacenterId, ServerId, new Image { Id=cdROMImageId});
+var attached = attachCDROMApi.Attach(DatacenterId, ServerId, new Image { Id=CdRomImageId});
 ```
 
 ---
@@ -581,12 +587,13 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
-| cdROMImageId | **yes** | string | The ID of the attached CD-ROM. |
+| CdRomImageId | **yes** | string | The ID of the attached CD-ROM. |
+| depth | no | int | The level of details returned. |
 
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `FindById` method directly.
 
 ```
-var getAttached = attachCDROMApi.FindById(DatacenterId, ServerId, cdROMImageId);
+var getAttached = attachCDROMApi.FindById(DatacenterId, ServerId, CdRomImageId);
 ```
 
 ---
@@ -601,12 +608,12 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
-| cdROMImageId | **yes** | string | The ID of the attached CD-ROM. |
+| CdRomImageId | **yes** | string | The ID of the attached CD-ROM. |
 
 After retrieving a server, either by getting it by id, or as a create response object, you can call the `Detach` method directly.
 
 ```
-var removed = attachCDROMApi.Detach(DatacenterId, ServerId, cdROMImageId);
+var removed = attachCDROMApi.Detach(DatacenterId, ServerId, CdRomImageId);
 ```
 
 ---
@@ -678,6 +685,8 @@ Create an instace of the api class:
 
 Retrieve a list of images.
 
+The optional `depth` parameter defines the level, one being the least and five being the most, of information returned with the response.
+
 ```
 var list = imageApi.FindAll();
 ```
@@ -692,10 +701,11 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| imageId | **yes** | string | The ID of the image. |
+| ImageId | **yes** | string | The ID of the image. |
+| depth | no | int | The level of details returned. |
 
 ```
-var img = imageApi.FindById(imageId);
+var img = imageApi.FindById(ImageId);
 ```
 
 ---
@@ -715,6 +725,7 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
+| depth | no | int | The level of details returned. |
 
 ```
 var list = volumeApi.FindAll(DatacenterId);
@@ -732,6 +743,7 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | VolumeId | **yes** | string | The ID of the volume. |
+| depth | no | int | The level of details returned. |
 
 ```
 var volume = volumeApi.FindById(DatacenterId, VolumeId);
@@ -877,12 +889,12 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| snapshotId | **yes** | string |  The ID of the snapshot. |
+| SnapshotId | **yes** | string |  The ID of the snapshot. |
 
 After retrieving a volume, either by getting it by id, or as a create response object, you can call the `RestoreSnapshot` method directly.
 
 ```
-var resp = volumeApi.RestoreSnapshot(DatacenterId, snapshotId);
+var resp = volumeApi.RestoreSnapshot(DatacenterId, SnapshotId);
 ```
 
 ---
@@ -897,7 +909,7 @@ Create an instace of the api class:
 
 You can retrieve a list of all available snapshots.
 
-There are no request parameters to supply.
+The optional `depth` parameter defines the level, one being the least and five being the most, of information returned with the response.
 
 ```
 var list = snapshotApi.FindAll(depth: 5);
@@ -913,10 +925,11 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| snapshotId | **yes** | string | The ID of the snapshot. |
+| SnapshotId | **yes** | string | The ID of the snapshot. |
+| depth | no | int | The level of details returned. |
 
 ```
-var snapshot = snapshotApi.FindById(snapshotId);
+var snapshot = snapshotApi.FindById(SnapshotId);
 ```
 
 ---
@@ -929,7 +942,7 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| snapshotId | **yes** | string | The ID of the snapshot. |
+| SnapshotId | **yes** | string | The ID of the snapshot. |
 | Name | no | string | The name of the snapshot. |
 | Description | no | string | The description of the snapshot. |
 | LicenceType | no | string | The snapshot's licence type: LINUX, WINDOWS, WINDOWS2016, or OTHER. |
@@ -947,7 +960,7 @@ The following table describes the request arguments:
 After retrieving a snapshot, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
 
 ```
-var updated = snapshotApi.PartialUpdate(snapshotId, new SnapshotProperties { Name ="Updated" });
+var updated = snapshotApi.PartialUpdate(SnapshotId, new SnapshotProperties { Name ="Updated" });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -962,12 +975,12 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| snapshotId | **yes** | string | The ID of the snapshot. |
+| SnapshotId | **yes** | string | The ID of the snapshot. |
 
 After retrieving a snapshot, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
-var resp = snapshotApi.Delete(snapshotId);
+var resp = snapshotApi.Delete(SnapshotId);
 ```
 
 ---
@@ -984,6 +997,9 @@ Create an instace of the api class:
 
 Retrieve a list of available IP blocks.
 
+The optional `depth` parameter defines the level, one being the least and five being the most, of information returned with the response.
+
+
 ```
 var list = ipApi.FindAll();
 ```
@@ -996,10 +1012,11 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| ipBlockId | **yes** | string | The ID of the IP block. |
+| IpBlockId | **yes** | string | The ID of the IP block. |
+| depth | no | int | The level of details returned. |
 
 ```
-var ip = ipApi.FindById(ipBlockId);
+var ip = ipApi.FindById(IpBlockId);
 ```
 
 ---
@@ -1041,12 +1058,12 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| ipblockId | **yes** | string | The ID of the IP block. |
+| IpBlockId | **yes** | string | The ID of the IP block. |
 
 After retrieving an IP block, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
-var resp = ipApi.Delete(ipBlockId);
+var resp = ipApi.Delete(IpBlockId);
 ```
 
 ---
@@ -1062,6 +1079,7 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
+| depth | no | int | The level of details returned. |
 
 ```
 var list = lanApi.FindAll(DatacenterId);
@@ -1118,10 +1136,11 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| lanId | **yes** | int | The ID of the LAN. |
+| LanId | **yes** | int | The ID of the LAN. |
+| depth | no | int | The level of details returned. |
 
 ```
-var lan = lanApi.FindById(DatacenterId, lanId);
+var lan = lanApi.FindById(DatacenterId, LanId);
 ```
 
 ---
@@ -1135,14 +1154,14 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| lanId | **yes** | int | The ID of the LAN. |
+| LanId | **yes** | int | The ID of the LAN. |
 | Name | no | string | A descriptive name for the LAN. |
 | Public | no | bool | Boolean indicating if the LAN faces the public Internet or not. |
 
 After retrieving a LAN, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
 
 ```
-var updated = lanApi.PartialUpdate(DatacenterId, lanId, new LanProperties { Public = True });
+var updated = lanApi.PartialUpdate(DatacenterId, LanId, new LanProperties { Public = True });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -1158,12 +1177,12 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
-| lanId | **yes** | string | The ID of the LAN. |
+| LanId | **yes** | string | The ID of the LAN. |
 
 After retrieving a LAN, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
-lanApi.Delete(DatacenterId,lanId);
+lanApi.Delete(DatacenterId,LanId);
 ```
 
 ---
@@ -1184,6 +1203,7 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
+| depth | no | int | The level of details returned. |
 
 ```
  var list = nicApi.FindAll(DatacenterId, ServerId);
@@ -1202,6 +1222,7 @@ The following table describes the request arguments:
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
 | NicId | **yes** | string | The ID of the NIC. |
+| depth | no | int | The level of details returned. |
 
 ```
 var nic = nicApi.FindById(DatacenterId, ServerId, NicId);
@@ -1225,7 +1246,7 @@ The following table describes the request arguments:
 | Lan | **yes** | int | The LAN ID the NIC will sit on. If the LAN ID does not exist it will be created. |
 | Nat | no | bool | Indicates the private IP address has outbound access to the public internet. |
 | FirewallActive | no | bool | Once you add a firewall rule this will reflect a true value. |
-| Firewallrules | no | object| A list of firewall rules associated to the NIC represented as a collection. |
+| FirewallRules | no | object| A list of firewall rules associated to the NIC represented as a collection. |
 
 ```
 var nic = new Nic { Properties = new NicProperties { Lan = 1, Nat = false } };
@@ -1303,6 +1324,7 @@ The following table describes the request arguments:
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
 | NicId | **yes** | string | The ID of the NIC. |
+| depth | no | int | The level of details returned. |
 
 ```
 var list = fwApi.FindAll(DatacenterId, ServerId, NicId);
@@ -1321,10 +1343,11 @@ The following table describes the request arguments:
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
 | NicId | **yes** | string | The ID of the NIC. |
-| fwId | **yes** | string | The ID of the firewall rule. |
+| FirewallRuleId | **yes** | string | The ID of the firewall rule. |
+| depth | no | int | The level of details returned. |
 
 ```
-var newFw = fwApi.FindById(DatacenterId, ServerId, NicId, fwId);
+var newFw = fwApi.FindById(DatacenterId, ServerId, NicId, FirewallRuleId);
 ```
 
 ---
@@ -1369,7 +1392,7 @@ The following table describes the request arguments:
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
 | NicId | **yes** | string | The ID of the NIC. |
-| fwId | **yes** | string | The ID of the firewall rule. |
+| FirewallRuleId | **yes** | string | The ID of the firewall rule. |
 | Name | no | string | The name of the firewall rule. |
 | SourceMac | no | string | Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. A *null* value allows all source MAC address. |
 | SourceIp | no | string | Only traffic originating from the respective IPv4 address is allowed. A *null* value allows all source IPs. |
@@ -1382,7 +1405,7 @@ The following table describes the request arguments:
 After retrieving a firewall rule, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
 
 ```
-var updated = fwApi.PartialUpdate(DatacenterId, ServerId, NicId, fwId, new FirewallruleProperties {Name = "Updated" });
+var updated = fwApi.PartialUpdate(DatacenterId, ServerId, NicId, FirewallRuleId, new FirewallruleProperties {Name = "Updated" });
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -1398,12 +1421,12 @@ Removes the specific firewall rule.
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | ServerId | **yes** | string | The ID of the server. |
 | NicId | **yes** | string | The ID of the NIC. |
-| fwId | **yes** | string | The ID of the firewall rule. |
+| FirewallRuleId | **yes** | string | The ID of the firewall rule. |
 
 After retrieving a firewall rule, either by getting it by id, or as a create response object, you can call the `Delete` method directly.
 
 ```
-var resp = fwApi.Delete(DatacenterId, ServerId, NicId, fwId);
+var resp = fwApi.Delete(DatacenterId, ServerId, NicId, FirewallRuleId);
 ```
 
 ---
@@ -1425,6 +1448,7 @@ The following table describes the request arguments:
 | Name| Required | Type | Description |
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
+| depth | no | int | The level of details returned. |
 
 ```
 var list = lbApi.FindAll(DatacenterId);
@@ -1442,6 +1466,7 @@ The following table describes the request arguments:
 |---|:-:|---|---|
 | DatacenterId | **yes** | string | The ID of the VDC. |
 | LoadBalancerId | **yes** | string | The ID of the load balancer. |
+| depth | no | int | The level of details returned. |
 
 ```
 var lb = lbApi.FindById(DatacenterId, LoadBalancerId);
@@ -1461,7 +1486,7 @@ The following table describes the request arguments:
 | Name | **yes** | string | The name of the load balancer. |
 | Ip | no | string | IPv4 address of the load balancer. All attached NICs will inherit this IP. |
 | Dhcp | no | bool | Indicates if the load balancer will reserve an IP using DHCP. |
-| Balancednics | no | string collection | List of NICs taking part in load-balancing. All balanced NICs inherit the IP of the load balancer. |
+| BalancedNics | no | string collection | List of NICs taking part in load-balancing. All balanced NICs inherit the IP of the load balancer. |
 
 ```
 var lb = new Loadbalancer
@@ -1535,7 +1560,7 @@ The following table describes the request arguments:
 After retrieving a load balancer, either by getting it by id, or as a create response object, you can call the `FindAll` method directly.
 
 ```
- var balancedNics = lbApi.FindAll(DatacenterId, LoadBalancerId, depth);
+ var BalancedNics = lbApi.FindAll(DatacenterId, LoadBalancerId, depth);
 ```
 
 ---
@@ -1628,10 +1653,10 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| requestId | **yes** | string | The ID of the request. |
+| RequestId | **yes** | string | The ID of the request. |
 
 ```
-var req = reqApi.Get(requestId);
+var req = reqApi.Get(RequestId);
 ```
 
 ---
@@ -1644,10 +1669,10 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| requestId | **yes** | string | The ID of the request. |
+| RequestId | **yes** | string | The ID of the request. |
 
 ```
-RequestStatus req = reqApi.GetStatus(requestId);
+RequestStatus req = reqApi.GetStatus(RequestId);
 ```
 
 ---
