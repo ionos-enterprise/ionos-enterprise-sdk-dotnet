@@ -1,12 +1,12 @@
-using  Client;
-using  Model;
+using Client;
+using Model;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 
-namespace  Api
+namespace Api
 {
 
     /// <summary>
@@ -113,12 +113,11 @@ namespace  Api
         /// <remarks>
         /// Retrieves the attributes of a given location
         /// </remarks>
-        /// <param name="regionId"></param>
         /// <param name="locationId"></param>
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Location</returns>
-        Location FindById(string regionId, string locationId, bool? parameter = null, int? depth = null);
+        Location FindById(string locationId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Location
@@ -126,12 +125,11 @@ namespace  Api
         /// <remarks>
         /// Retrieves the attributes of a given location
         /// </remarks>
-        /// <param name="regionId"></param>
         /// <param name="locationId"></param>
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>ApiResponse of Location</returns>
-        ApiResponse<Location> FindByIdWithHttpInfo(string regionId, string locationId, bool? parameter = null, int? depth = null);
+        ApiResponse<Location> FindByIdWithHttpInfo(string locationId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Location
@@ -139,12 +137,11 @@ namespace  Api
         /// <remarks>
         /// Retrieves the attributes of a given location
         /// </remarks>
-        /// <param name="regionId"></param>
         /// <param name="locationId"></param>
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Location</returns>
-        System.Threading.Tasks.Task<Location> FindByIdAsync(string regionId, string locationId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<Location> FindByIdAsync(string locationId, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Retrieve a Location
@@ -152,12 +149,11 @@ namespace  Api
         /// <remarks>
         /// Retrieves the attributes of a given location
         /// </remarks>
-        /// <param name="regionId"></param>
         /// <param name="locationId"></param>
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Location)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Location>> FindByIdAsyncWithHttpInfo(string regionId, string locationId, bool? parameter = null, int? depth = null);
+        System.Threading.Tasks.Task<ApiResponse<Location>> FindByIdAsyncWithHttpInfo(string locationId, bool? parameter = null, int? depth = null);
 
     }
 
@@ -588,38 +584,32 @@ namespace  Api
         /// <summary>
         /// Retrieve a Location Retrieves the attributes of a given location
         /// </summary>
-        /// <param name="regionId"></param> 
         /// <param name="locationId"></param> 
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>Location</returns>
-        public Location FindById(string regionId, string locationId, bool? parameter = null, int? depth = null)
+        public Location FindById(string locationId, bool? parameter = null, int? depth = null)
         {
-            ApiResponse<Location> response = FindByIdWithHttpInfo(regionId, locationId, parameter, depth);
+            ApiResponse<Location> response = FindByIdWithHttpInfo(locationId, parameter, depth);
             return response.Data;
         }
 
         /// <summary>
         /// Retrieve a Location Retrieves the attributes of a given location
         /// </summary>
-        /// <param name="regionId"></param> 
         /// <param name="locationId"></param> 
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
         /// <returns>ApiResponse of Location</returns>
-        public ApiResponse<Location> FindByIdWithHttpInfo(string regionId, string locationId, bool? parameter = null, int? depth = null)
+        public ApiResponse<Location> FindByIdWithHttpInfo(string locationId, bool? parameter = null, int? depth = null)
         {
-
-            // verify the required parameter 'regionId' is set
-            if (regionId == null)
-                throw new ApiException(400, "Missing required parameter 'regionId' when calling LocationApi->FindById");
 
             // verify the required parameter 'locationId' is set
             if (locationId == null)
                 throw new ApiException(400, "Missing required parameter 'locationId' when calling LocationApi->FindById");
 
 
-            var path_ = "/locations/{regionId}/{locationId}";
+            var path_ = "/locations/"+locationId;
 
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
@@ -645,14 +635,8 @@ namespace  Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             pathParams.Add("format", "json");
-            if (regionId != null) pathParams.Add("regionId", Configuration.ApiClient.ParameterToString(regionId)); // path parameter
-            if (locationId != null) pathParams.Add("locationId", Configuration.ApiClient.ParameterToString(locationId)); // path parameter
-
             if (parameter != null) queryParams.Add("parameter", Configuration.ApiClient.ParameterToString(parameter)); // query parameter
             if (depth != null) queryParams.Add("depth", Configuration.ApiClient.ParameterToString(depth)); // query parameter
-
-
-
 
 
             // authentication (basicAuth) required
@@ -685,14 +669,13 @@ namespace  Api
         /// <summary>
         /// Retrieve a Location Retrieves the attributes of a given location
         /// </summary>
-        /// <param name="regionId"></param>
         /// <param name="locationId"></param>
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of Location</returns>
-        public async System.Threading.Tasks.Task<Location> FindByIdAsync(string regionId, string locationId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<Location> FindByIdAsync(string locationId, bool? parameter = null, int? depth = null)
         {
-            ApiResponse<Location> response = await FindByIdAsyncWithHttpInfo(regionId, locationId, parameter, depth);
+            ApiResponse<Location> response = await FindByIdAsyncWithHttpInfo(locationId, parameter, depth);
             return response.Data;
 
         }
@@ -700,20 +683,17 @@ namespace  Api
         /// <summary>
         /// Retrieve a Location Retrieves the attributes of a given location
         /// </summary>
-        /// <param name="regionId"></param>
         /// <param name="locationId"></param>
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
         /// <returns>Task of ApiResponse (Location)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Location>> FindByIdAsyncWithHttpInfo(string regionId, string locationId, bool? parameter = null, int? depth = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Location>> FindByIdAsyncWithHttpInfo(string locationId, bool? parameter = null, int? depth = null)
         {
-            // verify the required parameter 'regionId' is set
-            if (regionId == null) throw new ApiException(400, "Missing required parameter 'regionId' when calling FindById");
             // verify the required parameter 'locationId' is set
             if (locationId == null) throw new ApiException(400, "Missing required parameter 'locationId' when calling FindById");
 
 
-            var path_ = "/locations/{regionId}/{locationId}";
+            var path_ = "/locations/" + locationId;
 
             var pathParams = new Dictionary<String, String>();
             var queryParams = new Dictionary<String, String>();
@@ -739,9 +719,6 @@ namespace  Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             pathParams.Add("format", "json");
-            if (regionId != null) pathParams.Add("regionId", Configuration.ApiClient.ParameterToString(regionId)); // path parameter
-            if (locationId != null) pathParams.Add("locationId", Configuration.ApiClient.ParameterToString(locationId)); // path parameter
-
             if (parameter != null) queryParams.Add("parameter", Configuration.ApiClient.ParameterToString(parameter)); // query parameter
             if (depth != null) queryParams.Add("depth", Configuration.ApiClient.ParameterToString(depth)); // query parameter
 

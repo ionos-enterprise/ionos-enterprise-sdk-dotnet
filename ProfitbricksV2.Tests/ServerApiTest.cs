@@ -12,13 +12,17 @@ namespace ProfitbricksV2.Tests
     public class ServerApiTest
     {
         DataCenterApi dcApi = new DataCenterApi(Config.Configuration);
-        ServerApi serverApi =new ServerApi(Config.Configuration);
+        ServerApi serverApi = new ServerApi(Config.Configuration);
+        ImageApi imageApi = new ImageApi(Config.Configuration);
+        AttachedCDROMsApi attachCDROMApi = new AttachedCDROMsApi(Config.Configuration);
         static Datacenter datacenter;
         static Server server;
+        static Image cDROMImage;
 
         [TestInitialize]
         public void ServerCreate()
         {
+
             datacenter = new Datacenter
             {
                 Properties = new DatacenterProperties
@@ -50,6 +54,11 @@ namespace ProfitbricksV2.Tests
             datacenter = dcApi.Create(datacenter, depth: 5);
             Config.DoWait(datacenter.Request);
             Assert.IsNotNull(datacenter);
+
+            cDROMImage = imageApi.FindAll(depth: 5).Items.Find(i => i.Properties.LicenceType == "LINUX"
+            && i.Properties.ImageType == "CDROM"
+            && i.Metadata.State == "AVAILABLE"
+            && i.Properties.Public == true);
 
             server = datacenter.Entities.Servers.Items[0];
 
@@ -120,6 +129,28 @@ namespace ProfitbricksV2.Tests
 
             Assert.IsNull(resp);
         }
+
+
+        [TestMethod]
+
+        public void AttachListGetCDROM()
+        {
+            var attached = attachCDROMApi.Attach(datacenter.Id, server.Id, new Image { Id=cDROMImage.Id});
+            Assert.AreEqual(attached.Id, cDROMImage.Id);
+            Config.DoWait(attached.Request);
+
+            var listAttached = attachCDROMApi.FindAll(datacenter.Id, server.Id);
+            Assert.IsTrue(listAttached.Items.Count > 0);
+
+            var getAttached = attachCDROMApi.FindById(datacenter.Id, server.Id, listAttached.Items[0].Id);
+            Assert.AreEqual(listAttached.Items[0].Id, getAttached.Id);
+
+            var removed = attachCDROMApi.Detach(datacenter.Id, server.Id, getAttached.Id);
+            Assert.IsNull(removed);
+
+        }
+
+
 
         [TestCleanup]
         public void ServerDelete()
