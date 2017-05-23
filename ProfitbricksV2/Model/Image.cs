@@ -66,6 +66,8 @@ namespace  Model
         [DataMember(Name = "properties", EmitDefaultValue = false)]
         public ImageProperties Properties { get; set; }
 
+        public string Request { get; set; }
+
 
 
         /// <summary>
