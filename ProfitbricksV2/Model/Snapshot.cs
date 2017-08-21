@@ -66,7 +66,7 @@ namespace  Model
         [DataMember(Name = "properties", EmitDefaultValue = false)]
         public SnapshotProperties Properties { get; set; }
 
-
+        public string Request { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

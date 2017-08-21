@@ -64,7 +64,7 @@ namespace  Model
         /// </summary>
         /// <value>Resource's properties</value>
         [DataMember(Name = "properties", EmitDefaultValue = false)]
-        public Properties Properties { get; set; }
+        public LocationProperties Properties { get; set; }
 
 
 

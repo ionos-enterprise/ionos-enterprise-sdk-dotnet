@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrderedTest name="ContractResourcesTests" storage="\contractresourcestests.orderedtest" id="28191987-55f7-4659-8e22-0cd0ecd7facd" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestLinks>
+    <TestLink id="9aaefd9a-9805-1770-8c97-9efe65362d21" name="ContractResourcesList" storage="bin\debug\profitbrickssdk.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestLinks>
+</OrderedTest>

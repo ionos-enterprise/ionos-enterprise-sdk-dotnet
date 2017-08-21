@@ -17,7 +17,7 @@ namespace  Api
 
         Nic AttachNic(string datacenterId, string serverId, Nic nic);
 
-        string DetachNic(string datacenterId, string loadbalancerId, string nicId);
+        InlineResponse202 DetachNic(string datacenterId, string loadbalancerId, string nicId);
 
         /// <summary>
         /// List Nics
@@ -1783,10 +1783,10 @@ namespace  Api
 
         }
 
-        public string DetachNic(string datacenterId, string loadbalancerId, string nicId)
+        public InlineResponse202 DetachNic(string datacenterId, string loadbalancerId, string nicId)
         {
             ApiResponse<InlineResponse202> response = DetachNicWithHttpInfo(datacenterId, loadbalancerId, nicId);
-            return response.Headers["Location"];
+            return response.Data;
         }
 
         private ApiResponse<InlineResponse202> DetachNicWithHttpInfo(string datacenterId, string loadbalancerId, string nicId)

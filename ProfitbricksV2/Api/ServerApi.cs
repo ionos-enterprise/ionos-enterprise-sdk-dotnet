@@ -1585,6 +1585,10 @@ namespace Api
             if (server == null)
                 throw new ApiException(400, "Missing required parameter 'server' when calling ServerApi->PartialUpdate");
 
+            if (!string.IsNullOrEmpty(server.CpuFamily))
+            {
+                server.AllowReboot = true;
+            }
 
             var path_ = "/datacenters/{datacenterId}/servers/{serverId}";
 
