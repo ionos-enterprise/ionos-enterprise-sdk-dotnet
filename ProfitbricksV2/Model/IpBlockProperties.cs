@@ -26,6 +26,12 @@ namespace  Model
 
         }
 
+        /// <summary>
+        /// A name of that resource
+        /// </summary>
+        /// <value>A name of that resource</value>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// A collection of IPs associated with the IP Block
@@ -60,6 +66,7 @@ namespace  Model
         {
             var sb = new StringBuilder();
             sb.Append("class IpBlockProperties {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Ips: ").Append(Ips).Append("\n");
             sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
@@ -101,6 +108,11 @@ namespace  Model
 
             return
                 (
+                    this.Name == other.Name ||
+                    this.Name != null &&
+                    this.Name.Equals(other.Name)
+                ) &&
+                (
                     this.Ips == other.Ips ||
                     this.Ips != null &&
                     this.Ips.SequenceEqual(other.Ips)
@@ -128,6 +140,9 @@ namespace  Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+
+                if (this.Name != null)
+                    hash = hash * 59 + this.Name.GetHashCode();
 
                 if (this.Ips != null)
                     hash = hash * 59 + this.Ips.GetHashCode();

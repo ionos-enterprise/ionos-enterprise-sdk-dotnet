@@ -70,6 +70,12 @@ namespace  Model
         public string CpuFamily { get; set; }
 
         /// <summary>
+        /// Used only for a partial update of CPU family
+        /// </summary>
+        [DataMember(Name = "allowReboot", EmitDefaultValue = false)]
+        public bool? AllowReboot { get; set; }
+
+        /// <summary>
         /// Reference to a CD-ROM used for booting. If not 'null' then bootVolume has to be 'null'
         /// </summary>
         /// <value>Reference to a CD-ROM used for booting. If not 'null' then bootVolume has to be 'null'</value>

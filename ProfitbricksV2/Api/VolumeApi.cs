@@ -344,8 +344,8 @@ namespace  Api
         /// <param name="description">The description of the snapshot</param>
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
-        /// <returns>Error</returns>
-        Error CreateSnapshot(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null);
+        /// <returns>Snapshot</returns>
+        Snapshot CreateSnapshot(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Create Volume Snapshot
@@ -359,8 +359,8 @@ namespace  Api
         /// <param name="description">The description of the snapshot</param>
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
-        /// <returns>ApiResponse of Error</returns>
-        ApiResponse<Error> CreateSnapshotWithHttpInfo(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null);
+        /// <returns>ApiResponse of Snapshot</returns>
+        ApiResponse<Snapshot> CreateSnapshotWithHttpInfo(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Create Volume Snapshot
@@ -374,8 +374,8 @@ namespace  Api
         /// <param name="description">The description of the snapshot</param>
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
-        /// <returns>Task of Error</returns>
-        System.Threading.Tasks.Task<Error> CreateSnapshotAsync(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null);
+        /// <returns>Task of Snapshot</returns>
+        System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Create Volume Snapshot
@@ -389,8 +389,8 @@ namespace  Api
         /// <param name="description">The description of the snapshot</param>
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
-        /// <returns>Task of ApiResponse (Error)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Error>> CreateSnapshotAsyncWithHttpInfo(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null);
+        /// <returns>Task of ApiResponse (Snapshot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Snapshot>> CreateSnapshotAsyncWithHttpInfo(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null);
 
         /// <summary>
         /// Restore Volume Snapshot
@@ -1719,10 +1719,11 @@ namespace  Api
         /// <param name="description">The description of the snapshot</param> 
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
-        /// <returns>Error</returns>
-        public Error CreateSnapshot(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null)
+        /// <returns>Snapshot</returns>
+        public Snapshot CreateSnapshot(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null)
         {
-            ApiResponse<Error> response = CreateSnapshotWithHttpInfo(datacenterId, volumeId, name, description, parameter, depth);
+            ApiResponse<Snapshot> response = CreateSnapshotWithHttpInfo(datacenterId, volumeId, name, description, parameter, depth);
+            response.Data.Request = response.Headers["Location"];
             return response.Data;
         }
 
@@ -1735,8 +1736,8 @@ namespace  Api
         /// <param name="description">The description of the snapshot</param> 
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param> 
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param> 
-        /// <returns>ApiResponse of Error</returns>
-        public ApiResponse<Error> CreateSnapshotWithHttpInfo(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null)
+        /// <returns>ApiResponse of Snapshot</returns>
+        public ApiResponse<Snapshot> CreateSnapshotWithHttpInfo(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null)
         {
 
             // verify the required parameter 'datacenterId' is set
@@ -1807,9 +1808,9 @@ namespace  Api
             else if (statusCode == 0)
                 throw new ApiException(statusCode, "Error calling CreateSnapshot: " + response.ErrorMessage, response.ErrorMessage);
 
-            return new ApiResponse<Error>(statusCode,
+            return new ApiResponse<Snapshot>(statusCode,
                 response.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Error)Configuration.ApiClient.Deserialize(response, typeof(Error)));
+                (Snapshot)Configuration.ApiClient.Deserialize(response, typeof(Snapshot)));
 
         }
 
@@ -1822,10 +1823,10 @@ namespace  Api
         /// <param name="description">The description of the snapshot</param>
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
-        /// <returns>Task of Error</returns>
-        public async System.Threading.Tasks.Task<Error> CreateSnapshotAsync(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null)
+        /// <returns>Task of Snapshot</returns>
+        public async System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null)
         {
-            ApiResponse<Error> response = await CreateSnapshotAsyncWithHttpInfo(datacenterId, volumeId, name, description, parameter, depth);
+            ApiResponse<Snapshot> response = await CreateSnapshotAsyncWithHttpInfo(datacenterId, volumeId, name, description, parameter, depth);
             return response.Data;
 
         }
@@ -1839,8 +1840,8 @@ namespace  Api
         /// <param name="description">The description of the snapshot</param>
         /// <param name="parameter">Controls whether response is pretty-printed (with indentation and new lines)</param>
         /// <param name="depth">Controls the details depth of response objects. \nEg. GET /datacenters/[ID]\n	- depth=0: only direct properties are included. Children (servers etc.) are not included\n	- depth=1: direct properties and children references are included\n	- depth=2: direct properties and children properties are included\n	- depth=3: direct properties and children properties and children&#39;s children are included\n	- depth=... and so on</param>
-        /// <returns>Task of ApiResponse (Error)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Error>> CreateSnapshotAsyncWithHttpInfo(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null)
+        /// <returns>Task of ApiResponse (Snapshot)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Snapshot>> CreateSnapshotAsyncWithHttpInfo(string datacenterId, string volumeId, string name = null, string description = null, bool? parameter = null, int? depth = null)
         {
             // verify the required parameter 'datacenterId' is set
             if (datacenterId == null) throw new ApiException(400, "Missing required parameter 'datacenterId' when calling CreateSnapshot");
@@ -1908,9 +1909,9 @@ namespace  Api
             else if (statusCode == 0)
                 throw new ApiException(statusCode, "Error calling CreateSnapshot: " + response.ErrorMessage, response.ErrorMessage);
 
-            return new ApiResponse<Error>(statusCode,
+            return new ApiResponse<Snapshot>(statusCode,
                 response.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Error)Configuration.ApiClient.Deserialize(response, typeof(Error)));
+                (Snapshot)Configuration.ApiClient.Deserialize(response, typeof(Snapshot)));
 
         }
 

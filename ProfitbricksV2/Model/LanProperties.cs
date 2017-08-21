@@ -43,6 +43,12 @@ namespace  Model
         [DataMember(Name = "public", EmitDefaultValue = false)]
         public bool? Public { get; set; }
 
+        /// <summary>
+        /// List of IpFailover instances
+        /// </summary>
+        /// <value>List of IpFailover instances</value>
+        [DataMember(Name = "ipFailover", EmitDefaultValue = false)]
+        public List<IpFailover> IpFailover { get; set; }
 
 
         /// <summary>
@@ -55,6 +61,7 @@ namespace  Model
             sb.Append("class LanProperties {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Public: ").Append(Public).Append("\n");
+            sb.Append("  IpFailover: ").Append(IpFailover).Append("\n");
 
             sb.Append("}\n");
             return sb.ToString();
@@ -101,6 +108,11 @@ namespace  Model
                     this.Public == other.Public ||
                     this.Public != null &&
                     this.Public.Equals(other.Public)
+                ) &&
+                (
+                    this.IpFailover == other.IpFailover ||
+                    this.IpFailover != null &&
+                    this.IpFailover.Equals(other.IpFailover)
                 );
         }
 
@@ -121,6 +133,9 @@ namespace  Model
 
                 if (this.Public != null)
                     hash = hash * 59 + this.Public.GetHashCode();
+
+                if (this.IpFailover != null)
+                    hash = hash * 59 + this.IpFailover.GetHashCode();
 
                 return hash;
             }
