@@ -1,6 +1,6 @@
 # .NET SDK
 
-Version: profitbricks-sdk-net **3.0.4**
+Version: profitbricks-sdk-net **4.0.0**
 
 ## Table of Contents
 
@@ -85,6 +85,33 @@ Version: profitbricks-sdk-net **3.0.4**
     * [Get a Load Balanced NIC](#get-a-load-balanced-nic)
     * [Associate NIC to a Load Balancer](#associate-nic-to-a-load-balancer)
     * [Remove a NIC Association](#remove-a-nic-association)
+  * [Groups](#groups)
+    * [List Groups](#list-groups)
+    * [Get a Group](#get-a-group)
+    * [Create a Group](#create-a-group)
+    * [Update a Group](#update-a-group)
+    * [Delete a Group](#delete-a-group)
+    * [List Users in a Group](#list-users-in-a-group)
+    * [Add User to Group](#add-user-to-group)
+    * [Remove User from a Group](#remove-user-from-a-group)
+  * [Shares](#shares)
+    * [List Shares](#list-shares)
+    * [Get a Share](#get-a-share)
+    * [Add a Share](#add-a-share)
+    * [Update a Share](#update-a-share)
+    * [Delete a Share](#delete-a-share)
+  * [Users](#users)
+    * [List Users](#list-users)
+    * [Get a User](#get-a-user)
+    * [Create a User](#create-a-user)
+    * [Update a User](#update-a-user)
+    * [Delete a User](#delete-a-user)
+  * [Resources](#resources)
+    * [List Resources](#list-resources)
+    * [List Resources by Type](#list-resources-by-type)
+    * [Get a Resource of a Type](#get-a-resource-of-a-type)
+  * [Contract Resources](#contract-resources)
+    * [List Contract Resources](#list-contract-resources)
   * [Requests](#requests)
     * [List Requests](#list-requests)
     * [Get a Request](#get-a-request)
@@ -202,6 +229,7 @@ The following table outlines the locations currently supported:
 | Value| Country | City |
 |---|---|---|
 | us/las | United States | Las Vegas |
+| us/ewr | United States | Newark |
 | de/fra | Germany | Frankfurt |
 | de/fkb | Germany | Karlsruhe |
 
@@ -764,6 +792,7 @@ The following table describes the request arguments:
 | Size | **yes** | int | The size of the volume in GB. |
 | Bus | no | string | The bus type of the volume (VIRTIO or IDE). Default: VIRTIO. |
 | Image | **yes** | string | The image or snapshot ID. |
+| ImageAlias | **yes** | string | The alias of the image. |
 | Type | **yes** | string | The volume type, HDD or SSD. |
 | LicenceType | **yes** | string | The licence type of the volume. Options: LINUX, WINDOWS, WINDOWS2016, UNKNOWN, OTHER |
 | ImagePassword | **yes** | string | One-time password is set on the Image for the appropriate root or administrative account. This field may only be set in creation requests. When reading, it always returns *null*. The password has to contain 8-50 characters. Only these characters are allowed: [abcdefghjkmnpqrstuvxABCDEFGHJKLMNPQRSTUVX23456789] |
@@ -789,7 +818,8 @@ The following table outlines the storage availability zones currently supported:
 | ZONE_2 | Fire Zone 2 |
 | ZONE_3 | Fire Zone 3 |
 
-* You will need to provide either the `Image` or the `LicenceType` parameters. `LicenceType` is required, but if `Image` is supplied, it is already set and cannot be changed. Similarly either the `ImagePassword` or `SshKeys` parameters need to be supplied when creating a volume. We recommend setting a valid value for `image_password` even when using `SshKeys` so that it is possible to authenticate using the remote console feature of the DCD.
+**Note:** You will need to provide either the `Image`, `ImageAlias` or the `LicenceType` parameters. `LicenceType` is required, but if `Image` or `ImageAlias` is supplied, it is already set and cannot be changed. You can obtain a valid image alias via [List Locations](#list-locations) operation.
+Similarly either the `ImagePassword` or `SshKeys` parameters need to be supplied when creating a volume. We recommend setting a valid value for `image_password` even when using `SshKeys` so that it is possible to authenticate using the remote console feature of the DCD.
 
 ```
 var volume = new Volume
@@ -1029,7 +1059,7 @@ The following table describes the request arguments:
 
 | Name| Required | Type | Description |
 |---|:-:|---|---|
-| Location | **yes** | string | This must be one of the locations: us/las, de/fra, de/fkb. |
+| Location | **yes** | string | This must be one of the locations: us/las, us/ewr, de/fra, de/fkb. |
 | Size | **yes** | int | The size of the IP block you want. |
 | Name | no | string | A descriptive name for the IP block |
 
@@ -1038,6 +1068,7 @@ The following table outlines the locations currently supported:
 | Value| Country | City |
 |---|---|---|
 | us/las | United States | Las Vegas |
+| us/ewr | United States | Newark |
 | de/fra | Germany | Frankfurt |
 | de/fkb | Germany | Karlsruhe |
 
@@ -1157,11 +1188,24 @@ The following table describes the request arguments:
 | LanId | **yes** | int | The ID of the LAN. |
 | Name | no | string | A descriptive name for the LAN. |
 | Public | no | bool | Boolean indicating if the LAN faces the public Internet or not. |
+| IpFailover | no | object | A collection of IP fail-over instances. |
 
 After retrieving a LAN, either by getting it by id, or as a create response object, you can change its properties and call the `PartialUpdate` method:
 
 ```
-var updated = lanApi.PartialUpdate(DatacenterId, LanId, new LanProperties { Public = True });
+var ipFailover = new IpFailover
+{
+    Ip = "208.95.36.102",
+    NicUuid = "75f5027d-6487-4e21-8afc-e03678e764c4"
+};
+
+var lanProperties = new LanProperties();
+lanProperties.IpFailover = new List<IpFailover>();
+lanProperties.IpFailover.Add(ipFailover);
+
+lanProperties.Public = true;
+
+var updated = lanApi.PartialUpdate(DatacenterId, LanId, lanProperties);
 ```
 
 **NOTE**: You can also use `Update()`, for that operation you will update all the properties.
@@ -1627,6 +1671,421 @@ var resp = nicApi.DetachNic(DatacenterId, LoadBalancerId, NicId);
 
 ---
 
+### Groups
+
+Create an instace of the api class:
+
+    GroupApi groupApi = new GroupApi(Configuration);
+
+#### List Groups
+
+Retrieves a list of all groups.
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| depth | no | int | The level of details returned. |
+
+    var groups = groupApi.FindAll();
+
+---
+
+#### Get a Group
+
+Retrieves the attributes of a given group.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| GroupId | **yes** | string | The ID of the group. |
+| depth | no | int | The level of details returned. |
+
+    var group = groupApi.FindById(GroupId);
+
+---
+
+#### Create a Group
+
+Creates a new group and set group privileges.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| Name | **yes** | string | The ID of the group. |
+| CreateDatacenter | no | bool | Indicates if the group is allowed to create virtual data centers. |
+| CreateSnapshot | no | bool | Indicates if the group is allowed to create snapshots. |
+| ReserveIp | no | bool | Indicates if the group is allowed to reserve IP addresses. |
+| AccessActivityLog | no | bool | Indicates if the group is allowed to access activity log. |
+
+    var groupProps = new Group
+    {
+        Properties = new GroupProperties
+        {
+            Name = "My Group",
+            CreateDataCenter = true,
+            CreateSnapshot = true,
+            ReserveIp = true,
+            AccessActivityLog = false
+        }
+    };
+
+    var group = groupApi.Create(groupProps);
+
+---
+
+#### Update a Group
+
+Updates a group's name or privileges.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| GroupId | **yes** | string | The ID of the group. |
+| Name | **yes** | string | The ID of the group. |
+| CreateDatacenter | no | bool | Indicates if the group is allowed to create virtual data centers. |
+| CreateSnapshot | no | bool | Indicates if the group is allowed to create snapshots. |
+| ReserveIp | no | bool | Indicates if the group is allowed to reserve IP addresses. |
+| AccessActivityLog | no | bool | Indicates if the group is allowed to access activity log. |
+
+    var newProps = new Group
+    {
+        Properties = new GroupProperties
+        {
+            Name = "My Group",
+            CreateDataCenter = true,
+            CreateSnapshot = true,
+            ReserveIp = true,
+            AccessActivityLog = false
+        }
+    };
+
+    var group = groupApi.Update(GroupId, newProps);
+
+---
+
+#### Delete a Group
+
+Deletes the specified group.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| GroupId | **yes** | string | The ID of the group. |
+
+    var response = groupApi.Delete(GroupId);
+
+---
+
+#### List Users in a Group
+
+Retrieves a list of all users that are members of a particular group.
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| GroupId | **yes** | string | The ID of the group. |
+| depth | no | int | The level of details returned. |
+
+    var users = groupApi.FindAllGroupUsers(GroupId);
+
+---
+
+#### Add User to Group
+
+Adds an existing user to a group.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| GroupId | **yes** | string | The ID of the group. |
+| UserId | **yes** | string | The ID of the user. |
+
+    var user = groupApi.AddGroupUser(GroupId, UserId);
+
+---
+
+#### Remove User from a Group
+
+Removes a user from a group.
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| GroupId | **yes** | string | The ID of the group. |
+| UserId | **yes** | string | The ID of the user. |
+
+    var response = groupApi.RemoveGroupUser(GroupId, UserId);
+
+---
+
+### Shares
+
+Create an instace of the api class:
+
+    ShareApi shareApi = new ShareApi(Configuration);
+
+#### List Shares
+
+Retrieves a list of all shares though a group.
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| GroupId | **yes** | string | The ID of the group. |
+| depth | no | int | The level of details returned. |
+
+    var shares = shareApi.FindAll(GroupId);
+
+---
+
+#### Get a Share
+
+Retrieves a specific resource share available to a group.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| GroupId | **yes** | string | The ID of the group. |
+| ResourceId | **yes** | string | The ID of the resource. |
+| depth | no | int | The level of details returned. |
+
+    var share = shareApi.FindById(GroupId, ResourceId);
+
+---
+
+#### Add a Share
+
+Shares a resource through a group.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| GroupId | **yes** | string | The ID of the group. |
+| ResourceId | **yes** | string | The ID of the resource. |
+| EditPrivilege | no | bool | Indicates that the group has permission to edit privileges on the resource. |
+| SharePrivilege | no | bool | Indicates that the group has permission to share the resource. |
+
+    var shareReq = new Share
+    {
+        Properties = new ShareProperties
+        {
+            EditPrivilege = false,
+            SharePrivilege = false
+        }
+    };
+
+    var share = shareApi.Add(GroupId, ResourceId, shareReq);
+
+---
+
+#### Update a Share
+
+Updates the permissions of a group for a resource share.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| GroupId | **yes** | string | The ID of the group. |
+| ResourceId | **yes** | string | The ID of the resource. |
+| EditPrivilege | no | bool | Indicates that the group has permission to edit privileges on the resource. |
+| SharePrivilege | no | bool | Indicates that the group has permission to share the resource. |
+
+    var share = shareApi.Update(GroupId, ResourceId, new Share { Properties = new ShareProperties { SharePrivilege = false } });
+
+---
+
+#### Delete a Share
+
+Removes a resource share from a group.
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| GroupId | **yes** | string | The ID of the group. |
+| ResourceId | **yes** | string | The ID of the resource. |
+
+    var response = shareApi.Remove(GroupId, ResourceId);
+
+---
+
+### Users
+
+Create an instace of the api class:
+
+    UserApi userApi = new UserApi(Configuration);
+
+#### List Users
+
+Retrieves a list of all users.
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| depth | no | int | The level of details returned. |
+
+    var users = userApi.FindAll();
+
+---
+
+#### Get a User
+
+Retrieves a single user.
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| UserId | **yes** | string | The ID of the user. |
+| depth | no | int | The level of details returned. |
+
+    var user = userApi.FindById(UserId);
+
+---
+
+#### Create a User
+
+Creates a new user.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| FirstName | **yes** | string | A name for the user. |
+| LastName | **yes**  | string | A name for the user. |
+| Email | **yes**  | string | An e-mail address for the user. |
+| Password | **yes**  | string | A password for the user. |
+| Administrator | no | bool | Assigns the user have administrative rights. |
+| ForceSecAuth | no | bool | Indicates if secure (two-factor) authentication should be forced for the user. |
+
+    var userReq = new User
+    {
+        Properties = new UserProperties
+        {
+            FirstName = "John",
+            LastName = "Doe",
+            Email = "user1@example.com",
+            Password = "abc123-321CBA",
+            Administrator = true,
+            ForceSecAuth = false
+        }
+    };
+
+    var user = userApi.Create(userReq);
+
+---
+
+#### Update a User
+
+Updates an existing user.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| UserId | **yes** | string | The ID of the user. |
+| FirstName | **yes** | string | A name for the user. |
+| LastName | **yes**  | string | A name for the user. |
+| Email | **yes**  | string | An e-mail address for the user. |
+| Administrator | **yes** | bool | Assigns the user have administrative rights. |
+| ForceSecAuth | **yes** | bool | Indicates if secure (two-factor) authentication should be forced for the user. |
+
+    var userReq = new User
+    {
+        Properties = new UserProperties
+        {
+            FirstName = "John",
+            LastName = "Doe",
+            Email = "user1@example.com",
+            Administrator = true,
+            ForceSecAuth = false
+        }
+    };
+
+    var user = userApi.Update(UserId, userReq);
+
+---
+
+#### Delete a User
+
+Removes a user.
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| UserId | **yes** | string | The ID of the user. |
+
+    var response = userApi.Delete(UserId);
+
+---
+
+### Resources
+
+Create an instace of the api class:
+
+    ResourceApi resourceApi = new ResourceApi(Configuration);
+
+#### List Resources
+
+Retrieves a list of all resources. Alternatively, Retrieves all resources of a particular type.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| depth | no | int | The level of details returned. |
+
+    var resources = resourceApi.FindAll();
+
+---
+
+#### List Resources by Type
+
+Retrieves all resources of a particular type.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| Type | **yes** | ResourceType | The resource type enum with the values: `datacenter`, `image`, `snapshot` or `ipblock`. |
+| depth | no | int | The level of details returned. |
+
+    var resources = resourceApi.FindAllByType(ResourceType.datacenter);
+
+---
+
+#### Get a Resource of a Type
+
+Retrieves a single resource of a particular type.
+
+The following table describes the request arguments:
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| Type | **yes** | ResourceType | The resource type enum with the values: `datacenter`, `image`, `snapshot` or `ipblock`. |
+| ResourceId | **yes** | string | The ID of the resource. |
+| depth | no | int | The level of details returned. |
+
+    var resources = resourceApi.FindAllByType(ResourceType.ipblock, ResourceId);
+
+---
+
+### Contract Resources
+
+Create an instace of the api class:
+
+    ContractResourcesApi crApi = new ContractResourcesApi(Configuration);
+
+#### List Contract Resources
+
+Retrieves information about the resource limits for a particular contract and the current resource usage.
+
+| Name | Required | Type | Description |
+|---|:-:|---|---|
+| depth | no | int | The level of details returned. |
+
+    var contracts = crApi.List();
+
+---
+
 ### Requests
 
 Each call to the ProfitBricks Cloud API is assigned a request ID. These operations can be used to get information about the requests that have been submitted and their current status.
@@ -1692,7 +2151,7 @@ You are required to have a virtual data center created before you can create any
 The following code example shows you how to programmatically create a data center:
 
 
-    namespace ProfitbricksV2.Example
+    namespace ProfitbricksSDK.Example
     {
         class Program
         {
@@ -1832,7 +2291,7 @@ The sample below shows you how to add a second NIC to an existing server:
     using Model;
     using System;
 
-    namespace ProfitbricksV2.Example
+    namespace ProfitbricksSDK.Example
     {
         class Program
         {
@@ -1953,7 +2412,12 @@ Please report any issues or bugs your encounter using the [GitHub Issue Tracker]
 
 ## Testing
 
-You can find a full list of tests inside the `ProfitbricksV2.Tests` project.You can run tests from the Visual Studio Test Explorer.
+You can find a full list of tests inside the `ProfitbricksSDK.Tests` project.
+You can run tests from the Visual Studio Test Explorer or Developer Command Prompt.
+
+```
+MSTest /TestContainer:ProfitBricksAllTests.orderedtest
+```
 
 ## Contributing
 

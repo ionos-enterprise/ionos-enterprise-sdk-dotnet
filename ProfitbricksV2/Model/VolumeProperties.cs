@@ -59,6 +59,17 @@ namespace  Model
 
 
         /// <summary>
+        /// An alias of image to be used as template for this volume
+        /// </summary>
+        /// <value>
+        /// An alias of image to be used as template for this volume,
+        /// e.g. ubuntu:latest or centos:7
+        /// </value>
+        [DataMember(Name = "imageAlias", EmitDefaultValue = false)]
+        public string ImageAlias { get; set; }
+
+
+        /// <summary>
         /// Initial password to be set for installed OS. Works with Profitbricks public images only. Not modifiable, forbidden in update requests
         /// </summary>
         /// <value>Initial password to be set for installed OS. Works with Profitbricks public images only. Not modifiable, forbidden in update requests</value>
@@ -184,6 +195,7 @@ namespace  Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
+            sb.Append("  ImageAlias: ").Append(ImageAlias).Append("\n");
             sb.Append("  ImagePassword: ").Append(ImagePassword).Append("\n");
             sb.Append("  Bus: ").Append(Bus).Append("\n");
             sb.Append("  LicenceType: ").Append(LicenceType).Append("\n");
@@ -254,6 +266,11 @@ namespace  Model
                     this.Image == other.Image ||
                     this.Image != null &&
                     this.Image.Equals(other.Image)
+                ) &&
+                (
+                    this.ImageAlias == other.ImageAlias ||
+                    this.ImageAlias != null &&
+                    this.ImageAlias.Equals(other.ImageAlias)
                 ) &&
                 (
                     this.ImagePassword == other.ImagePassword ||
@@ -350,6 +367,9 @@ namespace  Model
 
                 if (this.Image != null)
                     hash = hash * 59 + this.Image.GetHashCode();
+
+                if (this.ImageAlias != null)
+                     hash = hash * 59 + this.ImageAlias.GetHashCode();
 
                 if (this.ImagePassword != null)
                     hash = hash * 59 + this.ImagePassword.GetHashCode();

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ProfitbricksV2")]
+[assembly: AssemblyTitle("ProfitBricksSDK")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ProfitbricksV2")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyProduct("ProfitBricksSDK")]
+[assembly: AssemblyCopyright("Copyright © 2016 ProfitBricks GmbH")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,8 +32,8 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.0.3")]
-[assembly: AssemblyFileVersion("3.0.3")]
-[assembly: InternalsVisibleTo("ProfitbricksV2.Tests")]
-[assembly: InternalsVisibleTo("ProfitbricksV2.Explorables")]
+[assembly: AssemblyVersion("4.0.0")]
+[assembly: AssemblyFileVersion("4.0.0")]
+[assembly: InternalsVisibleTo("ProfitBricksSDK.Tests")]
+[assembly: InternalsVisibleTo("ProfitBricksSDK.Explorables")]
 
