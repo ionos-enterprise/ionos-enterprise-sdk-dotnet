@@ -1,6 +1,6 @@
 # .NET SDK
 
-Version: profitbricks-sdk-net **4.0.0**
+Version: profitbricks-sdk-net **4.0.1**
 
 ## Table of Contents
 
