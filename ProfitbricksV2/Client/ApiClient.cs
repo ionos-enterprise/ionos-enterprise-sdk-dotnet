@@ -72,7 +72,8 @@ namespace Client
             String contentType)
         {
             var request = new RestRequest(path, method);
-            request.AddHeader("User-Agent", PBHeaders.UserAgent);
+            string usedBy = Configuration != null ? Configuration.UsedBy ?? "" : Configuration.Default.UsedBy ?? "";
+            request.AddHeader("User-Agent", string.Format("{0}{1}", PBHeaders.UserAgent, usedBy));
 
             // add path parameter, if any
             foreach (var param in pathParams)
