@@ -25,6 +25,7 @@ namespace Client
         /// <param name="tempFolderPath">Temp folder path</param>
         /// <param name="dateTimeFormat">DateTime format string</param>
         /// <param name="timeout">HTTP connection timeout (in milliseconds)</param>
+        /// <param name="usedBy">Appends user agent header</param>
         public Configuration(ApiClient apiClient = null,
                              Dictionary<String, String> defaultHeader = null,
                              string username = null,
@@ -34,7 +35,8 @@ namespace Client
                              Dictionary<String, String> apiKeyPrefix = null,
                              string tempFolderPath = null,
                              string dateTimeFormat = null,
-                             int timeout = 100000
+                             int timeout = 100000,
+                             string usedBy = null
                             )
         {
             if (apiClient == null)
@@ -56,6 +58,7 @@ namespace Client
             TempFolderPath = tempFolderPath;
             DateTimeFormat = dateTimeFormat;
             Timeout = timeout;
+            UsedBy = usedBy;
         }
 
         /// <summary>
@@ -237,6 +240,11 @@ namespace Client
                 _dateTimeFormat = value;
             }
         }
+
+        /// <summary>
+        /// Gets or sets additional agent information when a tool using SDK needs to be recognized
+        /// </summary>
+        public string UsedBy { get; private set; }
 
         /// <summary>
         /// Returns a string with essential information for debugging.
